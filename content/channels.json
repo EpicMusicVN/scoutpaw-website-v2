@@ -1,0 +1,68 @@
+{
+  "channels": [
+    {
+      "slug": "scoutpaw",
+      "name": "ScoutPaw",
+      "tagline": "The official ScoutPaw channel — calm sounds + cozy stories.",
+      "subscriberCount": 0,
+      "videoCount": 0,
+      "url": "https://www.youtube.com/channel/UCMZ3LiXfDhq5RlKBmIWqUWg",
+      "bannerColor": "#E8B547",
+      "characterSlug": "oscar",
+      "avatarColor": "#FFC966",
+      "youtubeChannelId": "UCMZ3LiXfDhq5RlKBmIWqUWg"
+    },
+    {
+      "slug": "puppy-lullaby-tv",
+      "name": "Puppy Lullaby TV",
+      "tagline": "Calming lullabies for restless pups.",
+      "subscriberCount": 50000,
+      "videoCount": 30,
+      "url": "https://www.youtube.com/channel/UCy-QL5kMOtAPoDaq2VFoaRQ",
+      "bannerColor": "#E8B547",
+      "characterSlug": "buddy",
+      "avatarColor": "#FFC966",
+      "youtubeChannelId": "UCy-QL5kMOtAPoDaq2VFoaRQ",
+      "displayPrefix": "Golden"
+    },
+    {
+      "slug": "happy-paws-cartoon",
+      "name": "Happy Paws Cartoon",
+      "tagline": "Playful cartoons that put a wag in every tail.",
+      "subscriberCount": 50000,
+      "videoCount": 30,
+      "url": "https://www.youtube.com/channel/UCaiJ0puSQ9KdqZ7965j1W6w",
+      "bannerColor": "#7DC4E2",
+      "characterSlug": "max",
+      "avatarColor": "#B6E3F4",
+      "youtubeChannelId": "UCaiJ0puSQ9KdqZ7965j1W6w",
+      "displayPrefix": "Husky"
+    },
+    {
+      "slug": "magic-paw",
+      "name": "Magic Paw - Cartoon For Dogs",
+      "tagline": "Magical mini-adventures crafted for dogs.",
+      "subscriberCount": 50000,
+      "videoCount": 30,
+      "url": "https://www.youtube.com/channel/UC6Ak0T2v3cuoqXJU9lJ0gkQ",
+      "bannerColor": "#C9A6E8",
+      "characterSlug": "rocky",
+      "avatarColor": "#E1CCF4",
+      "youtubeChannelId": "UC6Ak0T2v3cuoqXJU9lJ0gkQ",
+      "displayPrefix": "Poodle"
+    },
+    {
+      "slug": "doggo-dreams-tv",
+      "name": "Doggo Dreams TV",
+      "tagline": "Slow-cinema journeys for sleepy pups.",
+      "subscriberCount": 50000,
+      "videoCount": 30,
+      "url": "https://www.youtube.com/channel/UCFGix2jR9bfzhOYIBxI3CjQ",
+      "bannerColor": "#F4B97A",
+      "characterSlug": "bella",
+      "avatarColor": "#FFD5A6",
+      "youtubeChannelId": "UCFGix2jR9bfzhOYIBxI3CjQ",
+      "displayPrefix": "Collie"
+    }
+  ]
+}

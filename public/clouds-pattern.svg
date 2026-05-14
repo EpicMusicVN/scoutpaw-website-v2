@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <g id="cloud">
+      <path d="M20 30 C8 30, 4 18, 14 14 C12 6, 24 0, 32 6 C36 -2, 54 -2, 58 8 C66 0, 82 6, 82 18 C92 16, 102 24, 100 34 C108 38, 108 46, 100 46 L20 46 C12 46, 8 40, 20 30 Z"
+            fill="#ffffff" fill-opacity="0.85" />
+    </g>
+  </defs>
+  <use href="#cloud" x="40"  y="60"  transform="scale(1.4)" />
+  <use href="#cloud" x="320" y="40"  transform="scale(0.9)" />
+  <use href="#cloud" x="600" y="80"  transform="scale(1.2)" />
+  <use href="#cloud" x="120" y="220" transform="scale(1.0)" />
+  <use href="#cloud" x="480" y="200" transform="scale(1.3)" />
+  <use href="#cloud" x="700" y="260" transform="scale(0.8)" />
+  <use href="#cloud" x="20"  y="380" transform="scale(1.1)" />
+  <use href="#cloud" x="280" y="420" transform="scale(0.95)" />
+  <use href="#cloud" x="560" y="400" transform="scale(1.25)" />
+  <use href="#cloud" x="200" y="540" transform="scale(0.85)" />
+  <use href="#cloud" x="640" y="540" transform="scale(1.0)" />
+</svg>

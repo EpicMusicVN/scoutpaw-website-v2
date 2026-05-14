@@ -1,0 +1,129 @@
+{
+  "_note": "30 mock videos with rich Phase 4 schema. `id` is the stable internal key (mock-NNN). Replace TODO_youtube_id_N with real YouTube IDs when episodes go live; the `thumbnail` field falls back to `banner/banner.png` (a bare R2 key resolved via lib/utils/asset-url) so layouts demo before real assets land. `uploadDate` is ISO YYYY-MM-DD. `category` ∈ {dogs, cats, shorts, funny, product-reviews, community} — content axis for the /watch ExploreVideos filter chips. (Playlists carry the mood axis via `category` ∈ {calm-sounds, naps, adventures, ambient, stories, shorts}; the two enums are intentionally separate.) `playlistId` references content/playlists.json.",
+  "videos": [
+    {
+      "id": "mock-001",
+      "youtubeId": "4Fgl_dW3vgA",
+      "title": "A Calm Morning with the Pack",
+      "characterSlugs": [
+        "buddy",
+        "max"
+      ],
+      "viewCount": 482000,
+      "duration": "1:24:18",
+      "thumbnail": "banner/banner.png",
+      "uploadDate": "2026-04-22",
+      "category": "dogs",
+      "tags": [
+        "morning",
+        "long-play",
+        "ambient"
+      ],
+      "featured": true,
+      "playlistId": "pl-naps",
+      "videoSrc": "watch/intro.mp4",
+      "videoPoster": "watch/intro-poster.jpg"
+    },
+    {
+      "id": "mock-002",
+      "youtubeId": "X19MapswOQs",
+      "title": "Gentle Sounds for Long Naps",
+      "characterSlugs": [
+        "bella",
+        "oscar"
+      ],
+      "viewCount": 318000,
+      "duration": "2:11:42",
+      "thumbnail": "banner/banner.png",
+      "uploadDate": "2026-04-15",
+      "category": "dogs",
+      "tags": [
+        "long-play",
+        "sleep",
+        "ambient"
+      ],
+      "featured": false,
+      "playlistId": "pl-naps"
+    },
+    {
+      "id": "mock-003",
+      "youtubeId": "PRCac_UMohw",
+      "title": "Sunset Walk Soundscape",
+      "characterSlugs": [
+        "rocky"
+      ],
+      "viewCount": 226000,
+      "duration": "48:09",
+      "thumbnail": "banner/banner.png",
+      "uploadDate": "2026-04-10",
+      "category": "dogs",
+      "tags": [
+        "walk",
+        "sunset",
+        "outdoor"
+      ],
+      "featured": false,
+      "playlistId": "pl-rainy"
+    },
+    {
+      "id": "mock-004",
+      "youtubeId": "3b3T2Z2CZLA",
+      "title": "Rainy Afternoon Cuddles",
+      "characterSlugs": [
+        "buddy",
+        "bella"
+      ],
+      "viewCount": 184000,
+      "duration": "1:12:35",
+      "thumbnail": "banner/banner.png",
+      "uploadDate": "2026-04-05",
+      "category": "dogs",
+      "tags": [
+        "rain",
+        "indoor",
+        "cozy"
+      ],
+      "featured": false,
+      "playlistId": "pl-rainy"
+    },
+    {
+      "id": "mock-005",
+      "youtubeId": "HPlFCtF_Sxs",
+      "title": "Buddy and the Backyard Birds",
+      "characterSlugs": [
+        "buddy"
+      ],
+      "viewCount": 156000,
+      "duration": "22:14",
+      "thumbnail": "banner/banner.png",
+      "uploadDate": "2026-03-30",
+      "category": "dogs",
+      "tags": [
+        "story",
+        "backyard",
+        "buddy"
+      ],
+      "featured": true
+    },
+    {
+      "id": "mock-006",
+      "youtubeId": "D3vSMHj2mrg",
+      "title": "Max's Mountain Hike",
+      "characterSlugs": [
+        "max"
+      ],
+      "viewCount": 142000,
+      "duration": "38:56",
+      "thumbnail": "banner/banner.png",
+      "uploadDate": "2026-03-25",
+      "category": "dogs",
+      "tags": [
+        "hike",
+        "max",
+        "outdoor"
+      ],
+      "featured": true,
+      "playlistId": "pl-adventures"
+    }
+  ]
+}

@@ -1,0 +1,177 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /*
+   * Tokens are stored in TWO forms:
+   *   - `--name` (hex) for inline `style={{ color: "var(--name)" }}` use
+   *   - `--name-rgb` (raw `R G B` triplet) for Tailwind opacity utilities,
+   *     wired in `tailwind.config.ts` via `rgb(var(--name-rgb) / <alpha-value>)`.
+   * Without the RGB form, classes like `text-ink/85` silently drop on Tailwind 3.4.
+   */
+  :root {
+    /* Brand — fresh palette: cyan base, yellow accent, blue footer */
+    --brand-primary: #ffd70c;
+    --brand-primary-rgb: 255 215 12;
+    --accent-gold-dark: #b8862e;
+    --accent-gold-dark-rgb: 184 134 46;
+    --accent-coral: #ff7a85;
+    --accent-coral-rgb: 255 122 133;
+
+    /* Surfaces — soft cyan base */
+    --bg-base: #c6e7e9;
+    --bg-base-rgb: 198 231 233;
+    --bg-soft-sky: #ddeef7;
+    --bg-soft-sky-rgb: 221 238 247;
+    --bg-warm-tan: #ecdcb8;
+    --bg-warm-tan-rgb: 236 220 184;
+    --surface: #ffffff;
+    --surface-rgb: 255 255 255;
+    --ink: #2b1d10;
+    --ink-rgb: 43 29 16;
+
+    /* Footer + dark anchor — mid blue with darker overlay applied in component */
+    --bg-navy: #397fc5;
+    --bg-navy-rgb: 57 127 197;
+    --bg-grass: #7bc47f;
+    --bg-grass-rgb: 123 196 127;
+
+    /* Contrast-verified text on warm/tinted backgrounds (WCAG AA on cream/honey/peach). */
+    --text-on-warm: #2b1d10;
+    --text-on-warm-rgb: 43 29 16;
+    --text-on-warm-muted: #5a4126;
+    --text-on-warm-muted-rgb: 90 65 38;
+
+    /* Container scale — opt-in for hero/banner sections only. */
+    --container-max-hero: 1400px;
+
+    /* Legacy tokens kept for unused-but-not-deleted components */
+    --brand-secondary: #4fc2e8;
+    --brand-secondary-rgb: 79 194 232;
+    --accent-warm: #ff9f7a;
+    --accent-warm-rgb: 255 159 122;
+    --accent-cool: #99d8e8;
+    --accent-cool-rgb: 153 216 232;
+    --accent-mint: #95d5b2;
+    --accent-mint-rgb: 149 213 178;
+    --accent-teal: #4fbfa8;
+    --accent-teal-rgb: 79 191 168;
+    --bg-cream: #fff5d6;
+    --bg-cream-rgb: 255 245 214;
+    --bg-sky: #b6e3f4;
+    --bg-sky-rgb: 182 227 244;
+    --bg-sky-deep: #7dc4e2;
+    --bg-sky-deep-rgb: 125 196 226;
+    --bg-peach: #ffd2b8;
+    --bg-peach-rgb: 255 210 184;
+    --bg-sage: #b8e0c8;
+    --bg-sage-rgb: 184 224 200;
+    --bg-blush: #ffb7a8;
+    --bg-blush-rgb: 255 183 168;
+    --text-dark: #2b1d10;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    /* Reserve space below sticky nav on anchor jumps. */
+    scroll-padding-top: 80px;
+  }
+
+  body {
+    background-color: var(--bg-base);
+    color: var(--ink);
+    font-family: var(--font-body, system-ui, sans-serif);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body.nav-locked {
+    overflow: hidden;
+  }
+
+  /* CTA shimmer — slides a soft highlight across the button periodically. */
+  @keyframes shimmer-slide {
+    0%, 40% {
+      transform: translateX(-130%);
+    }
+    55%, 100% {
+      transform: translateX(130%);
+    }
+  }
+
+  /* Atmosphere drift — gentle vertical bob for floating decoratives. */
+  @keyframes paw-drift {
+    0%, 100% { transform: translateY(0) rotate(var(--paw-rotate, 0deg)); }
+    50% { transform: translateY(-8px) rotate(var(--paw-rotate, 0deg)); }
+  }
+  @keyframes dust-float {
+    0% { transform: translate(0, 0); opacity: 0.4; }
+    50% { transform: translate(6px, -10px); opacity: 0.7; }
+    100% { transform: translate(0, 0); opacity: 0.4; }
+  }
+  @keyframes cloud-drift {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(40px); }
+  }
+}
+
+@layer utilities {
+  /* Animated underline used on cream-toned navbar links. */
+  .nav-underline {
+    position: relative;
+  }
+  .nav-underline::after {
+    content: "";
+    position: absolute;
+    left: 1rem;
+    right: 1rem;
+    bottom: 0.4rem;
+    height: 2px;
+    background-color: var(--ink);
+    border-radius: 999px;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 220ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .nav-underline:hover::after,
+  .nav-underline:focus-visible::after,
+  .nav-underline[data-active="true"]::after {
+    transform: scaleX(1);
+  }
+
+  .cta-shimmer {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+  }
+  .cta-shimmer::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      110deg,
+      transparent 30%,
+      rgba(255, 240, 180, 0.55) 50%,
+      transparent 70%
+    );
+    transform: translateX(-130%);
+    animation: shimmer-slide 5.5s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 1;
+  }
+  .cta-shimmer > * {
+    position: relative;
+    z-index: 2;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}

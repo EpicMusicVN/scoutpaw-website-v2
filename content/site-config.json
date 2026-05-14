@@ -1,0 +1,109 @@
+{
+  "brand": {
+    "name": "ScoutPaw",
+    "fullName": "ScoutPaw TV",
+    "tagline": "We're here to keep the pack company",
+    "description": "Musical best friends for your pup's big day. Gentle sounds, cozy colors, and stories for every \"Good Boy.\"",
+    "logo": "logo/full-logo.png",
+    "logoText": "logo/text-logo.png"
+  },
+  "audience": {
+    "primary": "dogs",
+    "secondary": "pet-parents",
+    "designNotes": "Dog-vision-friendly palette (blue/yellow dominant), high contrast, calm motion, audio-aware UI."
+  },
+  "palette": {
+    "brandPrimary": "#FFD70C",
+    "brandSecondary": "#397FC5",
+    "accentWarm": "#FFE968",
+    "accentCool": "#C6E7E9",
+    "textDark": "#2B1D10",
+    "backgroundCream": "#C6E7E9",
+    "surface": "#FFFFFF"
+  },
+  "navItems": [
+    {
+      "label": "Home",
+      "href": "/",
+      "enabled": true
+    },
+    {
+      "label": "Characters",
+      "href": "/coming-soon/characters",
+      "enabled": false
+    },
+    {
+      "label": "Shop",
+      "href": "/shop",
+      "enabled": true
+    },
+    {
+      "label": "Watch",
+      "href": "/watch",
+      "enabled": true
+    },
+    {
+      "label": "Top Picks",
+      "href": "/coming-soon/top-picks",
+      "enabled": false
+    },
+    {
+      "label": "Activities",
+      "href": "/coming-soon/activities",
+      "enabled": false
+    }
+  ],
+  "footerExplore": [
+    {
+      "label": "Home",
+      "href": "/"
+    },
+    {
+      "label": "Characters",
+      "href": "/#meet-the-pack"
+    },
+    {
+      "label": "Shop",
+      "href": "/shop"
+    },
+    {
+      "label": "Watch",
+      "href": "/watch"
+    },
+    {
+      "label": "Top Picks",
+      "href": "/coming-soon/top-picks"
+    },
+    {
+      "label": "Activities",
+      "href": "/coming-soon/activities"
+    }
+  ],
+  "social": [
+    {
+      "platform": "youtube",
+      "url": "https://www.youtube.com/@ScoutPaw",
+      "label": "YouTube"
+    },
+    {
+      "platform": "instagram",
+      "url": "https://www.instagram.com/scoutpawtv/",
+      "label": "Instagram"
+    },
+    {
+      "platform": "tiktok",
+      "url": "https://www.tiktok.com/@scoutpawtv",
+      "label": "TikTok"
+    },
+    {
+      "platform": "facebook",
+      "url": "https://www.facebook.com/ScoutPawTV",
+      "label": "Facebook"
+    }
+  ],
+  "legal": {
+    "privacyUrl": null,
+    "termsUrl": null,
+    "_note": "Skipped for MVP per user decision. Add before public launch (compliance risk if collecting emails)."
+  }
+}

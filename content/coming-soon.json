@@ -1,0 +1,44 @@
+{
+  "pages": [
+    {
+      "slug": "characters",
+      "navLabel": "Characters",
+      "title": "Meet the pack — coming soon",
+      "tagline": "Full character profiles and pack stories are sniffing their way here.",
+      "characterSlug": "max",
+      "newsletterTag": "coming-soon-characters"
+    },
+    {
+      "slug": "games",
+      "navLabel": "Games",
+      "title": "Games are wagging this way",
+      "tagline": "Calm, paw-friendly mini-games made for the whole pack.",
+      "characterSlug": "oscar",
+      "newsletterTag": "coming-soon-games"
+    },
+    {
+      "slug": "activities",
+      "navLabel": "Activities",
+      "title": "Activities for pups & their humans",
+      "tagline": "Printables, coloring sheets, and parent guides on the way.",
+      "characterSlug": "bella",
+      "newsletterTag": "coming-soon-activities"
+    },
+    {
+      "slug": "about",
+      "navLabel": "About",
+      "title": "About ScoutPaw",
+      "tagline": "Meet the pack and the humans behind the show.",
+      "characterSlug": "rocky",
+      "newsletterTag": "coming-soon-about"
+    },
+    {
+      "slug": "top-picks",
+      "navLabel": "Top Picks",
+      "title": "Top Picks are sniffing the way here",
+      "tagline": "Hand-picked favorites from the pack — coming soon.",
+      "characterSlug": "rocky",
+      "newsletterTag": "coming-soon-top-picks"
+    }
+  ]
+}

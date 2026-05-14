@@ -1,0 +1,52 @@
+{
+  "_note": "3 thematic playlists. videoIds reference Video.id in content/videos.json. coverImage falls back to `banner/banner.png` (bare R2 key, resolved via lib/utils/asset-url) until real cover art lands.",
+  "playlists": [
+    {
+      "id": "pl-naps",
+      "title": "Calm Sounds for Naps",
+      "description": "Long-play soundtracks designed for the slow afternoons and the deep snores that follow.",
+      "coverImage": "banner/banner.png",
+      "videoIds": [
+        "mock-001",
+        "mock-002",
+        "mock-007",
+        "mock-013",
+        "mock-015",
+        "mock-018",
+        "mock-024",
+        "mock-029"
+      ],
+      "category": "naps",
+      "accentColor": "#e8b547"
+    },
+    {
+      "id": "pl-rainy",
+      "title": "Rainy Day Watch",
+      "description": "Cozy ambient stories and sound for grey afternoons when the pack stays in.",
+      "coverImage": "banner/banner.png",
+      "videoIds": [
+        "mock-003",
+        "mock-004",
+        "mock-011",
+        "mock-021"
+      ],
+      "category": "ambient",
+      "accentColor": "#7dc4e2"
+    },
+    {
+      "id": "pl-adventures",
+      "title": "Adventures with Max",
+      "description": "Hikes, hills, and frozen lakes — Max leads the way through the great outdoors.",
+      "coverImage": "banner/banner.png",
+      "videoIds": [
+        "mock-006",
+        "mock-010",
+        "mock-014",
+        "mock-020",
+        "mock-027"
+      ],
+      "category": "adventures",
+      "accentColor": "#5bc0eb"
+    }
+  ]
+}

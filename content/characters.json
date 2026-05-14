@@ -1,0 +1,79 @@
+{
+  "characters": [
+    {
+      "slug": "buddy",
+      "name": "Max",
+      "breed": "Golden Retriever",
+      "tagline": "The pack's sunny optimist",
+      "bio": "Buddy is the warm, golden heart of ScoutPaw — always first to the door, last to leave a nap, and ready to make every walk feel like the best part of your day. If the pack had a mayor, Buddy would win on the strength of tail wags alone.",
+      "funFacts": [
+        "Believes every stranger is a friend who hasn't said hi yet.",
+        "Has a favourite sunbeam in the kitchen and will defend it against all furniture.",
+        "Carries a stuffed duck named 'Mr. Fluff' on every long walk."
+      ],
+      "image": "characters/golden-2.png",
+      "accentColor": "#FFB627",
+      "order": 1
+    },
+    {
+      "slug": "max",
+      "name": "Rocky",
+      "breed": "Husky",
+      "tagline": "Always up for an adventure",
+      "bio": "Max, our \"Welcome Wag-on,\" is the heart of the crew. This snuggle master loves head-tilting to music and carrying his plushie, filling our home with love. He's our ScoutPaw Captain!",
+      "funFacts": [
+        "He believes every nap is a musical masterpiece and every stranger is just a best friend who hasn't shared a golden snack yet.",
+        "Has memorized the exact creak of the back door opening.",
+        "Dreams loudly. Visibly. Probably about snow."
+      ],
+      "image": "characters/husky-bg.png",
+      "accentColor": "#5BC0EB",
+      "order": 2
+    },
+    {
+      "slug": "bella",
+      "name": "Oscar",
+      "breed": "Collie",
+      "tagline": "The thoughtful storyteller",
+      "bio": "Bella notices everything — the weather change before you do, the squirrel two yards over, the way the late afternoon light hits the rug just right. She's gentle, loyal, and the pup most likely to nudge you toward a long, slow afternoon at home.",
+      "funFacts": [
+        "Has a precise spot on the rug. Do not sit on it.",
+        "Soft sigher of the pack — at least three contented sighs per evening.",
+        "Watches squirrels with the focus of a documentary filmmaker."
+      ],
+      "image": "characters/collie-bg.png",
+      "accentColor": "#9C6644",
+      "order": 3
+    },
+    {
+      "slug": "oscar",
+      "name": "Buddy",
+      "breed": "Corgi",
+      "tagline": "Big personality, little legs",
+      "bio": "Oscar is the pack's joyful chaos — short legs, long opinions, and a strong belief that every floor is improved by a good zoom. He's the one who'll bring a toy to the meeting, then forget the meeting and just play.",
+      "funFacts": [
+        "Performs the famous Corgi sploot at exactly 4:42 every afternoon.",
+        "Can hear a kibble drop from three rooms away.",
+        "Convinced he is, in fact, a much larger dog."
+      ],
+      "image": "characters/corgi-bg.png",
+      "accentColor": "#F4A261",
+      "order": 4
+    },
+    {
+      "slug": "rocky",
+      "name": "Bella",
+      "breed": "Poodle",
+      "tagline": "Soft heart, tidy paws",
+      "bio": "Rocky is the pack's quiet thinker — composed, curious, and impeccably tidy. Don't let the pillow-soft coat fool you: there's a sharp little observer in there who notices when you've changed the playlist halfway through.",
+      "funFacts": [
+        "Wipes paws unprompted. Yes, really.",
+        "Has strong opinions about which blanket goes on which couch.",
+        "Will quietly judge a poorly tossed ball, then fetch it anyway."
+      ],
+      "image": "characters/poodle-bg.png",
+      "accentColor": "#B8A1D9",
+      "order": 5
+    }
+  ]
+}
