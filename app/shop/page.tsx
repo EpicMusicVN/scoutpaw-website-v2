@@ -19,7 +19,7 @@ export default function ShopPage() {
         kicker="ScoutPaw Shop"
         title="Bring the pack home."
         description="Plushes, prints, and apparel — every Buy Now opens our Shopify store in a new tab."
-        image={assetUrl("shop/banner.png")}
+        image={assetUrl("shop/banner.jpg")}
         imageAlt="ScoutPaw shop banner"
       />
 

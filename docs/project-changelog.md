@@ -1,5 +1,67 @@
 # Project Changelog
 
+## [2026-05-18] - Home & Shop Content Refresh (MenuCards, Character Data, Promotion Asset, ExploreProducts)
+
+### Overview
+Completed home + shop content refresh: stripped MenuCards backdrops, corrected Max character data (Golden Retriever), redirected promotion banner to new R2 JPG asset, refreshed ExploreProducts tile labels and section copy. Four file edits landed in Phase 1; build (tsc + lint + pnpm build) validation passed in Phase 2. Deploy + CDN purge (Phase 3) + post-deploy smoke tests (Phase 4) pending user action.
+
+### Changes
+
+#### Home MenuCards Backdrop Removal
+- **components/home/menu-cards.tsx**: Dropped `bg: string` and `accentGlow: string` from Card type definition. Removed inline `style={{ background: card.bg }}` from floating image card div. Deleted paw-tile pattern overlay div (`patterns/paw-tile.svg`). Deleted radial accent-glow div. Result: bare floating icon card with transparent bg, rounded outline, shadow, hover lift — no colored backdrop, no pattern, no glow.
+
+#### Character Data Slug Swap (Golden Retriever ↔ Husky)
+- **content/characters.json**: Swapped `max` ↔ `buddy` entries. `slug: "max"` now correctly represents the Golden Retriever (name "Max", breed "Golden Retriever", image `characters/golden-2.png`, accentColor `#FFB627`). `slug: "buddy"` now represents the Husky (name "Buddy", breed "Husky", image `characters/husky-bg.png`, accentColor `#5BC0EB`). Bios + funFacts traveled with bodies; slugs + order preserved. Resolves pre-existing data shuffle that mislabeled spotlight hero.
+
+#### Home Promotion Banner Asset Update
+- **app/page.tsx**: FeatureBanner image path changed from `shop/promotion.png` to `shop/promotion.jpg` (new R2 asset already in place).
+
+#### Shop ExploreProducts Tile Rebranding
+- **components/shop/explore-products.tsx**: Extended Tile type with optional `title?: string` field. Updated plushes entry: `title: "Dog Calming & Essentials Collection"`, copy: "Shop our curated collection for pet anxiety, comfort, and wellness. Free your pup from stress today!". Updated apparel entry: `title: "Dog owner gifts"`, copy: "Keep your pup close to your heart with essentials designed to celebrate your unbreakable bond." Render logic updated: `<h3>` and `aria-label` now prefer `tile.title ?? categoryLabel(tile.category)`. Section subtitle updated: "Curated picks for the whole pack — calming essentials for pups + gifts for the humans who love them." Category slugs (`?cat=plushes`, `?cat=apparel`) unchanged; routing untouched.
+
+### Validation (Phase 2)
+- `pnpm tsc --noEmit`: ✓ Clean
+- `pnpm lint`: ✓ Clean
+- `pnpm build`: ✓ Success, 21/21 static pages, `/characters/max` + `/characters/buddy` SSG'd
+- Code Review: ✓ Done (report: `code-reviewer-260518-0709-phase-01-diff.md`); DONE_WITH_CONCERNS verdict ("Ship").
+
+### Known Follow-Up (Out of Scope)
+- **lib/shopify/mock-products.ts**: 3 references to `shop/promotion.png` + mismatched breed labels ("Buddy the Golden Plush", "Max the Husky Tee") contradict the character slug swap. Filed as immediate follow-up per YAGNI (product mock data not user-facing; refactor deferred).
+
+### Build Status
+- Build: ✓ Clean
+- Lint: ✓ Clean
+- TypeCheck: ✓ Clean
+
+---
+
+## [2026-05-15] - Watch Hero: Autoplay-with-Sound + Audio Toggle (WCAG 1.4.2)
+
+### Overview
+Enabled autoplay-with-sound on watch hero featured video with graceful muted fallback and user audio toggle control. Client Component handles browser autoplay policies (some require user gesture); user can enable sound via toggle pill. WCAG 1.4.2 compliant (no auto-playing audio without user control).
+
+### Changes
+- NEW `components/watch/hero-video.tsx` — Client Component wrapping `<video>` with:
+  - Optimistic autoplay-with-sound attempt (respects browser autoplay policy)
+  - Graceful fallback to muted if autoplay blocked
+  - Audio toggle pill (play icon + "Unmute" label) overlaid on lower-right
+  - `<video>` controls hidden (custom toggle only)
+  - Aria-label + WCAG keyboard navigation for accessibility
+- **components/watch/watch-hero.tsx** — Server Component wrapper replaced inline `<video>` JSX with `<HeroVideo {...props}>` call. Behavior unchanged externally.
+
+### Technical Details
+- No new dependencies, no architectural change
+- Client Component pattern standard for browser policy handling
+- Toggle state managed locally (no external state/store needed)
+- Video metadata (src, poster, duration) still passed from server as VideoContentSchema
+- Tested: typecheck ✓, lint ✓ (user to smoke test autoplay policy behavior via dev server)
+
+### Validation
+- `pnpm typecheck` ✓
+- `pnpm lint` ✓
+
+---
+
 ## [2026-05-15] - "No Videos" Empty State Polish
 
 ### Overview

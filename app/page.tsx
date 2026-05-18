@@ -46,7 +46,7 @@ export default async function HomePage() {
           subDescription={'"Warning: May cause extreme tail-wagging and serious \'Add to Cart\' energy."'}
           cta="Shop the Pack"
           href="/shop"
-          image={assetUrl("shop/promotion.png")}
+          image={assetUrl("shop/promotion.jpg")}
           imageAlt="Featured ScoutPaw products"
         />
       </ScrollReveal>

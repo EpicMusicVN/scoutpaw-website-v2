@@ -5,6 +5,9 @@ import { assetUrl } from "@/lib/utils/asset-url";
 
 type Tile = {
   category: ShopCategory;
+  // Optional visible label override. Falls back to categoryLabel(category)
+  // so routing/category slugs stay stable while marketing copy can drift.
+  title?: string;
   copy: string;
   bg: string;
   rotate: string;
@@ -16,17 +19,19 @@ type Tile = {
 const ALL_TILES: Tile[] = [
   {
     category: "plushes",
-    copy: "Snuggle-friendly companions for every size of pup.",
+    title: "Dog Calming & Essentials Collection",
+    copy: "Shop our curated collection for pet anxiety, comfort, and wellness. Free your pup from stress today!",
     bg: "var(--bg-warm-tan)",
     rotate: "-rotate-2",
-    image: assetUrl("shop/1.png"),
+    image: assetUrl("shop/1.jpg"),
   },
   {
     category: "apparel",
-    copy: "Soft-cotton tees + cozy layers for park days.",
+    title: "Dog owner gifts",
+    copy: "Keep your pup close to your heart with essentials designed to celebrate your unbreakable bond.",
     bg: "#fffbe6",
     rotate: "rotate-2",
-    image: assetUrl("shop/2.png"),
+    image: assetUrl("shop/2.jpg"),
   },
   {
     category: "prints",
@@ -66,7 +71,7 @@ export function ExploreProducts() {
           Find Your Pup&rsquo;s Favourite.
         </h2>
         <p className="mx-auto mt-4 max-w-2xl text-base text-warm-text md:text-lg">
-          Curated picks for the whole pack — from snuggly plushes to walking-day apparel.
+          Curated picks for the whole pack — calming essentials for pups + gifts for the humans who love them.
         </p>
       </header>
 
@@ -77,7 +82,7 @@ export function ExploreProducts() {
               href={`/shop?cat=${tile.category}#products`}
               data-cat={tile.category}
               className="group block rounded-[2rem] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-4 focus-visible:ring-offset-paper"
-              aria-label={`Browse ${categoryLabel(tile.category)}`}
+              aria-label={`Browse ${tile.title ?? categoryLabel(tile.category)}`}
             >
               {/* Unified card — image area + text area inside one rounded
                   container so the tile reads as a single editorial unit. The
@@ -103,7 +108,7 @@ export function ExploreProducts() {
                     from the parent card so the tile reads as one unit. */}
                 <div className="p-5 md:p-6">
                   <h3 className="font-display text-xl font-bold text-ink md:text-2xl">
-                    {categoryLabel(tile.category)}
+                    {tile.title ?? categoryLabel(tile.category)}
                   </h3>
                   <p className="mt-1 text-sm text-warm-text md:text-base">{tile.copy}</p>
                   <span className="mt-2 inline-flex items-center gap-1 font-display text-sm font-semibold text-brand-gold">

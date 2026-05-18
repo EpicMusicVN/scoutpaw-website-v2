@@ -2,6 +2,28 @@
 
 ## Current Phase: UI/UX Polish & QA
 
+### Milestone: Home & Shop Content Refresh (Completed 2026-05-18)
+- Status: **Shipped**
+- MenuCards backdrop flattened: dropped colored bg + paw-tile pattern + accent glow; icons now float on transparent base with shadow + hover lift
+- Character data swap corrected: `slug:"max"` now Golden Retriever (was Husky), `slug:"buddy"` now Husky (was Golden). Resolves pre-existing data shuffle affecting spotlight hero narrative
+- Promotion banner asset updated: `shop/promotion.png` → `shop/promotion.jpg` (new R2 asset already uploaded)
+- ExploreProducts tiles rebranded: "Dog Calming & Essentials Collection" (plushes) + "Dog owner gifts" (apparel); section subtitle refreshed. Category routing (`?cat=plushes`/`?cat=apparel`) preserved
+- Build validation: typecheck ✓, lint ✓, pnpm build ✓ (21/21 static + 2 SSG character pages)
+- Code review: DONE_WITH_CONCERNS ("Ship" verdict); only follow-up: lib/shopify/mock-products.ts breed labels contradict swap (out of scope per YAGNI)
+- Phases 3–4 pending: deploy + CDN purge (manual), post-deploy smoke tests (manual)
+
+### Milestone: Watch Hero Video Autoplay with Sound (Completed 2026-05-15)
+- Status: **Shipped**
+- New `HeroVideo` Client Component handles autoplay-with-sound with graceful muted fallback
+- Optimistic attempt: `play()` with `muted=false` on mount; on rejection sets `muted=true` + retries
+- Audio toggle pill (persistent per WCAG 1.4.2): coral "Tap for sound" when muted, white mute icon when unmuted
+- Pill uses `preventDefault` + `stopPropagation` to prevent parent `<Link>` navigation to YouTube
+- Pulse animation (motion-safe) attracts attention only when muted; collapses to static icon when sound on
+- `watch-hero.tsx` (Server Component) swapped inline `<video>` for `<HeroVideo>` import (6-line diff)
+- Accessibility: aria-label state-aware, aria-pressed correct, keyboard Tab+Space/Enter navigation
+- Validation: typecheck ✓, lint ✓, build ✓
+- Manual smoke testing: handed off to user per tester report (cannot automate browser autoplay policy behavior)
+
 ### Milestone: Scroll-Linked Sun Decoration (Completed 2026-05-13)
 - Status: **Shipped**
 - New ScrollSun client component with Framer Motion useScroll/useTransform motion binding

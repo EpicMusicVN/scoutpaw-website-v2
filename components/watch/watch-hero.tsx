@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import type { Channel, Video } from "@/lib/content";
 import { VIDEO_CONTENT_LABELS } from "@/lib/content/schemas";
 import { assetUrl } from "@/lib/utils/asset-url";
+import { HeroVideo } from "./hero-video";
 
 /**
  * WatchHero — cinematic above-the-fold for /watch.
@@ -44,15 +45,10 @@ export function WatchHero({
         >
           <div className="relative aspect-video w-full">
             {featured.videoSrc ? (
-              <video
+              <HeroVideo
                 src={assetUrl(featured.videoSrc)}
                 poster={featured.videoPoster ? assetUrl(featured.videoPoster) : undefined}
-                autoPlay
-                muted
-                loop
-                playsInline
-                preload="metadata"
-                aria-label={`Watch ${featured.title} on YouTube`}
+                title={featured.title}
                 className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
             ) : (

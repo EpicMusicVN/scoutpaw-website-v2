@@ -7,10 +7,6 @@ type Card = {
   copy: string;
   image: string;
   href: string;
-  bg: string;
-  // Saturated tint behind the transparent icon. Renders as a blurred radial
-  // glow to ground the floating PNG on the colored card surface.
-  accentGlow: string;
   comingSoon?: boolean;
 };
 
@@ -30,24 +26,18 @@ export function MenuCards() {
       copy: "Learn more about Buddy, Max, and all your favorite furry friends from the pack!",
       image: assetUrl("card/characters.png"),
       href: "#meet-the-pack",
-      bg: "var(--bg-soft-sky)",
-      accentGlow: "var(--brand-primary)",
     },
     {
       label: "SHOP",
       copy: "Treat your pup to new favorites and grab something cute for yourself! From doggy essentials to fun human gear, there's a little magic here for both of you.",
       image: assetUrl("card/shop.png"),
       href: "/shop",
-      bg: "var(--bg-peach)",
-      accentGlow: "var(--bg-blush)",
     },
     {
       label: "WATCH",
       copy: "Experience every musical adventure and cartoon designed to keep your pup company all day.",
       image: assetUrl("card/watch.png"),
       href: "/watch",
-      bg: "var(--bg-warm-tan)",
-      accentGlow: "var(--bg-sky-deep)",
     },
   ];
 
@@ -107,28 +97,11 @@ function MenuCard({ card }: { card: Card }) {
         </span>
       )}
 
-      {/* Floating image card — small, centered, z-10 so it sits visually
-          above the text card's overlap zone. */}
+      {/* Floating image card — transparent backdrop; the icon's drop-shadow
+          grounds it. Hover lift + scale preserved so the float reads. */}
       <div
-        className="relative z-10 mx-auto h-40 w-40 overflow-hidden rounded-3xl shadow-cozy-md transition-all duration-500 ease-gentle group-hover:-translate-y-2 group-hover:scale-105 group-hover:shadow-cozy-lg md:h-44 md:w-44 lg:h-48 lg:w-48"
-        style={{ background: card.bg }}
+        className="relative z-10 mx-auto h-40 w-40 overflow-hidden rounded-3xl transition-all duration-500 ease-gentle group-hover:-translate-y-2 group-hover:scale-105 md:h-44 md:w-44 lg:h-48 lg:w-48"
       >
-        {/* Subtle repeating paw-print pattern behind subject — gives each card
-            a playful in-frame texture without competing with the product image. */}
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 opacity-[0.12]"
-          style={{
-            backgroundImage: `url('${assetUrl("patterns/paw-tile.svg")}')`,
-            backgroundSize: "48px 48px",
-            backgroundRepeat: "repeat",
-          }}
-        />
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-x-1/4 top-1/4 h-1/2 rounded-full opacity-40 blur-2xl"
-          style={{ backgroundColor: card.accentGlow }}
-        />
         <Image
           src={card.image}
           alt=""

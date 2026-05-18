@@ -95,7 +95,15 @@
       "Bash(npx eslint *)",
       "Bash(curl -sI \"https://images.scoutpaw.tv/assets/patterns/paw-tile.svg\")",
       "Bash(curl -sI \"https://images.scoutpaw.tv/assets/banner/banner.png\")",
-      "Bash(curl -sI https://images.scoutpaw.tv/assets/patterns/paw-tile.svg)"
+      "Bash(curl -sI https://images.scoutpaw.tv/assets/patterns/paw-tile.svg)",
+      "Bash(command -v ck)",
+      "Skill(journal)",
+      "Bash(pnpm tsc *)",
+      "Bash(echo \"EXITCODE=$?\")",
+      "Bash(echo \"TS=$?\")",
+      "Bash(echo \"LINT=$?\")",
+      "Bash(echo \"BUILD=$?\")",
+      "Bash(echo \"EXIT_CODE=$?\")"
     ]
   }
 }
