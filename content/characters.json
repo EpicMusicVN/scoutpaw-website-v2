@@ -1,11 +1,11 @@
 {
   "characters": [
     {
-      "slug": "buddy",
-      "name": "Buddy",
+      "slug": "rocky",
+      "name": "Rocky",
       "breed": "Husky",
       "tagline": "Always up for an adventure",
-      "bio": "Buddy, our \"Welcome Wag-on,\" is the heart of the crew. This snuggle master loves head-tilting to music and carrying his plushie, filling our home with love. He's our ScoutPaw Captain!",
+      "bio": "Rocky, our \"Welcome Wag-on,\" is the heart of the crew. This snuggle master loves head-tilting to music and carrying his plushie, filling our home with love. He's our ScoutPaw Captain!",
       "funFacts": [
         "He believes every nap is a musical masterpiece and every stranger is just a best friend who hasn't shared a golden snack yet.",
         "Has memorized the exact creak of the back door opening.",
@@ -31,11 +31,11 @@
       "order": 2
     },
     {
-      "slug": "bella",
+      "slug": "oscar",
       "name": "Oscar",
       "breed": "Collie",
       "tagline": "The thoughtful storyteller",
-      "bio": "Bella notices everything — the weather change before you do, the squirrel two yards over, the way the late afternoon light hits the rug just right. She's gentle, loyal, and the pup most likely to nudge you toward a long, slow afternoon at home.",
+      "bio": "Oscar notices everything — the weather change before you do, the squirrel two yards over, the way the late afternoon light hits the rug just right. He's gentle, loyal, and the pup most likely to nudge you toward a long, slow afternoon at home.",
       "funFacts": [
         "Has a precise spot on the rug. Do not sit on it.",
         "Soft sigher of the pack — at least three contented sighs per evening.",
@@ -46,11 +46,11 @@
       "order": 3
     },
     {
-      "slug": "oscar",
+      "slug": "buddy",
       "name": "Buddy",
       "breed": "Corgi",
       "tagline": "Big personality, little legs",
-      "bio": "Oscar is the pack's joyful chaos — short legs, long opinions, and a strong belief that every floor is improved by a good zoom. He's the one who'll bring a toy to the meeting, then forget the meeting and just play.",
+      "bio": "Buddy is the pack's joyful chaos — short legs, long opinions, and a strong belief that every floor is improved by a good zoom. He's the one who'll bring a toy to the meeting, then forget the meeting and just play.",
       "funFacts": [
         "Performs the famous Corgi sploot at exactly 4:42 every afternoon.",
         "Can hear a kibble drop from three rooms away.",
@@ -61,11 +61,11 @@
       "order": 4
     },
     {
-      "slug": "rocky",
+      "slug": "bella",
       "name": "Bella",
       "breed": "Poodle",
       "tagline": "Soft heart, tidy paws",
-      "bio": "Rocky is the pack's quiet thinker — composed, curious, and impeccably tidy. Don't let the pillow-soft coat fool you: there's a sharp little observer in there who notices when you've changed the playlist halfway through.",
+      "bio": "Bella is the pack's quiet thinker — composed, curious, and impeccably tidy. Don't let the pillow-soft coat fool you: there's a sharp little observer in there who notices when you've changed the playlist halfway through.",
       "funFacts": [
         "Wipes paws unprompted. Yes, really.",
         "Has strong opinions about which blanket goes on which couch.",

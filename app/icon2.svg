@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffc966"/>
+      <stop offset="100%" stop-color="#e8b547"/>
+    </linearGradient>
+    <radialGradient id="hl" cx="0.35" cy="0.30" r="0.6">
+      <stop offset="0%" stop-color="#fff5d6" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#fff5d6" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Soft outer ring for legibility at tiny sizes -->
+  <circle cx="256" cy="256" r="248" fill="#b8862e" opacity="0.10"/>
+
+  <!-- Main pad (large oval, lower center) -->
+  <ellipse cx="256" cy="340" rx="128" ry="92" fill="url(#g)" stroke="#b8862e" stroke-width="10"/>
+
+  <!-- Toe pads — 4 ellipses ringed around the top -->
+  <ellipse cx="120" cy="220" rx="46" ry="62" fill="url(#g)" stroke="#b8862e" stroke-width="10" transform="rotate(-18 120 220)"/>
+  <ellipse cx="200" cy="130" rx="42" ry="58" fill="url(#g)" stroke="#b8862e" stroke-width="10" transform="rotate(-8 200 130)"/>
+  <ellipse cx="312" cy="130" rx="42" ry="58" fill="url(#g)" stroke="#b8862e" stroke-width="10" transform="rotate(8 312 130)"/>
+  <ellipse cx="392" cy="220" rx="46" ry="62" fill="url(#g)" stroke="#b8862e" stroke-width="10" transform="rotate(18 392 220)"/>
+
+  <!-- Highlight glints on main pad for warmth -->
+  <ellipse cx="220" cy="305" rx="36" ry="22" fill="url(#hl)"/>
+</svg>

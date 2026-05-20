@@ -9,7 +9,7 @@ ScoutPaw TV — visual + musical companion brand for dogs (and pet-parents). Nex
 - **Motion**: Framer Motion 12 (lazy-loaded), `prefers-reduced-motion` respected
 - **Content**: JSON files via Content Adapter pattern (Sanity-swap-ready)
 - **Commerce**: Shopify Storefront API w/ mock-mode fallback
-- **Newsletter**: ConvertKit w/ stub-mode fallback
+- **Newsletter**: Resend w/ stub-mode fallback
 - **Analytics**: GA4 gated by cookie consent banner
 - **Hosting**: Vercel (default `*.vercel.app` URL for MVP)
 
@@ -18,7 +18,7 @@ ScoutPaw TV — visual + musical companion brand for dogs (and pet-parents). Nex
 ```
 scoutpaw-v2/
 ├── app/
-│   ├── api/newsletter/route.ts      # POST handler (stub or live ConvertKit)
+│   ├── api/newsletter/route.ts      # POST handler (stub or live Resend team-notification)
 │   ├── characters/[slug]/           # SSG one page per character
 │   ├── coming-soon/[slug]/          # SSG one page per disabled nav item
 │   ├── shop/page.tsx                # ISR 5min, Shopify or mock
@@ -41,7 +41,7 @@ scoutpaw-v2/
 ├── lib/
 │   ├── analytics/track.ts           # SSR-safe gtag wrapper
 │   ├── content/                     # Adapter pattern (json → sanity swap)
-│   ├── newsletter/                  # Stub + ConvertKit + rate limit
+│   ├── newsletter/                  # Stub + Resend transactional + rate limit
 │   ├── shopify/                     # Storefront client + mock fallback
 │   ├── theme/tokens.ts              # Animation easings/durations
 │   └── utils/cn.ts                  # Tiny class joiner
@@ -64,7 +64,7 @@ External services aren't provisioned yet. Each one has a swap flag:
 | Flag | Default | Live value |
 |---|---|---|
 | `SHOPIFY_MODE` | `mock` | `live` (when store + token ready) |
-| `NEWSLETTER_MODE` | `stub` | `live` (when ConvertKit ready) |
+| `NEWSLETTER_MODE` | `stub` | `live` (when Resend ready) |
 | `CONTENT_SOURCE` | `json` | `sanity` (post-MVP) |
 
 ## Audience Note
@@ -84,4 +84,4 @@ In `content/*.json`:
 Pre-public-launch:
 - Privacy/Terms pages (compliance for email collection)
 - Real Shopify store + Storefront token
-- Real ConvertKit account + form ID
+- Real Resend API key + team notification inbox

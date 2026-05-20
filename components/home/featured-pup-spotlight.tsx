@@ -4,8 +4,8 @@ import { content } from "@/lib/content";
 import { assetUrl } from "@/lib/utils/asset-url";
 
 /**
- * Meet Buddy — full-bleed storytelling banner for the home page mascot.
- * Warm-tan → honey → peach gradient with sun-ray decorative SVG behind Buddy
+ * Meet Rocky — full-bleed storytelling banner for the home page mascot.
+ * Warm-tan → honey → peach gradient with sun-ray decorative SVG behind Rocky
  * and a quote-style pull from his fun facts. Section curves on top + bottom
  * give the section atmospheric continuity with the cream sections it sits between.
  */

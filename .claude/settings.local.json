@@ -103,7 +103,32 @@
       "Bash(echo \"TS=$?\")",
       "Bash(echo \"LINT=$?\")",
       "Bash(echo \"BUILD=$?\")",
-      "Bash(echo \"EXIT_CODE=$?\")"
+      "Bash(echo \"EXIT_CODE=$?\")",
+      "Bash(pnpm list *)",
+      "Bash(git *)",
+      "Bash(git --no-pager diff HEAD -- .env.local.example)",
+      "Read(//tmp/**)",
+      "WebFetch(domain:resend.com)",
+      "WebFetch(domain:github.com)",
+      "Bash(awk -F= 'NF && !/^#/ {if \\(length\\($2\\)>0\\) {key=$1; print key \"=<set, \" length\\($0\\)-length\\(key\\)-1 \" chars>\"} else {print $1 \"=<empty>\"}}' .env)",
+      "Bash(dir D:\\\\works\\\\emvn\\\\scoutpaw-v2\\\\docs *)",
+      "Bash(dir D:\\\\works\\\\emvn\\\\scoutpaw-v2\\\\docs\\\\journals *)",
+      "WebFetch(domain:www.youtube.com)",
+      "Bash(curl -s -o /dev/null -w '%{http_code} %{content_type}' -I --max-time 15 https://images.scoutpaw.tv/assets/__TRACKED_VAR__)",
+      "Bash(curl -s --max-time 30 -o __TRACKED_VAR__.jpg https://images.scoutpaw.tv/assets/shop/__TRACKED_VAR__.jpg)",
+      "Read(//d/works/emvn/scoutpaw-v2/**)",
+      "Bash(curl -s --max-time 20 \"https://scoutpaw.vercel.app/shop\")",
+      "Bash(curl -s --max-time 20 \"https://scoutpaw.vercel.app/\")",
+      "Bash(curl -s -o /dev/null -w \"homepage: %{http_code}  final: %{url_effective}\\\\n\" -L --max-time 20 \"https://scoutpaw.vercel.app/\")",
+      "Bash(curl -s -L --max-time 20 \"https://scoutpaw.vercel.app/\")",
+      "Bash(rm -f public/assets/shop/1.png public/assets/shop/2.png public/assets/shop/banner.png public/assets/shop/promotion.png)",
+      "Read(//d/d/works/emvn/scoutpaw-v2/public/assets/**)",
+      "Bash(curl -s -o /dev/null -w \"status=%{http_code} type=%{content_type} bytes=%{size_download}\\\\n\" -I --max-time 15 \"https://images.scoutpaw.tv/assets/favicon-source/paw.svg\")",
+      "Bash(curl -s --max-time 15 \"https://images.scoutpaw.tv/assets/favicon-source/paw.svg\")",
+      "Bash(curl -s -o /dev/null --max-time 3 \"http://localhost:3000/\")",
+      "Bash(curl -s --max-time 10 \"http://localhost:3000/\")",
+      "Bash(curl -s -o /dev/null -w \"icon.svg: status=%{http_code} type=%{content_type}\\\\n\" --max-time 10 \"http://localhost:3000/icon.svg\")",
+      "Bash(curl -s -o /dev/null -w \"icon.png: status=%{http_code} type=%{content_type}\\\\n\" --max-time 10 \"http://localhost:3000/icon.png\")"
     ]
   }
 }

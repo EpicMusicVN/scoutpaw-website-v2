@@ -100,10 +100,6 @@ export const ChannelSchema = z.object({
   // metadata onto the JSON fallback (name, avatar, subscriber count).
   youtubeChannelId: z.string().optional(),
   avatarUrl: z.string().optional(),
-  // Optional breed/character label prepended to the channel name in the UI,
-  // e.g. "Golden - Puppy Lullaby TV". Decouples display label from the actual
-  // characterSlug so theming and label can vary independently.
-  displayPrefix: z.string().optional(),
 });
 export type Channel = z.infer<typeof ChannelSchema>;
 

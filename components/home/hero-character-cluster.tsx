@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import type { Character } from "@/lib/content";
 
 /**
- * Hero right-zone media — Buddy front-and-center with one supporting pup
+ * Hero right-zone media — Rocky front-and-center with one supporting pup
  * peeking from behind. Subtle Y offset between layers gives depth without
  * a heavy parallax load. Float animations only fire after hydration so SSR
  * markup matches client-rendered output (avoids a flash on reduced-motion).

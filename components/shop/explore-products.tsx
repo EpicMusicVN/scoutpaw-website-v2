@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import { categoryLabel, type ShopCategory } from "@/lib/shopify/categorize";
 import { assetUrl } from "@/lib/utils/asset-url";
 
@@ -12,6 +11,8 @@ type Tile = {
   bg: string;
   rotate: string;
   image: string;
+  // External storefront URL. When set, the card opens it in a new tab.
+  href?: string;
 };
 
 // Full set of category tiles. Non-visible ones stay in source so re-enabling
@@ -24,6 +25,7 @@ const ALL_TILES: Tile[] = [
     bg: "var(--bg-warm-tan)",
     rotate: "-rotate-2",
     image: assetUrl("shop/1.jpg"),
+    href: "https://linktr.ee/puppycaretaker.shop",
   },
   {
     category: "apparel",
@@ -32,6 +34,7 @@ const ALL_TILES: Tile[] = [
     bg: "#fffbe6",
     rotate: "rotate-2",
     image: assetUrl("shop/2.jpg"),
+    href: "https://puppylullabytv-shop.fourthwall.com/",
   },
   {
     category: "prints",
@@ -55,10 +58,10 @@ const TILES: Tile[] = ALL_TILES.filter((t) =>
 );
 
 /**
- * Four sticker-style category tiles. Each tile carries a slight rotation at
- * rest and settles to 0° on hover, mirroring the Home menu cards. Click sets
- * the `?cat=` query param so ProductGrid scrolls down + filters to that
- * category. Mobile collapses to a 2×2 grid.
+ * Sticker-style category tiles. Each tile carries a slight rotation at rest
+ * and settles to 0° on hover, mirroring the Home menu cards. The whole card
+ * links out to the tile's external storefront (`href`), opening in a new tab.
+ * Mobile collapses to a 2×2 grid.
  */
 export function ExploreProducts() {
   return (
@@ -78,11 +81,13 @@ export function ExploreProducts() {
       <ul className="mx-auto mt-14 grid max-w-5xl grid-cols-1 gap-6 sm:grid-cols-2 md:gap-8">
         {TILES.map((tile) => (
           <li key={tile.category}>
-            <Link
-              href={`/shop?cat=${tile.category}#products`}
+            <a
+              href={tile.href}
+              target="_blank"
+              rel="noopener noreferrer"
               data-cat={tile.category}
               className="group block rounded-[2rem] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-4 focus-visible:ring-offset-paper"
-              aria-label={`Browse ${tile.title ?? categoryLabel(tile.category)}`}
+              aria-label={`Shop ${tile.title ?? categoryLabel(tile.category)} (opens in new tab)`}
             >
               {/* Unified card — image area + text area inside one rounded
                   container so the tile reads as a single editorial unit. The
@@ -119,7 +124,7 @@ export function ExploreProducts() {
                   </span>
                 </div>
               </div>
-            </Link>
+            </a>
           </li>
         ))}
       </ul>

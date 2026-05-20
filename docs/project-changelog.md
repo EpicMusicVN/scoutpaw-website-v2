@@ -1,5 +1,67 @@
 # Project Changelog
 
+## [2026-05-19] - Newsletter: Delivery Debug + Observability
+
+### Overview
+Added structured logging + secret-guarded diagnostic endpoint to the newsletter pipeline after reports that production signups weren't producing team notifications despite the UI showing success. Sanitized `.env.local.example` (a real Resend API key had been accidentally committed to the template; user rotated the key before this change).
+
+### Changes
+- **NEW** `lib/newsletter/mask.ts` — `maskEmail("longnn1998@gmail.com")` → `"lon***@gmail.com"` PII helper
+- **NEW** `app/api/newsletter/health/route.ts` — secret-guarded `GET /api/newsletter/health?key=$DIAGNOSTIC_SECRET`; fail-closed (404 when secret unset); constant-time compare via `node:crypto.timingSafeEqual`; returns booleans + masked PII + safe values only
+- **MOD** `lib/newsletter/index.ts` — emits `[newsletter] dispatch` log line per request (mode + env presence booleans)
+- **MOD** `lib/newsletter/resend-source.ts` — logs `[newsletter:resend] sent ok` with Resend message-id; enriched error logs with masked recipient; new `config missing` log for missing-env early exit
+- **MOD** `.env.local.example` — stripped real values (key already rotated by user); added prominent TEMPLATE-DO-NOT-EDIT header; added `DIAGNOSTIC_SECRET` placeholder
+- **MOD** `docs/deployment.md` — env table now lists `DIAGNOSTIC_SECRET`; new "Newsletter Diagnostics" section with curl runbook and interpretation table
+
+### Security Notes
+- Leaked Resend API key was rotated by user prior to this commit
+- If `.env.local.example` had previously been pushed with the leaked key, git-history scrubbing is OUT OF SCOPE here — flag for follow-up if upstream commits show the key. Key rotation already contained the blast radius.
+- Health endpoint fail-closes when `DIAGNOSTIC_SECRET` is unset (returns 404, indistinguishable from "not found"); constant-time secret compare prevents timing oracle
+- All log lines mask subscriber email (`lon***@gmail.com` format); API key never logged in any form
+
+### Validation
+- `pnpm typecheck`: ✓ Clean
+- `pnpm lint`: ✓ Clean
+- `pnpm build`: pending Phase 4
+
+### Plan
+- `plans/260519-0157-resend-delivery-debug/`
+
+---
+
+## [2026-05-18] - Newsletter: ConvertKit → Resend Team Notification
+
+### Overview
+Replaced ConvertKit newsletter integration (never provisioned, always stubbed) with Resend transactional email. Every "Join the Pack" signup now triggers a notification email to a single team inbox containing the subscriber's email, source tag, and ISO timestamp. Subscriber receives no email — internal notification only. Stub mode preserved for dev without API key.
+
+### Changes
+
+#### Newsletter Source Layer
+- **lib/newsletter/resend-source.ts** (new): Calls Resend SDK `emails.send()`. HTML-escapes user-controlled fields (email, tag). Returns `{ok: false}` on missing env vars instead of throwing. Logs `error.name` + `error.message` only — never full SDK response.
+- **lib/newsletter/index.ts**: Dispatch swap — `mode === "live"` now calls `subscribeResend` (was `subscribeConvertKit`).
+- **lib/newsletter/convertkit-source.ts**: Deleted.
+
+#### Environment & Deployment Docs
+- **.env.local.example**: Removed `CONVERTKIT_API_KEY`, `CONVERTKIT_FORM_ID`. Added `RESEND_API_KEY`, `TEAM_NOTIFICATION_EMAIL`, `NEWSLETTER_FROM_EMAIL` (default `onboarding@resend.dev`).
+- **docs/deployment.md**: Env var table + post-deploy smoke test + "Switching Mock → Live" section refreshed for Resend.
+- **package.json**: Added `resend@^6.12.3`.
+
+### Validation
+- `pnpm typecheck`: ✓ Clean
+- `pnpm lint`: ✓ pending — to be run in Phase 4
+- Stub mode: untouched, still logs `[newsletter:stub]` for dev
+- Live mode: requires `RESEND_API_KEY` + `TEAM_NOTIFICATION_EMAIL` (user provisions in Vercel)
+
+### Notes for Ops
+- `onboarding@resend.dev` sender only delivers to the Resend-account-owner email. Set `TEAM_NOTIFICATION_EMAIL` to match the account email during initial testing.
+- For production: verify `scoutpaw.tv` in Resend dashboard, then switch `NEWSLETTER_FROM_EMAIL` to `notifications@scoutpaw.tv` (deferred — separate plan).
+- Remove `CONVERTKIT_API_KEY` and `CONVERTKIT_FORM_ID` from Vercel env vars if previously set.
+
+### Plan
+- `plans/260518-1415-join-the-pack-resend-notify/`
+
+---
+
 ## [2026-05-18] - Home & Shop Content Refresh (MenuCards, Character Data, Promotion Asset, ExploreProducts)
 
 ### Overview

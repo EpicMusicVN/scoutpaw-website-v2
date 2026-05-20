@@ -209,7 +209,7 @@ function CompactChannelCard({
 
         <div className="mt-6">
           <h3 className="line-clamp-1 font-display text-base font-bold text-ink">
-            {channel.displayPrefix ? `${channel.displayPrefix} - ${channel.name}` : channel.name}
+            {channel.name}
           </h3>
           <p className="mt-0.5 text-xs text-ink/65">
             {formatSubs(channel.subscriberCount)} subs

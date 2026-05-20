@@ -33,9 +33,11 @@ In Vercel dashboard → Project → Settings → Environment Variables, add:
 | `SHOPIFY_MODE` | `mock` (until store live → `live`) | All |
 | `SHOPIFY_STORE_DOMAIN` | (empty for now) | All |
 | `SHOPIFY_STOREFRONT_TOKEN` | (empty for now) | All |
-| `NEWSLETTER_MODE` | `stub` (until ConvertKit ready → `live`) | All |
-| `CONVERTKIT_API_KEY` | (empty for now) | All |
-| `CONVERTKIT_FORM_ID` | (empty for now) | All |
+| `NEWSLETTER_MODE` | `stub` (until Resend ready → `live`) | All |
+| `RESEND_API_KEY` | `re_xxx` from https://resend.com/api-keys | Production |
+| `TEAM_NOTIFICATION_EMAIL` | team inbox (e.g., `team@scoutpaw.tv`) | Production |
+| `NEWSLETTER_FROM_EMAIL` | `onboarding@resend.dev` (or verified-domain address) | Production |
+| `DIAGNOSTIC_SECRET` | `openssl rand -hex 16` output (optional; enables `/api/newsletter/health`) | Production (optional) |
 | `NEXT_PUBLIC_GA_ID` | `G-XXXXXXXXXX` (when GA account exists) | Production |
 | `NEXT_PUBLIC_SITE_URL` | Your Vercel URL once provisioned | Production |
 | `REVALIDATE_SECRET` | random 32-char string (post-MVP for Shopify webhooks) | Production |
@@ -56,7 +58,9 @@ Visit production URL and verify:
 - [ ] Shop loads — 4 mock products visible
 - [ ] Click a character — `/characters/[slug]` loads with themed accent
 - [ ] Click a Coming Soon nav item — themed page loads with email form
-- [ ] Submit newsletter form — success message (server logs payload via stub mode)
+- [ ] Submit newsletter form — success message
+      - stub mode → check Vercel function logs for `[newsletter:stub]`
+      - live mode → check team inbox for "New ScoutPaw subscriber: …" within 5s
 - [ ] Cookie consent banner appears at first visit; accept → GA loads (if `NEXT_PUBLIC_GA_ID` set)
 - [ ] Lighthouse on Home: perf ≥ 90, a11y ≥ 95, SEO ≥ 90
 - [ ] Lighthouse on Shop: perf ≥ 90, a11y ≥ 95, SEO ≥ 90
@@ -70,10 +74,49 @@ Visit production URL and verify:
 3. Redeploy. Real products replace mocks. Buy Now opens real Shopify URLs.
 4. (Optional) Register Shopify webhook → POST `https://{site}/api/revalidate` with `REVALIDATE_SECRET` (route not yet built — add when needed).
 
-### ConvertKit (when account is ready)
-1. Create form, copy form ID + API key
-2. Set `NEWSLETTER_MODE=live`, `CONVERTKIT_API_KEY=...`, `CONVERTKIT_FORM_ID=...`
-3. Redeploy. Submissions go to real list, tagged by source.
+### Resend (when account is ready)
+1. Sign up at https://resend.com, copy API key from dashboard
+2. Set `NEWSLETTER_MODE=live`, `RESEND_API_KEY=re_...`, `TEAM_NOTIFICATION_EMAIL=<team inbox>`
+3. (Initial) Leave `NEWSLETTER_FROM_EMAIL=onboarding@resend.dev` — note this only delivers to the Resend-account-owner address
+4. (Production) Verify `scoutpaw.tv` domain in Resend → switch `NEWSLETTER_FROM_EMAIL=notifications@scoutpaw.tv`
+5. Redeploy. Every signup triggers an internal notification email to the team inbox.
+
+## Newsletter Diagnostics
+
+When a signup arrives but no team notification email follows, hit the diagnostic endpoint to see what the production runtime is actually seeing:
+
+```bash
+curl "https://<vercel-url>/api/newsletter/health?key=$DIAGNOSTIC_SECRET"
+```
+
+Expected response:
+```json
+{
+  "mode": "live",
+  "hasResendKey": true,
+  "hasTeamEmail": true,
+  "hasFromEmail": true,
+  "fromEmail": "onboarding@resend.dev",
+  "teamEmailMasked": "lon***@gmail.com",
+  "nodeEnv": "production",
+  "diagnosticTimestamp": "2026-05-19T01:57:00.000Z"
+}
+```
+
+Interpretation:
+- `mode: "stub"` → `NEWSLETTER_MODE` is missing/wrong in production env. Fix in Vercel dashboard, **redeploy**.
+- `hasResendKey: false` → `RESEND_API_KEY` missing in current deployment. Same fix.
+- `hasTeamEmail: false` → `TEAM_NOTIFICATION_EMAIL` missing. Same fix.
+- All `true` and `mode: "live"` → submit a real subscribe; check Vercel function logs for `[newsletter:resend] sent ok` with a Resend message-id. If the log appears, cross-check Resend dashboard → Logs. If not in the log, suspect rate-limit or honeypot.
+
+**Important:** Vercel env-var changes do NOT apply to existing deployments. After updating env vars, trigger a new deployment.
+
+**Disable the endpoint:** unset `DIAGNOSTIC_SECRET` in Vercel and redeploy. Endpoint then returns 404.
+
+**Endpoint behavior:**
+- `DIAGNOSTIC_SECRET` unset → `404 Not found`
+- Missing or wrong `key` param → `401 Unauthorized`
+- Correct `key` → `200` + JSON snapshot (booleans + masked PII; never raw secret values)
 
 ### Custom domain (post-MVP)
 1. Vercel dashboard → Domains → Add

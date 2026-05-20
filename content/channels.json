@@ -8,7 +8,7 @@
       "videoCount": 0,
       "url": "https://www.youtube.com/channel/UCMZ3LiXfDhq5RlKBmIWqUWg",
       "bannerColor": "#E8B547",
-      "characterSlug": "oscar",
+      "characterSlug": "buddy",
       "avatarColor": "#FFC966",
       "youtubeChannelId": "UCMZ3LiXfDhq5RlKBmIWqUWg"
     },
@@ -20,10 +20,9 @@
       "videoCount": 30,
       "url": "https://www.youtube.com/channel/UCy-QL5kMOtAPoDaq2VFoaRQ",
       "bannerColor": "#E8B547",
-      "characterSlug": "buddy",
+      "characterSlug": "max",
       "avatarColor": "#FFC966",
-      "youtubeChannelId": "UCy-QL5kMOtAPoDaq2VFoaRQ",
-      "displayPrefix": "Golden"
+      "youtubeChannelId": "UCy-QL5kMOtAPoDaq2VFoaRQ"
     },
     {
       "slug": "happy-paws-cartoon",
@@ -33,10 +32,9 @@
       "videoCount": 30,
       "url": "https://www.youtube.com/channel/UCaiJ0puSQ9KdqZ7965j1W6w",
       "bannerColor": "#7DC4E2",
-      "characterSlug": "max",
+      "characterSlug": "rocky",
       "avatarColor": "#B6E3F4",
-      "youtubeChannelId": "UCaiJ0puSQ9KdqZ7965j1W6w",
-      "displayPrefix": "Husky"
+      "youtubeChannelId": "UCaiJ0puSQ9KdqZ7965j1W6w"
     },
     {
       "slug": "magic-paw",
@@ -46,10 +44,9 @@
       "videoCount": 30,
       "url": "https://www.youtube.com/channel/UC6Ak0T2v3cuoqXJU9lJ0gkQ",
       "bannerColor": "#C9A6E8",
-      "characterSlug": "rocky",
+      "characterSlug": "bella",
       "avatarColor": "#E1CCF4",
-      "youtubeChannelId": "UC6Ak0T2v3cuoqXJU9lJ0gkQ",
-      "displayPrefix": "Poodle"
+      "youtubeChannelId": "UC6Ak0T2v3cuoqXJU9lJ0gkQ"
     },
     {
       "slug": "doggo-dreams-tv",
@@ -59,10 +56,9 @@
       "videoCount": 30,
       "url": "https://www.youtube.com/channel/UCFGix2jR9bfzhOYIBxI3CjQ",
       "bannerColor": "#F4B97A",
-      "characterSlug": "bella",
+      "characterSlug": "oscar",
       "avatarColor": "#FFD5A6",
-      "youtubeChannelId": "UCFGix2jR9bfzhOYIBxI3CjQ",
-      "displayPrefix": "Collie"
+      "youtubeChannelId": "UCFGix2jR9bfzhOYIBxI3CjQ"
     }
   ]
 }

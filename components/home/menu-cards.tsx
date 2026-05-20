@@ -23,7 +23,7 @@ export function MenuCards() {
   const allCards: Card[] = [
     {
       label: "CHARACTERS",
-      copy: "Learn more about Buddy, Max, and all your favorite furry friends from the pack!",
+      copy: "Learn more about Rocky, Max, and all your favorite furry friends from the pack!",
       image: assetUrl("card/characters.png"),
       href: "#meet-the-pack",
     },

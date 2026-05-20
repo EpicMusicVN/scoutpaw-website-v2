@@ -15,7 +15,7 @@ export default async function HomePage() {
       <FullBleedHero
         kicker="SCOUTPAW TV"
         title="Discover a happier world of puppies"
-        description="Max, Buddy, and their friends have curated a calming space with soothing music and select gear, designed for your pup's happiness and relaxation"
+        description="Max, Rocky, and their friends have curated a calming space with soothing music and select gear, designed for your pup's happiness and relaxation"
       />
 
       <CloudDivider />

@@ -1,5 +1,10 @@
 import { NextResponse } from "next/server";
-import { rateLimitAllowed } from "@/lib/newsletter/rate-limit";
+import {
+  emailDedupAllowed,
+  globalDailyAllowed,
+  rateLimitAllowed,
+  recordGlobalSend,
+} from "@/lib/newsletter/rate-limit";
 import { NewsletterRequestSchema, subscribe } from "@/lib/newsletter";
 
 export const runtime = "nodejs";
@@ -27,7 +32,8 @@ export async function POST(req: Request) {
     );
   }
 
-  // Honeypot — silently succeed without subscribing.
+  // Honeypot — silently succeed without subscribing. Exits BEFORE any
+  // rate-limit / dedup / cap budget is consumed.
   if (parsed.data.hp && parsed.data.hp.length > 0) {
     return NextResponse.json({ ok: true });
   }
@@ -40,9 +46,23 @@ export async function POST(req: Request) {
     );
   }
 
+  // Silent dedup — same UX as honeypot. No info leak about recognition.
+  if (!emailDedupAllowed(parsed.data.email)) {
+    return NextResponse.json({ ok: true });
+  }
+
+  // Daily quota guard — protects Resend free-tier and account reputation.
+  if (!globalDailyAllowed()) {
+    return NextResponse.json(
+      { ok: false, error: "Subscription temporarily unavailable. Please try later." },
+      { status: 503 },
+    );
+  }
+
   const result = await subscribe(parsed.data);
   if (!result.ok) {
     return NextResponse.json(result, { status: 502 });
   }
+  recordGlobalSend();
   return NextResponse.json(result);
 }

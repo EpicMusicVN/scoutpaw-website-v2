@@ -6,8 +6,8 @@ export function ShopEmptyState() {
     <div className="mx-auto flex max-w-xl flex-col items-center rounded-3xl bg-surface p-12 text-center shadow-md">
       <div className="relative h-48 w-48">
         <Image
-          src={assetUrl("characters/golden-2.png")}
-          alt="Buddy waiting"
+          src={assetUrl("characters/husky-bg.png")}
+          alt="Rocky waiting"
           fill
           sizes="200px"
           className="object-contain"
@@ -17,7 +17,7 @@ export function ShopEmptyState() {
         The shop is fetching new toys.
       </h2>
       <p className="mt-3 text-ink/80">
-        Buddy is sniffing out fresh products. Check back soon!
+        Rocky is sniffing out fresh products. Check back soon!
       </p>
     </div>
   );

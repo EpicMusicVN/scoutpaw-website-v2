@@ -59,6 +59,13 @@ export default async function WatchPage() {
 
       <CloudDivider />
 
+      {/* The Network — compact horizontal rail */}
+      <ScrollReveal>
+        <OurChannels channels={channels} characters={characters} videos={videos} />
+      </ScrollReveal>
+
+      <CloudDivider />
+
       {/* Community Choice — top viewed rail */}
       <ScrollReveal>
         <VideoRail
@@ -76,13 +83,6 @@ export default async function WatchPage() {
       {/* Explore Videos — filter chips + mixed grid */}
       <ScrollReveal>
         <ExploreVideos videos={videos} youtubeChannelUrl={youtubeUrl} />
-      </ScrollReveal>
-
-      <CloudDivider />
-
-      {/* The Network — compact horizontal rail */}
-      <ScrollReveal>
-        <OurChannels channels={channels} characters={characters} videos={videos} />
       </ScrollReveal>
 
       <CloudDivider />

@@ -6,7 +6,7 @@
       "youtubeId": "4Fgl_dW3vgA",
       "title": "A Calm Morning with the Pack",
       "characterSlugs": [
-        "buddy",
+        "rocky",
         "max"
       ],
       "viewCount": 482000,
@@ -29,8 +29,8 @@
       "youtubeId": "X19MapswOQs",
       "title": "Gentle Sounds for Long Naps",
       "characterSlugs": [
-        "bella",
-        "oscar"
+        "oscar",
+        "buddy"
       ],
       "viewCount": 318000,
       "duration": "2:11:42",
@@ -50,7 +50,7 @@
       "youtubeId": "PRCac_UMohw",
       "title": "Sunset Walk Soundscape",
       "characterSlugs": [
-        "rocky"
+        "bella"
       ],
       "viewCount": 226000,
       "duration": "48:09",
@@ -70,8 +70,8 @@
       "youtubeId": "3b3T2Z2CZLA",
       "title": "Rainy Afternoon Cuddles",
       "characterSlugs": [
-        "buddy",
-        "bella"
+        "rocky",
+        "oscar"
       ],
       "viewCount": 184000,
       "duration": "1:12:35",
@@ -89,9 +89,9 @@
     {
       "id": "mock-005",
       "youtubeId": "HPlFCtF_Sxs",
-      "title": "Buddy and the Backyard Birds",
+      "title": "Rocky and the Backyard Birds",
       "characterSlugs": [
-        "buddy"
+        "rocky"
       ],
       "viewCount": 156000,
       "duration": "22:14",
@@ -101,7 +101,7 @@
       "tags": [
         "story",
         "backyard",
-        "buddy"
+        "rocky"
       ],
       "featured": true
     },
@@ -124,6 +124,246 @@
       ],
       "featured": true,
       "playlistId": "pl-adventures"
+    },
+    {
+      "id": "mock-007",
+      "youtubeId": "ayxqPIdYa98",
+      "title": "Stimulating Cat TV: 12hrs Special Livestream 😻 Music and Interactive Video for Cat 🔔 Winter Holiday TV",
+      "characterSlugs": [],
+      "viewCount": 0,
+      "duration": "0:00",
+      "thumbnail": "banner/banner.png",
+      "uploadDate": "2026-05-19",
+      "category": "cats",
+      "tags": [
+        "cats"
+      ],
+      "featured": false
+    },
+    {
+      "id": "mock-008",
+      "youtubeId": "N7AvlS0W6Ac",
+      "title": "2026 STIMULATING CAT TV: Spring Journey of Jolly and Friends 😼 ANTI LONELINESS TREATMENT for Home Cat 💖",
+      "characterSlugs": [],
+      "viewCount": 0,
+      "duration": "0:00",
+      "thumbnail": "banner/banner.png",
+      "uploadDate": "2026-05-19",
+      "category": "cats",
+      "tags": [
+        "cats"
+      ],
+      "featured": false
+    },
+    {
+      "id": "mock-009",
+      "youtubeId": "eoLL-ZhaVno",
+      "title": "CAT TV 😼 HAPPY CAT = HAPPY LIFE 💊 24Hrs Spring Adventure ⚠️ TV for cat to reduce anxiety and stress 🖼️",
+      "characterSlugs": [],
+      "viewCount": 0,
+      "duration": "0:00",
+      "thumbnail": "banner/banner.png",
+      "uploadDate": "2026-05-19",
+      "category": "cats",
+      "tags": [
+        "cats"
+      ],
+      "featured": false
+    },
+    {
+      "id": "mock-010",
+      "youtubeId": "mthN0n9_mlk",
+      "title": "STIMULATING CAT TV 😼 Live-stream Christmas Music Games for indoor cats 🔔 12 Hours of cat entertainments",
+      "characterSlugs": [],
+      "viewCount": 0,
+      "duration": "0:00",
+      "thumbnail": "banner/banner.png",
+      "uploadDate": "2026-05-19",
+      "category": "cats",
+      "tags": [
+        "cats"
+      ],
+      "featured": false
+    },
+    {
+      "id": "mock-011",
+      "youtubeId": "UIrDmtVms3g",
+      "title": "12 Hour Video for Cats to Watch 😼 Natural Beauty and Animals Compilation 🌈 CAT TV with Calm Piano Music",
+      "characterSlugs": [],
+      "viewCount": 0,
+      "duration": "0:00",
+      "thumbnail": "banner/banner.png",
+      "uploadDate": "2026-05-19",
+      "category": "cats",
+      "tags": [
+        "cats"
+      ],
+      "featured": false
+    },
+    {
+      "id": "mock-012",
+      "youtubeId": "Cvh_-gA1mV8",
+      "title": "STIMULATING CAT GAMES 😼 Training ON SCREEN VIDEOS for Cats ☃️ Christmas Cat TV: The Backyard Journey",
+      "characterSlugs": [],
+      "viewCount": 0,
+      "duration": "0:00",
+      "thumbnail": "banner/banner.png",
+      "uploadDate": "2026-05-19",
+      "category": "cats",
+      "tags": [
+        "cats"
+      ],
+      "featured": false
+    },
+    {
+      "id": "mock-013",
+      "youtubeId": "wC6VN7ck4xw",
+      "title": "New Year CAT TV 2026 💖 Special Gift for You 🔔 STIMULATING Games For Cat 😼 Calming Piano Music",
+      "characterSlugs": [],
+      "viewCount": 0,
+      "duration": "0:00",
+      "thumbnail": "banner/banner.png",
+      "uploadDate": "2026-05-19",
+      "category": "cats",
+      "tags": [
+        "cats"
+      ],
+      "featured": false
+    },
+    {
+      "id": "mock-014",
+      "youtubeId": "kB36SetVHq8",
+      "title": "Cutest moments of golden babies that make you smile!",
+      "characterSlugs": [],
+      "viewCount": 0,
+      "duration": "0:00",
+      "thumbnail": "banner/banner.png",
+      "uploadDate": "2026-05-19",
+      "category": "funny",
+      "tags": [
+        "funny"
+      ],
+      "featured": false
+    },
+    {
+      "id": "mock-015",
+      "youtubeId": "geNEFOmWNPg",
+      "title": "Daily Happy Vitamins for you - Dog and Cat complex bond! P7",
+      "characterSlugs": [],
+      "viewCount": 0,
+      "duration": "0:00",
+      "thumbnail": "banner/banner.png",
+      "uploadDate": "2026-05-19",
+      "category": "funny",
+      "tags": [
+        "funny"
+      ],
+      "featured": false
+    },
+    {
+      "id": "mock-016",
+      "youtubeId": "7jhIqI3G0pw",
+      "title": "How can I train my dog to be like this??? p2",
+      "characterSlugs": [],
+      "viewCount": 0,
+      "duration": "0:00",
+      "thumbnail": "banner/banner.png",
+      "uploadDate": "2026-05-19",
+      "category": "funny",
+      "tags": [
+        "funny"
+      ],
+      "featured": false
+    },
+    {
+      "id": "mock-017",
+      "youtubeId": "euCeZ6UmyMw",
+      "title": "Shiba Inu: The most dramatic dog in the world, they say !!! Try not to smile challenge! #viral",
+      "characterSlugs": [],
+      "viewCount": 0,
+      "duration": "0:00",
+      "thumbnail": "banner/banner.png",
+      "uploadDate": "2026-05-19",
+      "category": "funny",
+      "tags": [
+        "funny"
+      ],
+      "featured": false
+    },
+    {
+      "id": "mock-018",
+      "youtubeId": "ENSFJx_b96Q",
+      "title": "2025 Funniest Compilation of Dogs! Part 2",
+      "characterSlugs": [],
+      "viewCount": 0,
+      "duration": "0:00",
+      "thumbnail": "banner/banner.png",
+      "uploadDate": "2026-05-19",
+      "category": "funny",
+      "tags": [
+        "funny"
+      ],
+      "featured": false
+    },
+    {
+      "id": "mock-019",
+      "youtubeId": "Lq7PY2Zq97E",
+      "title": "2025 Funniest Compilation of Dogs! #viral #pets #funny",
+      "characterSlugs": [],
+      "viewCount": 0,
+      "duration": "0:00",
+      "thumbnail": "banner/banner.png",
+      "uploadDate": "2026-05-19",
+      "category": "funny",
+      "tags": [
+        "funny"
+      ],
+      "featured": false
+    },
+    {
+      "id": "mock-020",
+      "youtubeId": "WJtWjjXau6c",
+      "title": "Golden Retriever: is top 4 smartest dog, they said !!! Try not to smile challenge! #viral",
+      "characterSlugs": [],
+      "viewCount": 0,
+      "duration": "0:00",
+      "thumbnail": "banner/banner.png",
+      "uploadDate": "2026-05-19",
+      "category": "funny",
+      "tags": [
+        "funny"
+      ],
+      "featured": false
+    },
+    {
+      "id": "mock-021",
+      "youtubeId": "JxdmKG2a4pU",
+      "title": "😂 Dramatic Dogs vs Fart !!! Try not to smile challenge! #viral",
+      "characterSlugs": [],
+      "viewCount": 0,
+      "duration": "0:00",
+      "thumbnail": "banner/banner.png",
+      "uploadDate": "2026-05-19",
+      "category": "funny",
+      "tags": [
+        "funny"
+      ],
+      "featured": false
+    },
+    {
+      "id": "mock-022",
+      "youtubeId": "x3lnO0ZnVcw",
+      "title": "🤔 WHEN YOU SEE the dog spinning :))))) #viral",
+      "characterSlugs": [],
+      "viewCount": 0,
+      "duration": "0:00",
+      "thumbnail": "banner/banner.png",
+      "uploadDate": "2026-05-19",
+      "category": "funny",
+      "tags": [
+        "funny"
+      ],
+      "featured": false
     }
   ]
 }
