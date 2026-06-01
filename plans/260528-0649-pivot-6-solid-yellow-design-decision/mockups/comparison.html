@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ScoutPaw — Title color comparison (4 options)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--
+  Mockup comparison for pivot #6 design decision.
+  Open this file in a browser. Compare the 4 options side-by-side and pick one.
+
+  Each option renders a hero section + section banner using:
+    - The actual ScoutPaw color tokens (hex values mirror app/globals.css)
+    - A reasonable approximation of the display font stack (system Georgia/serif fallback)
+    - The actual size/weight classes from components/
+
+  All options use identical content — only colors + surface vary so the
+  visual comparison is honest.
+-->
+<style>
+  :root {
+    --paper: #c6e7e9;
+    --ink-blue: #1a3a5c;
+    --navy: #397fc5;
+    --brand-primary: #ffd70c;
+    --accent-gold-dark: #b8862e;
+    --gold-mid: #d4a833;
+    --warm-white: #fff5cc;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, system-ui, sans-serif;
+    background: #f1f1f1;
+    color: #1a3a5c;
+  }
+  .toolbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: #1a3a5c;
+    color: white;
+    padding: 14px 24px;
+    font-size: 14px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    align-items: center;
+    box-shadow: 0 2px 8px rgb(0 0 0 / .2);
+  }
+  .toolbar h1 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    margin-right: auto;
+  }
+  .toolbar a {
+    color: #ffd70c;
+    text-decoration: none;
+    padding: 6px 12px;
+    border: 1px solid rgb(255 255 255 / .3);
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 13px;
+  }
+  .toolbar a:hover { background: rgb(255 255 255 / .1); }
+
+  .option {
+    border-bottom: 1px solid #e0e0e0;
+    padding: 32px 0 0;
+  }
+  .option-meta {
+    max-width: 1200px;
+    margin: 0 auto 16px;
+    padding: 0 24px;
+    color: #555;
+    font-size: 13px;
+    line-height: 1.6;
+  }
+  .option-meta strong { color: #1a3a5c; font-size: 15px; }
+  .option-meta .verdict {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 4px;
+    font-weight: 600;
+    margin-left: 8px;
+  }
+  .v-pass { background: #d4edda; color: #155724; }
+  .v-fail { background: #f8d7da; color: #721c24; }
+  .v-edge { background: #fff3cd; color: #856404; }
+
+  .stage {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: var(--paper);
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgb(0 0 0 / .12);
+  }
+  /* The hero & section blocks render full-bleed inside the stage */
+  .hero, .section {
+    padding: 56px 48px;
+  }
+  .hero p.kicker, .section p.kicker {
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight: 700;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    margin: 0 0 14px;
+  }
+  .hero h1 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 56px;
+    line-height: 1.05;
+    margin: 0 0 18px;
+    font-weight: 700;
+  }
+  .section h2 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 48px;
+    line-height: 1.02;
+    margin: 0 0 18px;
+    font-weight: 700;
+  }
+  .hero p.body, .section p.body {
+    font-size: 17px;
+    line-height: 1.6;
+    margin: 0;
+    max-width: 560px;
+    color: var(--ink-blue);
+  }
+  .section h3.subtitle {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 28px;
+    line-height: 1.1;
+    margin: 32px 0 12px;
+    font-weight: 700;
+    color: var(--ink-blue);
+  }
+
+  /* ---------- OPTION A — Dark navy hero + bright solid yellow ---------- */
+  .opt-a .stage { background: var(--ink-blue); }
+  .opt-a .hero, .opt-a .section { color: white; }
+  .opt-a .hero p.kicker, .opt-a .section p.kicker { color: var(--brand-primary); }
+  .opt-a .hero h1, .opt-a .section h2 { color: var(--brand-primary); }
+  .opt-a .hero p.body, .opt-a .section p.body { color: rgb(255 255 255 / .85); }
+  .opt-a .section h3.subtitle { color: rgb(255 255 255 / .92); }
+
+  /* ---------- OPTION B — Cyan bg + solid dark gold #b8862e ---------- */
+  .opt-b .stage { background: var(--paper); }
+  .opt-b .hero p.kicker, .opt-b .section p.kicker { color: var(--ink-blue); }
+  .opt-b .hero h1, .opt-b .section h2 { color: var(--accent-gold-dark); }
+  .opt-b .section h3.subtitle { color: var(--ink-blue); }
+
+  /* ---------- OPTION C — Cyan bg + current shipped gradient (REFERENCE) ---------- */
+  .opt-c .stage { background: var(--paper); }
+  .opt-c .hero p.kicker, .opt-c .section p.kicker { color: var(--ink-blue); }
+  .opt-c .hero h1, .opt-c .section h2 {
+    background-image: linear-gradient(
+      90deg,
+      #b8862e 0%,
+      #d4a833 25%,
+      #ffd70c 50%,
+      #d4a833 75%,
+      #b8862e 100%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+  .opt-c .section h3.subtitle { color: var(--ink-blue); }
+
+  /* ---------- OPTION D — Cyan bg + solid bright yellow #ffd70c (AA fail) ---------- */
+  .opt-d .stage { background: var(--paper); }
+  .opt-d .hero p.kicker, .opt-d .section p.kicker { color: var(--ink-blue); }
+  .opt-d .hero h1, .opt-d .section h2 { color: var(--brand-primary); }
+  .opt-d .section h3.subtitle { color: var(--ink-blue); }
+
+  /* ---------- BONUS OPTION E — Hybrid: navy hero only, light section banners ---------- */
+  .opt-e .stage { background: var(--paper); }
+  .opt-e .hero { background: var(--ink-blue); color: white; }
+  .opt-e .hero p.kicker { color: var(--brand-primary); }
+  .opt-e .hero h1 { color: var(--brand-primary); }
+  .opt-e .hero p.body { color: rgb(255 255 255 / .85); }
+  .opt-e .section p.kicker { color: var(--ink-blue); }
+  .opt-e .section h2 { color: var(--accent-gold-dark); }
+  .opt-e .section h3.subtitle { color: var(--ink-blue); }
+
+  .nav {
+    background: white;
+    border-top: 1px solid #e0e0e0;
+    padding: 24px;
+    max-width: 1200px;
+    margin: 0 auto 64px;
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 4px 24px rgb(0 0 0 / .04);
+  }
+  .nav .label {
+    font-weight: 600;
+    color: #1a3a5c;
+    margin-bottom: 12px;
+  }
+  .nav p {
+    color: #555;
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 0;
+  }
+  .nav code {
+    background: #f1f1f1;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: 13px;
+  }
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <h1>ScoutPaw — Title Color Comparison (Pivot #6 design decision)</h1>
+  <a href="#opt-a">A</a>
+  <a href="#opt-b">B</a>
+  <a href="#opt-c">C (current)</a>
+  <a href="#opt-d">D</a>
+  <a href="#opt-e">E (hybrid)</a>
+</div>
+
+<!-- ============================================================ -->
+<section class="option opt-a" id="opt-a">
+  <div class="option-meta">
+    <strong>Option A — Dark navy hero + bright solid yellow titles</strong>
+    <span class="verdict v-pass">AA pass ~9:1</span>
+    <br>
+    Surface change: hero + banner backgrounds become <code>#1a3a5c</code> (ink-blue).
+    Bright yellow <code>#ffd70c</code> reads vivid on dark navy. This was Plan J's
+    original approach (pivot #1). Best fidelity to "royal yellow" + AA-safe. Cost:
+    surface change means body bg, atmosphere imagery, and content cards may need rework.
+  </div>
+  <div class="stage">
+    <div class="hero">
+      <p class="kicker">SCOUTPAW TV</p>
+      <h1>The Ultimate Workday Hangout</h1>
+      <p class="body">Soothing rhythms and cozy colors crafted to keep your best friend company while you work. Tap in and let the pups do their thing.</p>
+    </div>
+    <div class="section">
+      <p class="kicker">THE NETWORK</p>
+      <h2>Our Channels.</h2>
+      <h3 class="subtitle">Subscribe to ScoutPaw on YouTube</h3>
+      <p class="body">Keep your furry friend happy with calming visuals and scientifically proven sounds.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<section class="option opt-b" id="opt-b">
+  <div class="option-meta">
+    <strong>Option B — Cyan bg + solid dark gold <code>#b8862e</code> (no gradient)</strong>
+    <span class="verdict v-edge">AA borderline ~2.45:1</span>
+    <br>
+    Honors "Not Gradient" literally. Solid dark gold on current cyan paper. No surface
+    change. Technically fails AA-large (3:1) per code-reviewer's contrast recalc.
+    Visually reads as "amber/bronze" — even MORE muted than the current gradient (no
+    bright yellow stop). Likely worse than current. Included for completeness.
+  </div>
+  <div class="stage">
+    <div class="hero">
+      <p class="kicker">SCOUTPAW TV</p>
+      <h1>The Ultimate Workday Hangout</h1>
+      <p class="body">Soothing rhythms and cozy colors crafted to keep your best friend company while you work. Tap in and let the pups do their thing.</p>
+    </div>
+    <div class="section">
+      <p class="kicker">THE NETWORK</p>
+      <h2>Our Channels.</h2>
+      <h3 class="subtitle">Subscribe to ScoutPaw on YouTube</h3>
+      <p class="body">Keep your furry friend happy with calming visuals and scientifically proven sounds.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<section class="option opt-c" id="opt-c">
+  <div class="option-meta">
+    <strong>Option C — Cyan bg + current shipped gradient</strong>
+    <span class="verdict v-edge">AA borderline at anchors</span>
+    <br>
+    The status quo as of pivot #5. <code>.heading-gradient-gold-light</code> —
+    dark-gold → yellow → dark-gold. You reported this reads as "muted/brown" in
+    browser. This is your baseline reference to compare against A and D.
+  </div>
+  <div class="stage">
+    <div class="hero">
+      <p class="kicker">SCOUTPAW TV</p>
+      <h1>The Ultimate Workday Hangout</h1>
+      <p class="body">Soothing rhythms and cozy colors crafted to keep your best friend company while you work. Tap in and let the pups do their thing.</p>
+    </div>
+    <div class="section">
+      <p class="kicker">THE NETWORK</p>
+      <h2>Our Channels.</h2>
+      <h3 class="subtitle">Subscribe to ScoutPaw on YouTube</h3>
+      <p class="body">Keep your furry friend happy with calming visuals and scientifically proven sounds.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<section class="option opt-d" id="opt-d">
+  <div class="option-meta">
+    <strong>Option D — Cyan bg + solid pure yellow <code>#ffd70c</code> (aesthetic-first)</strong>
+    <span class="verdict v-fail">AA catastrophic fail ~1.1:1</span>
+    <br>
+    What your text request literally asks for: solid bright yellow on the current
+    light cyan surface. Vivid. Reads as "royal yellow" unambiguously. BUT — contrast
+    is ~1.1:1. Unreadable in sunlight, on bad monitors, for low-vision users.
+    Documented as a known a11y exception in code-standards if chosen. Include
+    aria-label fallbacks for screen readers.
+  </div>
+  <div class="stage">
+    <div class="hero">
+      <p class="kicker">SCOUTPAW TV</p>
+      <h1>The Ultimate Workday Hangout</h1>
+      <p class="body">Soothing rhythms and cozy colors crafted to keep your best friend company while you work. Tap in and let the pups do their thing.</p>
+    </div>
+    <div class="section">
+      <p class="kicker">THE NETWORK</p>
+      <h2>Our Channels.</h2>
+      <h3 class="subtitle">Subscribe to ScoutPaw on YouTube</h3>
+      <p class="body">Keep your furry friend happy with calming visuals and scientifically proven sounds.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<section class="option opt-e" id="opt-e">
+  <div class="option-meta">
+    <strong>Option E (hybrid) — Navy hero only, light cyan section banners stay</strong>
+    <span class="verdict v-pass">AA pass everywhere</span>
+    <br>
+    Compromise: heroes get the dark navy + bright yellow treatment (vivid, AA-safe).
+    Section banners stay on light cyan with solid dark gold titles (muted but
+    AA-borderline). Preserves the airy/light feel of the body pages while giving
+    heroes a vivid yellow punch. Two title tiers visually distinct from surface alone.
+  </div>
+  <div class="stage">
+    <div class="hero">
+      <p class="kicker">SCOUTPAW TV</p>
+      <h1>The Ultimate Workday Hangout</h1>
+      <p class="body">Soothing rhythms and cozy colors crafted to keep your best friend company while you work. Tap in and let the pups do their thing.</p>
+    </div>
+    <div class="section">
+      <p class="kicker">THE NETWORK</p>
+      <h2>Our Channels.</h2>
+      <h3 class="subtitle">Subscribe to ScoutPaw on YouTube</h3>
+      <p class="body">Keep your furry friend happy with calming visuals and scientifically proven sounds.</p>
+    </div>
+  </div>
+</section>
+
+<div class="nav">
+  <div class="label">How to use this mockup</div>
+  <p>
+    Scroll through A–E. The toolbar at the top of the page jumps between sections.
+    Each "stage" shows a hero + section banner rendered with the proposed colors and
+    real-ish typography. Pick the option you actually want to ship. Reply to the
+    brainstorm with your choice (e.g., "Go with E"). I'll then write the plan + cook.
+    <br><br>
+    <strong>Reminder of the constraint:</strong> "Royal yellow" as solid bright
+    <code>#ffd70c</code> requires either dark surface (A/E) or accepting AA failure
+    (D). There is no fourth path on light cyan.
+  </p>
+</div>
+
+</body>
+</html>

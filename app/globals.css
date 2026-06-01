@@ -43,6 +43,18 @@
     --text-on-warm-muted: #5a4126;
     --text-on-warm-muted-rgb: 90 65 38;
 
+    /* Primary body text — deep navy, AA-safe on white/cyan/warm/yellow surfaces.
+       Replaces `--ink` for body copy as part of the blue/yellow/white contract.
+       `--ink` and `bg-ink` stay reserved for dark anchors (buttons, borders, focus rings). */
+    --ink-blue: #1a3a5c;
+    --ink-blue-rgb: 26 58 92;
+
+    /* Pivot #8 — vibrant cobalt used as the title-outline + kicker color in the
+       sticker-honey treatment (.heading-sticker-honey). Brighter than ink-blue
+       so it reads as a saturated brand accent rather than body text. */
+    --cobalt: #1f4d96;
+    --cobalt-rgb: 31 77 150;
+
     /* Container scale — opt-in for hero/banner sections only. */
     --container-max-hero: 1400px;
 
@@ -80,7 +92,7 @@
 
   body {
     background-color: var(--bg-base);
-    color: var(--ink);
+    color: var(--ink-blue);
     font-family: var(--font-body, system-ui, sans-serif);
     -webkit-font-smoothing: antialiased;
   }
@@ -113,6 +125,21 @@
     0% { transform: translateX(0); }
     100% { transform: translateX(40px); }
   }
+
+  /* Characters scene — gentle idle float for the composited pups. */
+  @keyframes figure-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-16px); }
+  }
+  /*
+   * Twinkle for the Characters scene's decorative stars + sparkles.
+   * Rest frame (0%/100%) is kept calm-but-visible: under the reduced-motion
+   * reset the animation lands here, so the sky must still read normally.
+   */
+  @keyframes twinkle {
+    0%, 100% { opacity: 0.55; transform: scale(0.95); }
+    50% { opacity: 0.95; transform: scale(1.12); }
+  }
 }
 
 @layer utilities {
@@ -127,7 +154,7 @@
     right: 1rem;
     bottom: 0.4rem;
     height: 2px;
-    background-color: var(--ink);
+    background-color: var(--ink-blue);
     border-radius: 999px;
     transform: scaleX(0);
     transform-origin: center;
@@ -162,6 +189,137 @@
   .cta-shimmer > * {
     position: relative;
     z-index: 2;
+  }
+
+  /*
+   * Heading gradient presets — brand 3-color contract (navy / yellow / white).
+   * Apply directly to <h1>/<h2>. May be combined with `.text-shadow-soft` on the
+   * same element: text-shadow paints around the glyph outline (since the fill
+   * is transparent) rather than across the glyph surface, which produces a soft
+   * legibility halo. That's the intended effect.
+   *
+   * AA note: large-heading thresholds only (≥18pt or 14pt bold). `text-navy`
+   * (#397fc5) passes large-text AA on cyan/white/warm-tan; do NOT use for body.
+   */
+  .heading-gradient-cool {
+    background-image: linear-gradient(
+      90deg,
+      var(--bg-navy) 0%,
+      var(--brand-secondary) 50%,
+      var(--bg-navy) 100%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+  .heading-gradient-warm {
+    background-image: linear-gradient(
+      90deg,
+      var(--brand-primary) 0%,
+      #ffffff 100%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+  .heading-gradient-tri {
+    background-image: linear-gradient(
+      90deg,
+      #0f2540 0%,
+      var(--bg-navy) 22%,
+      var(--brand-primary) 50%,
+      #fff5cc 78%,
+      #ffffff 100%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+  /* Mobile: 2-stop fallback retains saturation without striping on narrow viewports. */
+  @media (max-width: 639px) {
+    .heading-gradient-tri {
+      background-image: linear-gradient(
+        90deg,
+        #0f2540 0%,
+        var(--brand-primary) 100%
+      );
+    }
+  }
+
+  /*
+   * Yellow-only gradient for hero h1s on navy surfaces. Dark gold → warm gold
+   * → brand yellow mid → warm white → white. No navy in the gradient (would
+   * muddy against a navy bg). Pair with `.text-shadow-bold` for the "premium
+   * gold foil" effect on dark surfaces.
+   */
+  .heading-gradient-gold {
+    background-image: linear-gradient(
+      90deg,
+      #b8862e 0%,
+      #d4a833 22%,
+      var(--brand-primary) 50%,
+      #fff5cc 78%,
+      #ffffff 100%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+  @media (max-width: 639px) {
+    .heading-gradient-gold {
+      background-image: linear-gradient(
+        90deg,
+        #b8862e 0%,
+        var(--brand-primary) 100%
+      );
+    }
+  }
+
+  /*
+   * Pivot #8 — Sticker-honey treatment for landmark titles on LIGHT cyan body
+   * surfaces (the current paper bg). Solid honey yellow fill with a saturated
+   * cobalt text-stroke + slight cobalt drop-shadow. Reads as a kid-tv sticker
+   * pop while staying AA-legible on cyan (which `text-brand-primary` alone is
+   * not — the outline carries the contrast).
+   *
+   * Stroke + shadow are sized in `em` so they scale with the heading's font
+   * size — 0.04em ≈ 2.5px at hero 64px / ≈ 1.6px at smaller 40px banners.
+   *
+   * Apply to: hero h1s + large h2 section banners. NOT card-internal titles
+   * (those stay `text-ink-blue` per the locked two-tier rule).
+   *
+   * Previous name: `.heading-gradient-gold-light` (gradient — retired by pivot #8).
+   */
+  .heading-sticker-honey {
+    color: var(--brand-primary);
+    -webkit-text-stroke: 0.04em var(--cobalt);
+    paint-order: stroke fill;
+    text-shadow: 0.06em 0.06em 0 rgba(var(--cobalt-rgb) / 0.25);
+  }
+
+  /* Soft legibility lift on busy backgrounds. Safe to combine with
+     `.heading-gradient-*` on the same element — the shadow paints around the
+     glyph outline and reads as a halo lift behind the gradient fill. */
+  .text-shadow-soft {
+    text-shadow:
+      0 1px 0 rgb(255 255 255 / 0.5),
+      0 2px 8px rgb(0 0 0 / 0.08),
+      0 4px 16px rgb(0 0 0 / 0.06);
+  }
+  /* Warm glow — pairs with yellow text on dark surfaces. */
+  .text-shadow-warm-glow {
+    text-shadow:
+      0 0 12px rgb(255 215 12 / 0.4),
+      0 2px 6px rgb(184 134 46 / 0.3);
+  }
+
+  /* Bold lift for gold gradient on navy surfaces — dark grounding shadow +
+     soft golden glow reads as "premium foil" depth. */
+  .text-shadow-bold {
+    text-shadow:
+      0 2px 0 rgb(15 37 64 / 0.4),
+      0 4px 12px rgb(15 37 64 / 0.25),
+      0 0 24px rgb(255 215 12 / 0.35);
   }
 
   @media (prefers-reduced-motion: reduce) {

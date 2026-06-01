@@ -73,7 +73,7 @@ export function ProductCard({
           {/* Honey price pill — sticker overlay top-right. Announced to AT
               (no aria-hidden) so screen-reader users hear the price up front. */}
           <span
-            className="absolute right-4 top-4 rounded-full bg-brand-primary px-4 py-1.5 font-display text-base font-bold text-ink shadow-cozy md:text-lg"
+            className="absolute right-4 top-4 rounded-full bg-brand-primary px-4 py-1.5 font-display text-base font-bold text-ink-blue shadow-cozy md:text-lg"
           >
             {price}
           </span>
@@ -99,7 +99,7 @@ export function ProductCard({
             {product.tags.slice(0, 2).map((tag) => (
               <li
                 key={tag}
-                className="rounded-full bg-paper px-2.5 py-1 text-[0.7rem] font-semibold uppercase tracking-wider text-ink/70"
+                className="rounded-full bg-paper px-2.5 py-1 text-[0.7rem] font-semibold uppercase tracking-wider text-ink-blue/70"
               >
                 {tag}
               </li>
@@ -107,7 +107,7 @@ export function ProductCard({
           </ul>
         )}
 
-        <h3 className="line-clamp-2 font-display text-lg font-semibold leading-tight text-ink md:text-xl lg:text-2xl">
+        <h3 className="line-clamp-2 font-display text-lg font-semibold leading-tight text-ink-blue md:text-xl lg:text-2xl">
           {product.title}
         </h3>
 
@@ -115,7 +115,7 @@ export function ProductCard({
             top-left badge only; no duplicate label here. */}
         {!isPlaceholder && (
           <div className="mt-auto pt-5">
-            <span className="cta-shimmer inline-flex min-h-[48px] items-center justify-center rounded-full bg-brand-primary px-7 font-display text-base font-bold text-ink shadow-cozy transition-all duration-200 group-hover:shadow-cozy-md">
+            <span className="cta-shimmer inline-flex min-h-[48px] items-center justify-center rounded-full bg-brand-primary px-7 font-display text-base font-bold text-ink-blue shadow-cozy transition-all duration-200 group-hover:shadow-cozy-md">
               Buy Now
               <span
                 aria-hidden="true"

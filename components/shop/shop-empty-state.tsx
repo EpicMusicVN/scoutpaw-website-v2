@@ -13,10 +13,10 @@ export function ShopEmptyState() {
           className="object-contain"
         />
       </div>
-      <h2 className="mt-6 font-display text-3xl font-bold text-ink">
+      <h2 className="mt-6 font-display text-3xl font-bold text-brand-gold">
         The shop is fetching new toys.
       </h2>
-      <p className="mt-3 text-ink/80">
+      <p className="mt-3 text-ink-blue/80">
         Rocky is sniffing out fresh products. Check back soon!
       </p>
     </div>

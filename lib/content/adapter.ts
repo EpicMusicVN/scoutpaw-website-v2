@@ -4,6 +4,7 @@ import type {
   ComingSoonPage,
   Playlist,
   SiteConfig,
+  TopPicksContent,
   Video,
   VideoContent,
 } from "./schemas";
@@ -34,4 +35,5 @@ export interface ContentSource {
   getPlaylistById(id: string): Promise<Playlist | null>;
   getComingSoonPages(): Promise<ComingSoonPage[]>;
   getComingSoonPageBySlug(slug: string): Promise<ComingSoonPage | null>;
+  getTopPicks(): Promise<TopPicksContent>;
 }

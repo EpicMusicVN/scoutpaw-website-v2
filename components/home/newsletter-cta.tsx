@@ -64,19 +64,23 @@ export function NewsletterCTA({
   return (
     <section
       id="newsletter"
-      className="relative mx-auto max-w-3xl scroll-mt-24 px-4 pt-4 pb-16 md:px-8 md:pt-4 md:pb-20"
+      className="relative mx-auto max-w-3xl scroll-mt-24 px-4 pt-4 pb-56 md:px-8 md:pt-4 md:pb-72"
     >
+      {/* Card + character poses share this relative wrapper so the poses can
+          anchor to the card's bottom edge (bottom-0 = card bottom) and use
+          translate-y-1/2 for the 50% overlap / 50% hang-off look. */}
+      <div className="relative">
       <div className="relative overflow-hidden rounded-[2rem] border border-ink/10 bg-surface px-6 py-10 text-center shadow-cozy-md md:px-12 md:py-14">
         <CornerPaws />
 
         <div className="relative">
-          <p className="font-display text-xs font-bold uppercase tracking-[0.3em] text-warm-muted md:text-sm">
+          <p className="font-display text-xs font-bold uppercase tracking-[0.3em] text-cobalt md:text-sm">
             Join the Pack
           </p>
-          <h2 className="mt-3 font-display text-5xl font-bold leading-[0.98] text-ink md:text-6xl lg:text-7xl">
+          <h2 className="mt-3 font-display text-5xl font-bold leading-[0.98] heading-sticker-honey md:text-6xl lg:text-7xl">
             {heading}
           </h2>
-          <p className="mx-auto mt-5 max-w-xl text-base text-warm-text/95 md:text-lg lg:text-xl">
+          <p className="mx-auto mt-5 max-w-xl text-base text-ink-blue/85 md:text-lg lg:text-xl">
             {subheading}
           </p>
 
@@ -84,7 +88,7 @@ export function NewsletterCTA({
             <p
               role="status"
               aria-live="polite"
-              className="mt-10 font-display text-xl text-ink md:text-2xl"
+              className="mt-10 font-display text-xl text-ink-blue md:text-2xl"
             >
               You&apos;re on the list. Welcome to the pack. 🐾
             </p>
@@ -120,7 +124,7 @@ export function NewsletterCTA({
                   onChange={(e) => setEmail(e.target.value)}
                   aria-invalid={state === "error"}
                   aria-describedby={state === "error" ? errorId : undefined}
-                  className="min-h-[56px] flex-1 rounded-full border-[1.5px] border-ink/20 bg-surface px-6 text-base text-ink placeholder:text-ink/55 focus:border-ink/45 focus:outline-none md:text-lg"
+                  className="min-h-[56px] flex-1 rounded-full border-[1.5px] border-ink/20 bg-surface px-6 text-base text-ink-blue placeholder:text-ink-blue/55 focus:border-ink/45 focus:outline-none md:text-lg"
                   disabled={state === "submitting"}
                 />
                 <button
@@ -143,14 +147,14 @@ export function NewsletterCTA({
                 id={errorId}
                 role="alert"
                 aria-live="polite"
-                className="min-h-[1.25rem] text-left text-sm text-warm-text/85"
+                className="min-h-[1.25rem] text-left text-sm text-ink-blue/85"
               >
                 {state === "error" && error ? `${error} Please try again.` : ""}
               </p>
             </form>
           )}
 
-          <p className="mt-6 font-display text-sm text-warm-muted md:text-base">
+          <p className="mt-6 font-display text-sm text-ink-blue/70 md:text-base">
             {socialProof}
           </p>
 
@@ -160,26 +164,29 @@ export function NewsletterCTA({
         </div>
       </div>
 
-      {/* Character pose decoratives — peek from below the card edges. Hidden on
-          mobile to avoid horizontal overflow. */}
+      {/* Character pose decoratives — anchored to the card's bottom-left and
+          bottom-right corners. Poses sit ON the card (no translate-y / no
+          overhang below) and extend upward from each corner. Slight rotation
+          adds personality without breaking the corner alignment. */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 hidden lg:block"
+        className="pointer-events-none absolute inset-x-0 bottom-0 hidden lg:block"
       >
         <Image
           src={assetUrl("characters-position/golden1.png")}
           alt=""
-          width={320}
-          height={180}
-          className="absolute bottom-4 -left-16 h-auto w-72 -rotate-6"
+          width={900}
+          height={1200}
+          className="absolute left-0 bottom-0 h-auto w-80 translate-y-1/2 -rotate-6 origin-bottom-left"
         />
         <Image
           src={assetUrl("characters-position/husky2.png")}
           alt=""
-          width={320}
-          height={180}
-          className="absolute bottom-6 -right-16 h-auto w-72 rotate-6"
+          width={900}
+          height={1200}
+          className="absolute right-0 bottom-0 h-auto w-80 translate-y-1/2 rotate-6 origin-bottom-right"
         />
+      </div>
       </div>
     </section>
   );
@@ -209,7 +216,7 @@ function Spinner() {
 function CornerPaws() {
   const Paw = ({ className }: { className: string }) => (
     <PawIcon
-      className={`absolute h-12 w-12 text-ink/15 md:h-16 md:w-16 ${className}`}
+      className={`absolute h-12 w-12 text-ink-blue/15 md:h-16 md:w-16 ${className}`}
     />
   );
 

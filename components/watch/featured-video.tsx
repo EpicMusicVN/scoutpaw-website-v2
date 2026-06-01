@@ -64,7 +64,7 @@ export function FeaturedVideo({
               </span>
             )}
             {video.category && (
-              <span className="absolute left-4 top-4 rounded-full bg-brand-primary/95 px-3 py-1.5 font-display text-xs font-bold uppercase tracking-[0.2em] text-ink md:text-sm">
+              <span className="absolute left-4 top-4 rounded-full bg-brand-primary/95 px-3 py-1.5 font-display text-xs font-bold uppercase tracking-[0.2em] text-ink-blue md:text-sm">
                 {video.category.replace("-", " ")}
               </span>
             )}
@@ -73,40 +73,40 @@ export function FeaturedVideo({
 
         {/* Copy + meta */}
         <div className="flex flex-col justify-center rounded-[2rem] border border-ink/10 bg-surface p-7 shadow-cozy-md md:p-10">
-          <p className="font-display text-xs font-bold uppercase tracking-[0.3em] text-warm-muted md:text-sm">
+          <p className="font-display text-xs font-bold uppercase tracking-[0.3em] text-cobalt md:text-sm">
             Featured Now
           </p>
-          <h2 className="mt-3 line-clamp-3 font-display text-3xl font-bold leading-[1.05] text-ink md:text-4xl lg:text-5xl">
+          <h2 className="mt-3 line-clamp-3 font-display text-3xl font-bold leading-[1.05] heading-sticker-honey md:text-4xl lg:text-5xl">
             {video.title}
           </h2>
 
           <dl className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-3">
             {channel && (
               <div>
-                <dt className="font-display text-[0.65rem] font-bold uppercase tracking-[0.18em] text-ink/65 md:text-xs">
+                <dt className="font-display text-[0.65rem] font-bold uppercase tracking-[0.18em] text-ink-blue/65 md:text-xs">
                   Channel
                 </dt>
-                <dd className="mt-0.5 font-display text-base font-bold text-ink md:text-lg">
+                <dd className="mt-0.5 font-display text-base font-bold text-ink-blue md:text-lg">
                   {channel.name}
                 </dd>
               </div>
             )}
             {typeof video.viewCount === "number" && (
               <div>
-                <dt className="font-display text-[0.65rem] font-bold uppercase tracking-[0.18em] text-ink/65 md:text-xs">
+                <dt className="font-display text-[0.65rem] font-bold uppercase tracking-[0.18em] text-ink-blue/65 md:text-xs">
                   Views
                 </dt>
-                <dd className="mt-0.5 font-display text-base font-bold text-ink md:text-lg">
+                <dd className="mt-0.5 font-display text-base font-bold text-ink-blue md:text-lg">
                   {formatViews(video.viewCount)}
                 </dd>
               </div>
             )}
             {video.uploadDate && (
               <div>
-                <dt className="font-display text-[0.65rem] font-bold uppercase tracking-[0.18em] text-ink/65 md:text-xs">
+                <dt className="font-display text-[0.65rem] font-bold uppercase tracking-[0.18em] text-ink-blue/65 md:text-xs">
                   Uploaded
                 </dt>
-                <dd className="mt-0.5 font-display text-base font-bold text-ink md:text-lg">
+                <dd className="mt-0.5 font-display text-base font-bold text-ink-blue md:text-lg">
                   {formatDate(video.uploadDate)}
                 </dd>
               </div>

@@ -31,14 +31,6 @@
       "tagline": "Meet the pack and the humans behind the show.",
       "characterSlug": "rocky",
       "newsletterTag": "coming-soon-about"
-    },
-    {
-      "slug": "top-picks",
-      "navLabel": "Top Picks",
-      "title": "Top Picks are sniffing the way here",
-      "tagline": "Hand-picked favorites from the pack — coming soon.",
-      "characterSlug": "rocky",
-      "newsletterTag": "coming-soon-top-picks"
     }
   ]
 }

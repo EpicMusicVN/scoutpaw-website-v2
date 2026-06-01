@@ -86,13 +86,13 @@ export function CinematicHero({
           transition={{ duration: 0.7, ease: "easeOut" }}
           className="relative order-2 rounded-[2.5rem] border border-ink/10 bg-surface p-7 shadow-cozy-xl md:order-1 md:p-10 lg:p-12"
         >
-          <p className="font-display text-xs font-bold uppercase tracking-[0.3em] text-warm-muted md:text-sm">
+          <p className="font-display text-xs font-bold uppercase tracking-[0.3em] text-cobalt md:text-sm">
             {kicker}
           </p>
-          <h1 className="mt-3 font-display text-5xl font-bold leading-[0.98] text-ink md:text-6xl lg:text-7xl xl:text-[5rem]">
+          <h1 className="mt-3 font-display text-5xl font-bold leading-[0.98] heading-sticker-honey md:text-6xl lg:text-7xl xl:text-[5rem]">
             {title}
           </h1>
-          <p className="mt-5 max-w-md text-base text-ink/85 md:text-lg lg:text-xl">
+          <p className="mt-5 max-w-md text-base text-ink-blue/85 md:text-lg lg:text-xl">
             {description}
           </p>
           <div className="mt-7 flex flex-wrap gap-3">

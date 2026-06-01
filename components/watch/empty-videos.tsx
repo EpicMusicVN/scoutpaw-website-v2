@@ -22,10 +22,10 @@ export function EmptyVideos({
         <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-white/70 text-brand-gold shadow-sm md:h-16 md:w-16">
           <PawIcon className="h-7 w-7 md:h-8 md:w-8" />
         </div>
-        <p className="mt-5 font-display text-xl font-bold uppercase tracking-[0.18em] text-ink md:text-2xl">
+        <p className="mt-5 font-display text-xl font-bold uppercase tracking-[0.18em] text-ink-blue md:text-2xl">
           No Videos
         </p>
-        <p className="mt-2 text-sm text-warm-text/85 md:text-base">{tagline}</p>
+        <p className="mt-2 text-sm text-ink-blue/85 md:text-base">{tagline}</p>
       </div>
     </div>
   );

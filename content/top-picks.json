@@ -1,0 +1,99 @@
+{
+  "deal": {
+    "badge": "Latest Drop",
+    "title": "The Cozy Season Bundle",
+    "description": "Our most-loved calming gear and snuggle picks — wrapped into one wagging-good deal for the whole pack. Tap to unwrap the latest popular offers.",
+    "image": "shop/promotion.jpg"
+  },
+  "picks": [
+    {
+      "id": "potaroma-puzzle-feeder",
+      "title": "Potaroma Dog Puzzle Feeder Toy",
+      "category": "pet-toys",
+      "image": "top-picks/potaroma-puzzle-feeder.jpg",
+      "description": "An interactive dog puzzle and stimulating essential for your pet's development. Perfect for every breed, from small puppies to large dogs.",
+      "badge": "IQ Training",
+      "ctaLabel": "Shop on Amazon",
+      "ctaHref": "https://www.amazon.com/dp/B0CLLLV8TD?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.2T638BCQISPBF&linkCode=tr1&tag=melosy-20&linkId=amzn1.campaign.2T638BCQISPBF_1779857714793",
+      "order": 1
+    },
+    {
+      "id": "gonenaturally-flea-tick-spray",
+      "title": "GoneNaturally Flea & Tick Spray for Cats",
+      "category": "pet-supplies",
+      "image": "top-picks/gonenaturally-flea-tick-spray.jpg",
+      "description": "Used directly on cats as part of an ongoing flea prevention routine — capable of killing adult fleas and ticks while breaking the reproduction cycle.",
+      "badge": "Plant-Based",
+      "ctaLabel": "Shop on Amazon",
+      "ctaHref": "https://www.amazon.com/dp/B0FRSK3TCG?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.173GEOQNLXLSP&linkCode=tr1&tag=melosy-20&linkId=amzn1.campaign.173GEOQNLXLSP_1779857785916",
+      "order": 2
+    },
+    {
+      "id": "calibonbon-duck-toys",
+      "title": "Calibonbon Stuffing-Free Duck Plush (4 Pack)",
+      "category": "pet-toys",
+      "image": "top-picks/calibonbon-duck-toys.jpg",
+      "description": "Made without loose filling inside to reduce scattered fluff and make cleanup easier than traditional stuffed plush dog toys.",
+      "badge": "4-Pack",
+      "ctaLabel": "Shop on Amazon",
+      "ctaHref": "https://www.amazon.com/dp/B0DD3V7ZBJ?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.2DYHEQ7A1MDOL&linkCode=tr1&tag=melosy-20&linkId=amzn1.campaign.2DYHEQ7A1MDOL_1779857923251",
+      "order": 3
+    },
+    {
+      "id": "anavia-pet-portrait-necklace",
+      "title": "Anavia Personalized Pet Portrait Necklace",
+      "category": "others",
+      "image": "top-picks/anavia-pet-portrait-necklace.jpg",
+      "description": "Handcrafted personalized pet portrait necklace — a thoughtful keepsake for the pup who's still in your heart.",
+      "badge": "Memorial Gift",
+      "ctaLabel": "Shop on Amazon",
+      "ctaHref": "https://www.amazon.com/dp/B09CT6FDFZ?pf_rd_p=953c7d66-4120-4d22-a777-f19dbfa69309&pf_rd_r=GBQ4CJ4WPB7AJHY7B5E9&pd_rd_wg=dJrFb&pd_rd_w=pa2yG&content-id=amzn1.sym.953c7d66-4120-4d22-a777-f19dbfa69309&pd_rd_r=88061f8a-a3ed-42a7-8e84-2c74793e6aae&sp_csd=d2lkZ2V0TmFtZT1zcF9kZXRhaWwy&th=1&linkCode=sl1&tag=puppycaretaker-20&linkId=82c19d4a6842f24fdf39a1731052b420&language=en_US&ref_=as_li_ss_tl&psc=1",
+      "order": 4
+    },
+    {
+      "id": "friskies-gravy-variety-pack",
+      "title": "Friskies Gravy Wet Cat Food Variety (40 Cans)",
+      "category": "pet-supplies",
+      "image": "top-picks/friskies-gravy-variety-pack.jpg",
+      "description": "Friskies Prime Filets wet cat food made with real meat, poultry or seafood. Savory sauce or gravy adds flavor and moisture.",
+      "badge": "40-Pack",
+      "popularity": "Bestseller",
+      "ctaLabel": "Shop on Amazon",
+      "ctaHref": "https://www.amazon.com/Purina-Friskies-Surfin-Favorites-Variety/dp/B0777J8V5J?th=1&linkCode=sl1&tag=puppycaretaker-20&linkId=2137ab9296ddc9fa645ba26d14ca5c8e&language=en_US&ref_=as_li_ss_tl",
+      "order": 5
+    },
+    {
+      "id": "iris-airtight-food-container",
+      "title": "IRIS Airtight Pet Food Storage Container",
+      "category": "home-living",
+      "image": "top-picks/iris-airtight-food-container.jpg",
+      "description": "Store your pet's dry food in a sealable, portable airtight container — keeps up to 10 lbs of dry food fresh and pest-free.",
+      "badge": "Airtight",
+      "ctaLabel": "Shop on Amazon",
+      "ctaHref": "https://www.amazon.com/IRIS-Nesting-Airtight-Container-Medium/dp/B007RBB662?th=1&linkCode=sl1&tag=puppycaretaker-20&linkId=89680405012231cb058f4c7324a3f07d&language=en_US&ref_=as_li_ss_tl",
+      "order": 6
+    },
+    {
+      "id": "best-pet-supplies-crinkle-chicken-multipack",
+      "title": "Best Pet Supplies Crinkle Octopus Chew Toy (Multipack)",
+      "category": "pet-toys",
+      "image": "top-picks/best-pet-supplies-crinkle-chicken-multipack.jpg",
+      "description": "Adorable six-legged octopus crinkle toys in bright, vibrant colors — a great way to play fetch and stimulate your dog's senses.",
+      "badge": "Multipack",
+      "ctaLabel": "Shop on Amazon",
+      "ctaHref": "https://www.amazon.com/gp/product/B0CLBD8NGB?th=1&linkCode=sl1&tag=puppycaretaker-20&linkId=8929efd06687dd884476782d832e564b&language=en_US&ref_=as_li_ss_tl",
+      "order": 7
+    },
+    {
+      "id": "best-pet-supplies-crinkle-chicken-brown",
+      "title": "Best Pet Supplies Crinkle Octopus Chew Toy (Brown)",
+      "category": "pet-toys",
+      "image": "top-picks/best-pet-supplies-crinkle-chicken-brown.jpg",
+      "description": "Adorable six-legged octopus crinkle toy in bright brown color — great for fetch play and sensory stimulation for chewers of all sizes.",
+      "badge": "Bestseller",
+      "ctaLabel": "Shop on Amazon",
+      "ctaHref": "https://www.amazon.com/gp/product/B0CL3WC4MT?th=1&linkCode=sl1&tag=puppycaretaker-20&linkId=4a5240e754d288a77bf41690234fd213&language=en_US&ref_=as_li_ss_tl",
+      "order": 8
+    }
+  ]
+}

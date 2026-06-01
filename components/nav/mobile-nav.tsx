@@ -82,7 +82,7 @@ export function MobileNav({
               type="button"
               aria-label="Close menu"
               onClick={() => setOpen(false)}
-              className="inline-flex h-12 w-12 items-center justify-center rounded-full text-ink transition-colors duration-200 hover:bg-ink/10"
+              className="inline-flex h-12 w-12 items-center justify-center rounded-full text-ink-blue transition-colors duration-200 hover:bg-ink/10"
             >
               <BurgerIcon open />
             </button>
@@ -107,10 +107,10 @@ export function MobileNav({
                       className={cn(
                         "flex items-center justify-between gap-3 rounded-2xl px-4 py-4 font-display text-2xl font-bold uppercase tracking-wide transition-colors",
                         active
-                          ? "bg-brand-primary text-ink shadow-cozy"
+                          ? "bg-brand-primary text-ink-blue shadow-cozy"
                           : item.enabled
-                            ? "text-ink hover:bg-ink/5"
-                            : "text-ink/45 hover:bg-ink/5 hover:text-ink/65",
+                            ? "text-ink-blue hover:bg-ink/5"
+                            : "text-ink-blue/45 hover:bg-ink/5 hover:text-ink-blue/65",
                       )}
                     >
                       <span>{item.label}</span>
@@ -130,14 +130,14 @@ export function MobileNav({
               <Link
                 href="/shop"
                 onClick={() => setOpen(false)}
-                className="cta-shimmer inline-flex min-h-[56px] items-center justify-center rounded-full bg-brand-primary px-6 font-display text-lg font-bold text-ink shadow-cozy"
+                className="cta-shimmer inline-flex min-h-[56px] items-center justify-center rounded-full bg-brand-primary px-6 font-display text-lg font-bold text-ink-blue shadow-cozy"
               >
                 Shop the Pack
               </Link>
               <Link
                 href="/#newsletter"
                 onClick={() => setOpen(false)}
-                className="inline-flex min-h-[56px] items-center justify-center rounded-full border-[1.5px] border-ink/20 bg-surface px-6 font-display text-lg font-bold text-ink"
+                className="inline-flex min-h-[56px] items-center justify-center rounded-full border-[1.5px] border-ink/20 bg-surface px-6 font-display text-lg font-bold text-ink-blue"
               >
                 Join the Newsletter
               </Link>
@@ -167,7 +167,7 @@ export function MobileNav({
         aria-label={open ? "Close menu" : "Open menu"}
         aria-expanded={open}
         onClick={() => setOpen((o) => !o)}
-        className="inline-flex h-12 w-12 items-center justify-center rounded-full text-ink transition-colors duration-200 hover:bg-ink/5 active:scale-95 md:hidden"
+        className="inline-flex h-12 w-12 items-center justify-center rounded-full text-ink-blue transition-colors duration-200 hover:bg-ink/5 active:scale-95 md:hidden"
       >
         <BurgerIcon open={open} />
       </button>
@@ -186,6 +186,7 @@ function BurgerIcon({ open }: { open: boolean }) {
         stroke="currentColor"
         strokeWidth="2.5"
         strokeLinecap="round"
+        initial={false}
         animate={open ? { d: "M6 6L18 18" } : { d: "M4 7L20 7" }}
         transition={{ duration: 0.25 }}
       />
@@ -193,6 +194,7 @@ function BurgerIcon({ open }: { open: boolean }) {
         stroke="currentColor"
         strokeWidth="2.5"
         strokeLinecap="round"
+        initial={false}
         animate={open ? { opacity: 0 } : { opacity: 1, d: "M4 12L20 12" }}
         transition={{ duration: 0.15 }}
       />
@@ -200,6 +202,7 @@ function BurgerIcon({ open }: { open: boolean }) {
         stroke="currentColor"
         strokeWidth="2.5"
         strokeLinecap="round"
+        initial={false}
         animate={open ? { d: "M6 18L18 6" } : { d: "M4 17L20 17" }}
         transition={{ duration: 0.25 }}
       />

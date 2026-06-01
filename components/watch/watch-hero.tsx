@@ -73,20 +73,22 @@ export function WatchHero({
               </div>
             )}
             {featured.category && (
-              <span className="absolute left-4 top-4 rounded-full bg-brand-primary/95 px-3 py-1.5 font-display text-xs font-bold uppercase tracking-[0.2em] text-ink md:text-sm">
+              <span className="absolute left-4 top-4 rounded-full bg-brand-primary/95 px-3 py-1.5 font-display text-xs font-bold uppercase tracking-[0.2em] text-ink-blue md:text-sm">
                 {VIDEO_CONTENT_LABELS[featured.category]}
               </span>
             )}
             {channel && (
-              <span className="absolute bottom-4 left-4 rounded-full bg-surface/90 px-3 py-1.5 font-display text-xs font-bold text-ink shadow-sm md:text-sm">
+              <span className="absolute bottom-4 left-4 rounded-full bg-surface/90 px-3 py-1.5 font-display text-xs font-bold text-ink-blue shadow-sm md:text-sm">
                 {channel.name}
               </span>
             )}
           </div>
         </Link>
 
-        {/* Stacked text + flanking poses below video */}
-        <div className="relative mt-10 md:mt-12">
+        {/* Stacked text + flanking poses below video. Bottom padding scales
+            with pose size at xl+ so the full body fits inside the section's
+            overflow-hidden bounds (poses are anchored top-4 and would clip). */}
+        <div className="relative mt-10 md:mt-12 pb-20 xl:pb-32 2xl:pb-40">
           {/* Left flank pose — xl+ only, larger at 2xl */}
           <Image
             src={assetUrl("characters-position/husky1.png")}
@@ -106,15 +108,15 @@ export function WatchHero({
             className="pointer-events-none absolute right-4 top-4 hidden h-auto w-56 rotate-6 xl:block 2xl:w-72"
           />
 
-          {/* Centered text + CTAs */}
+          {/* Centered text + CTAs — direct on cyan body bg (light surface) */}
           <div className="mx-auto max-w-2xl text-center">
-            <p className="font-display text-xs font-bold uppercase tracking-[0.3em] text-brand-gold md:text-sm">
+            <p className="font-display text-xs font-bold uppercase tracking-[0.3em] text-cobalt md:text-sm">
               ScoutPaw TV
             </p>
-            <h1 className="mt-3 font-display text-4xl font-bold leading-[1.02] text-ink md:text-5xl lg:text-6xl">
+            <h1 className="mt-3 font-display text-4xl font-bold leading-[1.02] heading-sticker-honey md:text-5xl lg:text-6xl">
               Tune in to the Pack.
             </h1>
-            <p className="mx-auto mt-4 max-w-md text-base text-ink/85 md:text-lg">
+            <p className="mx-auto mt-4 max-w-md text-base text-ink-blue/85 md:text-lg">
               Keep your furry friend happy with calming visuals and scientifically proven sounds. Just tap a journey to start their YouTube session!
             </p>
             <div className="mt-6 flex flex-wrap justify-center gap-3">

@@ -34,7 +34,7 @@ export function BackToTop() {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 12 }}
           transition={{ duration: 0.2, ease: "easeOut" }}
-          className="fixed bottom-6 right-6 z-40 inline-flex h-12 w-12 items-center justify-center rounded-full border border-ink/10 bg-surface text-ink shadow-cozy-md transition-all duration-200 hover:-translate-y-1 hover:bg-brand-primary hover:shadow-cozy-lg md:bottom-10 md:right-10 md:h-14 md:w-14"
+          className="fixed bottom-6 right-6 z-40 inline-flex h-12 w-12 items-center justify-center rounded-full border border-ink/10 bg-surface text-ink-blue shadow-cozy-md transition-all duration-200 hover:-translate-y-1 hover:bg-brand-primary hover:shadow-cozy-lg md:bottom-10 md:right-10 md:h-14 md:w-14"
         >
           <svg
             width="20"

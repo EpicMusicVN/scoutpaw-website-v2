@@ -78,7 +78,7 @@ export function CookieConsent({ gaId }: { gaId: string | undefined }) {
             <button
               type="button"
               onClick={() => persist("accepted")}
-              className="inline-flex min-h-[44px] items-center rounded-full bg-brand-primary px-5 font-semibold text-ink transition-all hover:brightness-95 active:scale-[0.98]"
+              className="inline-flex min-h-[44px] items-center rounded-full bg-brand-primary px-5 font-semibold text-ink-blue transition-all hover:brightness-95 active:scale-[0.98]"
             >
               Accept
             </button>

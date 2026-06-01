@@ -1,4 +1,6 @@
-import { getStorefrontClient } from "./client";
+import "server-only";
+
+import { storefrontFetch } from "./client";
 import { mockProducts } from "./mock-products";
 import { PRODUCTS_QUERY } from "./queries";
 import { ShopProductsSchema, type ShopProduct } from "./types";
@@ -8,8 +10,8 @@ type LiveResponseNode = {
   handle: string;
   title: string;
   description: string;
-  onlineStoreUrl: string | null;
   tags: string[];
+  onlineStoreUrl: string | null;
   featuredImage: { url: string; altText: string | null } | null;
   priceRange: { minVariantPrice: { amount: string; currencyCode: string } };
 };
@@ -17,6 +19,15 @@ type LiveResponseNode = {
 type LiveResponse = {
   products: { nodes: LiveResponseNode[] };
 };
+
+function buildStorefrontUrl(handle: string): string | null {
+  const domain = process.env.SHOPIFY_STORE_DOMAIN;
+  if (!domain) return null;
+  // Public storefront lives at /products/{handle} regardless of myshopify or
+  // custom domain; falls back to null if the env is missing (shouldn't happen
+  // in live mode, but typing forces the guard).
+  return `https://${domain}/products/${handle}`;
+}
 
 function mapNode(node: LiveResponseNode): ShopProduct {
   return {
@@ -27,7 +38,7 @@ function mapNode(node: LiveResponseNode): ShopProduct {
     imageUrl: node.featuredImage?.url ?? null,
     imageAlt: node.featuredImage?.altText ?? null,
     price: node.priceRange.minVariantPrice,
-    onlineStoreUrl: node.onlineStoreUrl,
+    onlineStoreUrl: node.onlineStoreUrl ?? buildStorefrontUrl(node.handle),
     tags: node.tags ?? [],
   };
 }
@@ -40,12 +51,21 @@ export async function getProducts(first = 24): Promise<ShopProduct[]> {
   }
 
   try {
-    const client = getStorefrontClient();
-    const { data, errors } = await client.request<LiveResponse>(PRODUCTS_QUERY, {
-      variables: { first },
+    const { data, errors } = await storefrontFetch<LiveResponse>(PRODUCTS_QUERY, {
+      first,
     });
-    if (errors || !data) {
-      console.error("[shopify] Storefront errors:", errors);
+    if (errors) {
+      console.error(
+        "[shopify] GraphQL/HTTP errors:",
+        JSON.stringify(errors, null, 2),
+      );
+      return [];
+    }
+    if (!data || !data.products) {
+      console.error(
+        "[shopify] Unexpected response shape — data.products missing:",
+        JSON.stringify({ data }, null, 2),
+      );
       return [];
     }
     return ShopProductsSchema.parse(data.products.nodes.map(mapNode));

@@ -67,13 +67,13 @@ export function ExploreProducts() {
   return (
     <section className="mx-auto max-w-hero px-4 py-24 md:px-8 md:py-32">
       <header className="text-center">
-        <p className="font-display text-xs font-bold uppercase tracking-[0.3em] text-brand-gold md:text-sm">
+        <p className="font-display text-xs font-bold uppercase tracking-[0.3em] text-cobalt md:text-sm">
           Explore Products
         </p>
-        <h2 className="mt-3 font-display text-4xl font-bold text-ink md:text-6xl lg:text-7xl">
+        <h2 className="mt-3 font-display text-4xl font-bold heading-sticker-honey md:text-6xl lg:text-7xl">
           Find Your Pup&rsquo;s Favourite.
         </h2>
-        <p className="mx-auto mt-4 max-w-2xl text-base text-warm-text md:text-lg">
+        <p className="mx-auto mt-4 max-w-2xl text-base text-ink-blue/85 md:text-lg">
           Curated picks for the whole pack — calming essentials for pups + gifts for the humans who love them.
         </p>
       </header>
@@ -112,10 +112,10 @@ export function ExploreProducts() {
                 {/* Text area — flush below image area, inherits surface bg
                     from the parent card so the tile reads as one unit. */}
                 <div className="p-5 md:p-6">
-                  <h3 className="font-display text-xl font-bold text-ink md:text-2xl">
+                  <h3 className="font-display text-xl font-bold text-ink-blue md:text-2xl">
                     {tile.title ?? categoryLabel(tile.category)}
                   </h3>
-                  <p className="mt-1 text-sm text-warm-text md:text-base">{tile.copy}</p>
+                  <p className="mt-1 text-sm text-ink-blue md:text-base">{tile.copy}</p>
                   <span className="mt-2 inline-flex items-center gap-1 font-display text-sm font-semibold text-brand-gold">
                     Shop
                     <span aria-hidden="true" className="transition-transform duration-200 group-hover:translate-x-1">

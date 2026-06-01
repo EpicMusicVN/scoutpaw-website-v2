@@ -22,13 +22,13 @@ export function PlaylistGrid({ playlists }: { playlists: Playlist[] }) {
   return (
     <section className="mx-auto max-w-hero px-4 py-16 md:px-8 md:py-24">
       <header className="text-center">
-        <p className="font-display text-xs font-bold uppercase tracking-[0.3em] text-brand-gold md:text-sm">
+        <p className="font-display text-xs font-bold uppercase tracking-[0.3em] text-cobalt md:text-sm">
           Browse by Mood
         </p>
-        <h2 className="mt-3 font-display text-4xl font-bold text-ink md:text-5xl lg:text-6xl">
+        <h2 className="mt-3 font-display text-4xl font-bold heading-sticker-honey md:text-5xl lg:text-6xl">
           Playlists for the Pack.
         </h2>
-        <p className="mx-auto mt-4 max-w-2xl text-base text-warm-text md:text-lg">
+        <p className="mx-auto mt-4 max-w-2xl text-base text-ink-blue/85 md:text-lg">
           Hand-curated rotations — pick a vibe, press play, walk away.
         </p>
       </header>
@@ -71,7 +71,7 @@ function PlaylistCard({ playlist, index }: { playlist: Playlist; index: number }
           className="absolute inset-0 bg-gradient-to-t from-ink/55 via-ink/15 to-transparent"
         />
         {url ? (
-          <span className="absolute right-4 top-4 rounded-full bg-surface/95 px-3 py-1 font-display text-xs font-bold uppercase tracking-[0.18em] text-ink/85 shadow-sm md:text-sm">
+          <span className="absolute right-4 top-4 rounded-full bg-surface/95 px-3 py-1 font-display text-xs font-bold uppercase tracking-[0.18em] text-ink-blue/85 shadow-sm md:text-sm">
             {playlist.videoIds.length} videos
           </span>
         ) : (
@@ -82,14 +82,14 @@ function PlaylistCard({ playlist, index }: { playlist: Playlist; index: number }
       </div>
 
       <div className="bg-surface px-6 py-6 md:px-7 md:py-7">
-        <h3 className="font-display text-2xl font-bold text-ink md:text-3xl">
+        <h3 className="font-display text-2xl font-bold text-ink-blue md:text-3xl">
           {playlist.title}
         </h3>
-        <p className="mt-2 line-clamp-2 text-sm text-warm-text md:text-base">
+        <p className="mt-2 line-clamp-2 text-sm text-ink-blue md:text-base">
           {playlist.description}
         </p>
         {url && (
-          <span className="mt-4 inline-flex items-center gap-1.5 font-display text-sm font-semibold text-ink md:text-base">
+          <span className="mt-4 inline-flex items-center gap-1.5 font-display text-sm font-semibold text-ink-blue md:text-base">
             Open on YouTube
             <span
               aria-hidden="true"

@@ -4,14 +4,32 @@ export const HexColorSchema = z
   .string()
   .regex(/^#[0-9a-fA-F]{6}$/, "must be 6-digit hex like #FFB627");
 
+// Related merchandise for a character — surfaced on the /characters page (v8).
+export const CharacterProductSchema = z.object({
+  id: z.string().min(1),
+  title: z.string().min(1),
+  image: z.string().min(1), // bare asset key, resolved via lib/utils/asset-url
+  badge: z.string().optional(), // optional highlight, e.g. "Bestseller"
+  ctaHref: z.string().min(1), // external storefront URL
+});
+export type CharacterProduct = z.infer<typeof CharacterProductSchema>;
+
 export const CharacterSchema = z.object({
   slug: z.string().min(1),
   name: z.string().min(1),
   breed: z.string().min(1),
   tagline: z.string(),
   bio: z.string(),
-  funFacts: z.array(z.string()).default([]),
+  quote: z.string().min(1),
   image: z.string().min(1),
+  // Full-body standing pose cutouts. At least one; the Characters scene + the
+  // detail-page hero render `poses[0]`. Extra entries are alternate poses kept
+  // for data flexibility (e.g. swapping which pose leads).
+  poses: z.array(z.string()).min(1),
+  // Related merchandise + storefront CTA for the per-character section (v8).
+  // Additive + defaulted so older character data stays valid.
+  products: z.array(CharacterProductSchema).default([]),
+  merchCtaHref: z.string().optional(),
   accentColor: HexColorSchema,
   order: z.number().int().nonnegative(),
 });
@@ -117,6 +135,63 @@ export const PlaylistSchema = z.object({
   youtubeUrl: z.string().url().optional(),
 });
 export type Playlist = z.infer<typeof PlaylistSchema>;
+
+// Top Picks — curated favourites surface on /top-picks. Standalone taxonomy:
+// pet-product categories, intentionally separate from the /shop SHOP_CATEGORIES.
+export const TOP_PICK_CATEGORIES = [
+  "apparel",
+  "pet-supplies",
+  "pet-toys",
+  "home-living",
+  "others",
+] as const;
+export const TopPickCategorySchema = z.enum(TOP_PICK_CATEGORIES);
+export type TopPickCategory = z.infer<typeof TopPickCategorySchema>;
+
+// Friendly display labels — shared by the Top Picks filter chips so the
+// category slug (routing/data) and the visible label never drift.
+export const TOP_PICK_CATEGORY_LABELS: Record<TopPickCategory, string> = {
+  apparel: "Apparel",
+  "pet-supplies": "Pet Supplies",
+  "pet-toys": "Pet Toys",
+  "home-living": "Home Living",
+  others: "Others",
+};
+
+export const TopPickSchema = z.object({
+  id: z.string().min(1),
+  title: z.string().min(1),
+  category: TopPickCategorySchema,
+  // Bare asset key (e.g. "shop/1.jpg"); UI resolves via lib/utils/asset-url.
+  image: z.string().min(1),
+  // 1-2 sentence short description shown below the title. Optional so older
+  // picks without copy still render. Amazon Associates ToS forbids displaying
+  // live prices without PA-API; price field intentionally absent.
+  description: z.string().optional(),
+  badge: z.string().optional(), // discount/highlight, e.g. "30% OFF"
+  rating: z.number().min(0).max(5).optional(),
+  popularity: z.string().optional(), // e.g. "Bestseller", "1.2k loved"
+  ctaLabel: z.string().default("Shop Now"),
+  ctaHref: z.string().min(1), // external storefront URL
+  order: z.number().int().nonnegative(),
+});
+export type TopPick = z.infer<typeof TopPickSchema>;
+
+export const DealBlockSchema = z.object({
+  badge: z.string().min(1),
+  title: z.string().min(1),
+  description: z.string(),
+  image: z.string().min(1),
+});
+export type DealBlock = z.infer<typeof DealBlockSchema>;
+
+// `top-picks.json` is itself shaped `{ deal, picks }`, so this content schema
+// doubles as the file schema — no separate wrapper needed.
+export const TopPicksContentSchema = z.object({
+  deal: DealBlockSchema,
+  picks: z.array(TopPickSchema),
+});
+export type TopPicksContent = z.infer<typeof TopPicksContentSchema>;
 
 export const ComingSoonPageSchema = z.object({
   slug: z.string().min(1),

@@ -1,0 +1,465 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Pivot #8 — Title Color Mockup</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root {
+    --brand-primary: #ffd70c;
+    --brand-gold: #b8862e;
+    --ink-blue: #1a3a5c;
+    --navy: #397fc5;
+    --ink: #2b1d10;
+    --paper: #c6e7e9;
+    --surface: #ffffff;
+    --warm-tan: #f5d896;
+    --peach: #fcd5c4;
+    --soft-sky: #d8efef;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; font-family: "Segoe UI", system-ui, sans-serif; color: var(--ink-blue); }
+  body { background: #efece6; }
+  .top-bar {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--ink); color: var(--surface);
+    padding: 12px 24px; font-size: 14px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.15);
+  }
+  .top-bar h1 { margin: 0; font-size: 14px; font-weight: 600; letter-spacing: 0.06em; }
+  .top-bar p { margin: 4px 0 0; opacity: .8; font-size: 12px; }
+  .frame {
+    max-width: 1200px;
+    margin: 32px auto;
+    background: var(--surface);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0,0,0,.08);
+    border: 1px solid rgba(0,0,0,.08);
+  }
+  .frame-header {
+    padding: 12px 20px;
+    background: var(--ink-blue);
+    color: var(--surface);
+  }
+  .frame-header h2 { margin: 0; font-size: 18px; }
+  .frame-header p { margin: 4px 0 0; font-size: 13px; opacity: .85; }
+  .frame-header .badge {
+    display: inline-block; margin-left: 8px;
+    padding: 2px 8px; border-radius: 999px;
+    background: var(--brand-primary); color: var(--ink-blue);
+    font-size: 11px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase;
+  }
+  .frame-header .badge.warn { background: #e85d54; color: white; }
+  .frame-header .badge.ok { background: #62c281; color: var(--ink-blue); }
+
+  /* Page mock — shared layout */
+  .page { background: var(--paper); padding: 48px 0 0; }
+
+  .hero {
+    position: relative;
+    padding: 56px 32px 80px;
+    text-align: center;
+    background: linear-gradient(180deg, var(--paper) 0%, var(--paper) 70%, var(--soft-sky) 100%);
+  }
+  .hero .kicker {
+    font-size: 11px; letter-spacing: .3em; font-weight: 700; text-transform: uppercase;
+  }
+  .hero h1 {
+    margin: 12px 0 0;
+    font-size: 56px; line-height: 1; font-weight: 800;
+  }
+  .hero p { margin: 18px auto 0; max-width: 540px; font-size: 16px; line-height: 1.5; opacity: .85; }
+
+  /* Cloud divider — approximated */
+  .cloud-divider {
+    height: 40px;
+    background:
+      radial-gradient(ellipse 80px 30px at 10% 50%, white 60%, transparent 62%),
+      radial-gradient(ellipse 120px 35px at 35% 50%, white 60%, transparent 62%),
+      radial-gradient(ellipse 100px 30px at 60% 50%, white 60%, transparent 62%),
+      radial-gradient(ellipse 90px 28px at 85% 50%, white 60%, transparent 62%);
+    background-color: var(--paper);
+  }
+
+  /* Section banner */
+  .banner {
+    padding: 64px 32px;
+    text-align: center;
+  }
+  .banner .kicker {
+    font-size: 12px; letter-spacing: .3em; font-weight: 700; text-transform: uppercase;
+  }
+  .banner h2 {
+    margin: 12px 0 0;
+    font-size: 48px; line-height: 1.05; font-weight: 800;
+  }
+  .banner p { margin: 16px auto 0; max-width: 600px; font-size: 16px; opacity: .85; }
+
+  /* Pup spotlight card (Say hi to Max) */
+  .card-section { padding: 24px 32px 64px; }
+  .pup-spotlight {
+    max-width: 900px; margin: 0 auto;
+    background: var(--surface);
+    border-radius: 32px;
+    padding: 32px;
+    box-shadow: 0 8px 32px rgba(43,29,16,.08);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    align-items: center;
+  }
+  .pup-spotlight .kicker {
+    font-size: 11px; letter-spacing: .25em; font-weight: 700; text-transform: uppercase;
+    color: var(--ink-blue); opacity: .7;
+  }
+  .pup-spotlight h2 {
+    margin: 8px 0 0;
+    font-size: 36px; line-height: 1.05; font-weight: 800;
+    color: var(--ink-blue); /* Constant across all variants — card title rule */
+  }
+  .pup-spotlight p { margin: 12px 0 0; font-size: 15px; line-height: 1.5; opacity: .85; }
+  .pup-spotlight .visual {
+    background: var(--warm-tan); border-radius: 24px; aspect-ratio: 1; display: grid; place-items: center;
+    font-size: 80px;
+  }
+
+  /* Deal block (Cozy Season Bundle) */
+  .deal-block {
+    max-width: 900px; margin: 32px auto 0;
+    border-radius: 32px;
+    background: linear-gradient(120deg, var(--warm-tan) 0%, var(--brand-primary) 55%, var(--peach) 100%);
+    padding: 40px;
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 24px;
+    align-items: center;
+  }
+  .deal-block .badge {
+    display: inline-block; background: var(--ink); color: var(--surface);
+    padding: 4px 12px; border-radius: 999px;
+    font-size: 11px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase;
+  }
+  .deal-block h2 {
+    margin: 16px 0 0;
+    font-size: 40px; line-height: 1.05; font-weight: 800;
+    color: var(--ink-blue); /* Card title rule */
+  }
+  .deal-block p { margin: 12px 0 0; font-size: 15px; opacity: .85; }
+  .deal-block .visual { background: var(--peach); border-radius: 16px; aspect-ratio: 16/10; display: grid; place-items: center; font-size: 64px; }
+
+  /* --- VARIANT-SPECIFIC OVERRIDES --- */
+
+  /* Baseline — current production (gradient h1/h2, gold kicker) */
+  .v-baseline .hero h1 {
+    background: linear-gradient(95deg, #b8862e 0%, #d4a833 25%, #ffd70c 50%, #fff5cc 75%, #ffffff 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .v-baseline .hero .kicker { color: var(--ink-blue); }
+  .v-baseline .banner h2 {
+    background: linear-gradient(95deg, #b8862e 0%, #d4a833 25%, #ffd70c 50%, #fff5cc 75%, #ffffff 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .v-baseline .banner .kicker { color: var(--brand-gold); }
+
+  /* A1 — Yellow on cyan, NO surface change (AA FAILS) */
+  .v-a1 .hero h1, .v-a1 .banner h2 { color: var(--brand-primary); text-shadow: 0 1px 0 rgba(0,0,0,.05); }
+  .v-a1 .hero .kicker, .v-a1 .banner .kicker { color: var(--ink-blue); }
+
+  /* A2 — Yellow on local navy strip */
+  .v-a2 .banner {
+    background: var(--ink-blue);
+    padding: 64px 32px;
+  }
+  .v-a2 .banner h2 { color: var(--brand-primary); }
+  .v-a2 .banner .kicker { color: var(--brand-primary); opacity: .85; }
+  .v-a2 .banner p { color: var(--surface); opacity: .85; }
+  .v-a2 .hero {
+    background: linear-gradient(180deg, var(--ink-blue) 0%, var(--ink-blue) 70%, var(--soft-sky) 100%);
+  }
+  .v-a2 .hero h1 { color: var(--brand-primary); }
+  .v-a2 .hero .kicker { color: var(--brand-primary); opacity: .85; }
+  .v-a2 .hero p { color: var(--surface); opacity: .85; }
+
+  /* A3 — Body bg darkens to navy in title-band sections */
+  .v-a3 .page { background: var(--ink-blue); }
+  .v-a3 .hero { background: linear-gradient(180deg, var(--ink-blue) 0%, var(--ink-blue) 70%, var(--ink-blue) 100%); }
+  .v-a3 .hero h1, .v-a3 .banner h2 { color: var(--brand-primary); }
+  .v-a3 .hero .kicker, .v-a3 .banner .kicker { color: var(--brand-primary); opacity: .85; }
+  .v-a3 .hero p, .v-a3 .banner p { color: var(--surface); opacity: .85; }
+  .v-a3 .cloud-divider {
+    background:
+      radial-gradient(ellipse 80px 30px at 10% 50%, var(--ink-blue) 60%, transparent 62%),
+      radial-gradient(ellipse 120px 35px at 35% 50%, var(--ink-blue) 60%, transparent 62%),
+      radial-gradient(ellipse 100px 30px at 60% 50%, var(--ink-blue) 60%, transparent 62%),
+      radial-gradient(ellipse 90px 28px at 85% 50%, var(--ink-blue) 60%, transparent 62%);
+    background-color: var(--ink-blue);
+  }
+  .v-a3 .card-section { background: var(--paper); padding-top: 48px; }
+  .v-a3 .banner { background: var(--ink-blue); }
+
+  /* A4 — Hybrid: hero gradient, h2s solid yellow on navy strip */
+  .v-a4 .hero h1 {
+    background: linear-gradient(95deg, #b8862e 0%, #d4a833 25%, #ffd70c 50%, #fff5cc 75%, #ffffff 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .v-a4 .hero .kicker { color: var(--ink-blue); }
+  .v-a4 .banner {
+    background: var(--ink-blue);
+    border-radius: 24px;
+    max-width: 900px; margin: 24px auto;
+  }
+  .v-a4 .banner h2 { color: var(--brand-primary); }
+  .v-a4 .banner .kicker { color: var(--brand-primary); opacity: .85; }
+  .v-a4 .banner p { color: var(--surface); opacity: .85; }
+
+  .legend {
+    max-width: 1200px;
+    margin: 32px auto;
+    padding: 24px;
+    background: white;
+    border-radius: 12px;
+    border: 1px solid rgba(0,0,0,.1);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .legend h2 { margin: 0 0 12px; font-size: 18px; }
+  .legend table { width: 100%; border-collapse: collapse; }
+  .legend th, .legend td { padding: 8px 12px; text-align: left; border-bottom: 1px solid rgba(0,0,0,.08); vertical-align: top; }
+  .legend th { background: var(--paper); font-weight: 600; }
+  .legend code { background: rgba(0,0,0,.05); padding: 2px 6px; border-radius: 4px; font-family: Menlo, Consolas, monospace; font-size: 12px; }
+  .legend .pass { color: #1f7a3a; font-weight: 600; }
+  .legend .fail { color: #c2342b; font-weight: 600; }
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+  <h1>Pivot #8 — Title Color Mockup (review then pick a variant)</h1>
+  <p>Tokens: yellow = <code style="color:#ffd70c">#ffd70c</code> (brand-primary) · blue = <code style="color:#7d9bb8">#1a3a5c</code> (ink-blue) · cyan body = <code style="color:#c6e7e9">#c6e7e9</code> (paper)</p>
+</div>
+
+<div class="legend">
+  <h2>How to read this</h2>
+  <p>Each frame below renders the same page rhythm (hero → cloud divider → section banner → "Say hi to Max" card → deal block "Cozy Season Bundle") with ONE styling variant applied. Card-internal titles (Say hi to Max, Cozy Season Bundle) are <code>text-ink-blue</code> in <em>all</em> variants per the two-tier rule you locked in. The variant is only swapping <strong>hero h1</strong> + <strong>section h2 banner</strong> + <strong>kicker</strong>.</p>
+  <table>
+    <thead><tr><th>Frame</th><th>What changed</th><th>WCAG AA (large text ≥18pt = 3:1)</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Baseline</strong></td><td>Current production state (pivot #7). Gradient gold h1/h2, gold kicker.</td><td class="pass">~3.5:1 PASS (mid-gradient measured against cyan)</td></tr>
+      <tr><td><strong>A1</strong></td><td>Solid <code>#ffd70c</code> on cyan, no surface change.</td><td class="fail">~1.1:1 FAIL — physics-ban forbidden in current code-standards.md</td></tr>
+      <tr><td><strong>A2</strong></td><td>Hero and section-banner bg switch to <code>#1a3a5c</code> ink-blue. Solid yellow titles. Card surfaces stay light.</td><td class="pass">~10:1 PASS (yellow on navy)</td></tr>
+      <tr><td><strong>A3</strong></td><td>Entire body bg becomes ink-blue (everything between cards). Pivot #6-lite — closest to the state that was reverted on 2026-05-28.</td><td class="pass">~10:1 PASS for titles; but big aesthetic shift</td></tr>
+      <tr><td><strong>A4</strong></td><td>Hero h1 stays gradient (existing pivot #7). Only section h2 banners wrap in local ink-blue rounded-strip card. Surgical change ≈ 14 components, not 19.</td><td class="pass">~10:1 PASS where solid yellow appears; hero unchanged</td></tr>
+    </tbody>
+  </table>
+  <p style="margin-top: 16px;"><strong>What to look for:</strong> scroll each frame top-to-bottom and judge how the title color reads in the full-page rhythm — not in isolation. Pivot #6 failed precisely because isolated mockups looked OK but the full-page feel was off after live render.</p>
+</div>
+
+<!-- BASELINE -->
+<div class="frame">
+  <div class="frame-header">
+    <h2>Baseline — Current production (pivot #7) <span class="badge ok">AA PASS</span></h2>
+    <p>Gradient gold h1 + h2, gold kicker. What's live today.</p>
+  </div>
+  <div class="page v-baseline">
+    <div class="hero">
+      <p class="kicker">SCOUTPAW TV</p>
+      <h1>Cozy stories, calm music, the whole pack.</h1>
+      <p>Hand-crafted lullabies and visual adventures for the dogs in your life.</p>
+    </div>
+    <div class="cloud-divider"></div>
+    <div class="banner">
+      <p class="kicker">Watch the Pack</p>
+      <h2>Stories made for sleepy pups.</h2>
+      <p>Fresh episodes every week — calm, paced for naps, scored for dogs.</p>
+    </div>
+    <div class="cloud-divider"></div>
+    <div class="card-section">
+      <div class="pup-spotlight">
+        <div class="visual">🐶</div>
+        <div>
+          <p class="kicker">Pack Captain</p>
+          <h2>Say hi to Max.</h2>
+          <p>The soulful, golden heart of ScoutPaw. Max anchors the pack with calm energy and a good ear for lullabies.</p>
+        </div>
+      </div>
+      <div class="deal-block">
+        <div>
+          <span class="badge">Latest Drop</span>
+          <h2>The Cozy Season Bundle</h2>
+          <p>Our most-loved calming gear and snuggle picks — wrapped into one wagging-good deal for the whole pack.</p>
+        </div>
+        <div class="visual">🎁</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- A1 -->
+<div class="frame">
+  <div class="frame-header">
+    <h2>A1 — Solid yellow on cyan, no surface change <span class="badge warn">AA FAIL ~1.1:1</span></h2>
+    <p>Visually loud, but Lighthouse a11y will flag every title. This is what code-standards.md calls the "physics ban."</p>
+  </div>
+  <div class="page v-a1">
+    <div class="hero">
+      <p class="kicker">SCOUTPAW TV</p>
+      <h1>Cozy stories, calm music, the whole pack.</h1>
+      <p>Hand-crafted lullabies and visual adventures for the dogs in your life.</p>
+    </div>
+    <div class="cloud-divider"></div>
+    <div class="banner">
+      <p class="kicker">Watch the Pack</p>
+      <h2>Stories made for sleepy pups.</h2>
+      <p>Fresh episodes every week — calm, paced for naps, scored for dogs.</p>
+    </div>
+    <div class="cloud-divider"></div>
+    <div class="card-section">
+      <div class="pup-spotlight">
+        <div class="visual">🐶</div>
+        <div>
+          <p class="kicker">Pack Captain</p>
+          <h2>Say hi to Max.</h2>
+          <p>The soulful, golden heart of ScoutPaw. Max anchors the pack with calm energy and a good ear for lullabies.</p>
+        </div>
+      </div>
+      <div class="deal-block">
+        <div>
+          <span class="badge">Latest Drop</span>
+          <h2>The Cozy Season Bundle</h2>
+          <p>Our most-loved calming gear and snuggle picks — wrapped into one wagging-good deal for the whole pack.</p>
+        </div>
+        <div class="visual">🎁</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- A2 -->
+<div class="frame">
+  <div class="frame-header">
+    <h2>A2 — Hero + section banners become ink-blue surface <span class="badge ok">AA PASS</span></h2>
+    <p>Solid yellow titles on navy bg. Closest match to "always yellow" intent without violating contrast. Card surfaces stay light.</p>
+  </div>
+  <div class="page v-a2">
+    <div class="hero">
+      <p class="kicker">SCOUTPAW TV</p>
+      <h1>Cozy stories, calm music, the whole pack.</h1>
+      <p>Hand-crafted lullabies and visual adventures for the dogs in your life.</p>
+    </div>
+    <div class="cloud-divider"></div>
+    <div class="banner">
+      <p class="kicker">Watch the Pack</p>
+      <h2>Stories made for sleepy pups.</h2>
+      <p>Fresh episodes every week — calm, paced for naps, scored for dogs.</p>
+    </div>
+    <div class="cloud-divider"></div>
+    <div class="card-section">
+      <div class="pup-spotlight">
+        <div class="visual">🐶</div>
+        <div>
+          <p class="kicker">Pack Captain</p>
+          <h2>Say hi to Max.</h2>
+          <p>The soulful, golden heart of ScoutPaw. Max anchors the pack with calm energy and a good ear for lullabies.</p>
+        </div>
+      </div>
+      <div class="deal-block">
+        <div>
+          <span class="badge">Latest Drop</span>
+          <h2>The Cozy Season Bundle</h2>
+          <p>Our most-loved calming gear and snuggle picks — wrapped into one wagging-good deal for the whole pack.</p>
+        </div>
+        <div class="visual">🎁</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- A3 -->
+<div class="frame">
+  <div class="frame-header">
+    <h2>A3 — Body bg darkens entirely to ink-blue <span class="badge warn">Closest to pivot #6 (reverted)</span></h2>
+    <p>Biggest visual shift. This is the direction you tried + reverted on 2026-05-28. Cards stay light by contrast.</p>
+  </div>
+  <div class="page v-a3">
+    <div class="hero">
+      <p class="kicker">SCOUTPAW TV</p>
+      <h1>Cozy stories, calm music, the whole pack.</h1>
+      <p>Hand-crafted lullabies and visual adventures for the dogs in your life.</p>
+    </div>
+    <div class="cloud-divider"></div>
+    <div class="banner">
+      <p class="kicker">Watch the Pack</p>
+      <h2>Stories made for sleepy pups.</h2>
+      <p>Fresh episodes every week — calm, paced for naps, scored for dogs.</p>
+    </div>
+    <div class="cloud-divider"></div>
+    <div class="card-section" style="background: var(--paper); border-radius: 32px 32px 0 0;">
+      <div class="pup-spotlight">
+        <div class="visual">🐶</div>
+        <div>
+          <p class="kicker">Pack Captain</p>
+          <h2>Say hi to Max.</h2>
+          <p>The soulful, golden heart of ScoutPaw. Max anchors the pack with calm energy and a good ear for lullabies.</p>
+        </div>
+      </div>
+      <div class="deal-block">
+        <div>
+          <span class="badge">Latest Drop</span>
+          <h2>The Cozy Season Bundle</h2>
+          <p>Our most-loved calming gear and snuggle picks — wrapped into one wagging-good deal for the whole pack.</p>
+        </div>
+        <div class="visual">🎁</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- A4 -->
+<div class="frame">
+  <div class="frame-header">
+    <h2>A4 — Hybrid: hero keeps gradient, h2 banners wrap in ink-blue card strip <span class="badge ok">AA PASS</span></h2>
+    <p>Surgical option. Hero unchanged (still pivot #7 baseline). Only the 14 large h2 banners switch — each becomes a self-contained navy-rounded strip with yellow title. Cyan body bg stays.</p>
+  </div>
+  <div class="page v-a4">
+    <div class="hero">
+      <p class="kicker">SCOUTPAW TV</p>
+      <h1>Cozy stories, calm music, the whole pack.</h1>
+      <p>Hand-crafted lullabies and visual adventures for the dogs in your life.</p>
+    </div>
+    <div class="cloud-divider"></div>
+    <div class="banner">
+      <p class="kicker">Watch the Pack</p>
+      <h2>Stories made for sleepy pups.</h2>
+      <p>Fresh episodes every week — calm, paced for naps, scored for dogs.</p>
+    </div>
+    <div class="cloud-divider"></div>
+    <div class="card-section">
+      <div class="pup-spotlight">
+        <div class="visual">🐶</div>
+        <div>
+          <p class="kicker">Pack Captain</p>
+          <h2>Say hi to Max.</h2>
+          <p>The soulful, golden heart of ScoutPaw. Max anchors the pack with calm energy and a good ear for lullabies.</p>
+        </div>
+      </div>
+      <div class="deal-block">
+        <div>
+          <span class="badge">Latest Drop</span>
+          <h2>The Cozy Season Bundle</h2>
+          <p>Our most-loved calming gear and snuggle picks — wrapped into one wagging-good deal for the whole pack.</p>
+        </div>
+        <div class="visual">🎁</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="legend">
+  <h2>Once you pick a variant, what happens</h2>
+  <p>I implement the chosen variant by editing the SAME files pivot #7 touched (5 heroes + 14 large h2 banners + relevant kickers). All card-internal titles already match the locked rule (text-ink-blue) — no edit needed for Say hi to Max / UNBOX THE MAGIC / Cozy Season Bundle copy. Then I update <code>docs/code-standards.md</code> to log pivot #8 in the audit trail with this mockup as the evidence artifact (per lock mechanism).</p>
+  <p>If <strong>none of the 4 work</strong> for you, tell me what's off and we iterate the mockup — no code touched until you say yes.</p>
+</div>
+
+</body>
+</html>

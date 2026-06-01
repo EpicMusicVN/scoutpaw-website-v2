@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { CharacterHero } from "@/components/characters/character-hero";
-import { FunFactsList } from "@/components/characters/fun-facts-list";
+import { CharacterDetailHero } from "@/components/characters/character-detail-hero";
+import { CharacterQuote } from "@/components/characters/character-quote";
 import { Button } from "@/components/ui/button";
 import { content } from "@/lib/content";
+import { getCharacterTheme } from "@/lib/content/character-themes";
 import { assetUrl } from "@/lib/utils/asset-url";
 
 type Params = { slug: string };
@@ -46,27 +47,45 @@ export default async function CharacterPage({
   const character = await content.getCharacterBySlug(slug);
   if (!character) notFound();
 
+  const theme = getCharacterTheme(slug);
+  const channels = await content.getChannels();
+  const channel = channels.find((c) => c.characterSlug === slug) ?? null;
   const hasBio = !character.bio.startsWith("TODO");
 
   return (
-    <div className="mx-auto max-w-6xl px-4 py-8 md:px-8 md:py-12">
-      <CharacterHero character={character} />
+    <>
+      <CharacterDetailHero
+        character={character}
+        theme={theme}
+        channel={channel}
+      />
 
-      {hasBio && (
-        <section className="mx-auto mt-16 max-w-3xl">
-          <p className="text-xl leading-relaxed text-ink/85 md:text-2xl">{character.bio}</p>
-        </section>
-      )}
-
-      <div className="mt-16">
-        <FunFactsList character={character} />
-      </div>
-
-      <div className="mt-16 flex justify-center">
-        <Button href="/" variant="outline" size="md">
-          ← Back to the pack
-        </Button>
-      </div>
-    </div>
+      {/* Story block — themed soft tint behind the description + quote. */}
+      <section
+        className="px-4 py-14 md:py-20"
+        style={{ backgroundColor: theme.surfaceTint }}
+      >
+        <div className="mx-auto max-w-2xl">
+          {hasBio && (
+            <p className="text-lg leading-relaxed text-ink-blue md:text-xl">
+              {character.bio}
+            </p>
+          )}
+          <div className="mt-8">
+            <CharacterQuote
+              quote={character.quote}
+              accentColor={theme.decor}
+            />
+          </div>
+          {/* Back link — folded into the themed block so the page closes
+              cleanly on the surface tint. */}
+          <div className="mt-10 flex justify-center md:mt-12">
+            <Button href="/characters" variant="outline" size="md">
+              ← Back to the pack
+            </Button>
+          </div>
+        </div>
+      </section>
+    </>
   );
 }

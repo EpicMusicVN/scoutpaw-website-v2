@@ -53,7 +53,7 @@ export function MenuCards() {
           stay fully interactive and screen readers ignore. */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 opacity-[0.10] text-warm-text"
+        className="pointer-events-none absolute inset-0 opacity-[0.10] text-ink-blue"
       >
         <DecorPaw className="absolute left-[5%] top-[8%] h-10 w-10 -rotate-12" />
         <DecorBone className="absolute right-[8%] top-[14%] h-12 w-12 rotate-[18deg]" />
@@ -64,13 +64,13 @@ export function MenuCards() {
       </div>
 
       <header className="text-center">
-        <p className="font-display text-xs font-bold uppercase tracking-[0.25em] text-brand-gold md:text-sm">
+        <p className="font-display text-xs font-bold uppercase tracking-[0.25em] text-cobalt md:text-sm">
           The ScoutPaw World
         </p>
-        <h2 className="mt-3 font-display text-4xl font-bold text-ink md:text-5xl lg:text-6xl">
+        <h2 className="mt-3 font-display text-4xl font-bold heading-sticker-honey md:text-5xl lg:text-6xl">
           Step into the pack&apos;s world
         </h2>
-        <p className="mx-auto mt-4 max-w-xl text-base text-warm-text md:text-lg">
+        <p className="mx-auto mt-4 max-w-xl text-base text-ink-blue/85 md:text-lg">
           Whether you&apos;re here to meet the pack, find some new favorites, or start the music, there&apos;s something special for every pup and their hooman to discover!
         </p>
       </header>
@@ -115,8 +115,8 @@ function MenuCard({ card }: { card: Card }) {
       {/* Text card — full column width, pulled up under the image card so
           the image's bottom half visually overlaps the text card top. */}
       <div className="relative flex flex-1 flex-col -mt-20 rounded-3xl bg-surface px-6 pb-6 pt-28 shadow-cozy transition-all duration-500 ease-gentle group-hover:shadow-cozy-md md:-mt-[88px] md:px-7 md:pb-7 md:pt-32 lg:-mt-24 lg:pt-36">
-        <h3 className="font-display text-xl font-bold text-ink md:text-2xl">{card.label}</h3>
-        <p className="mt-1.5 text-sm text-warm-text md:text-base">{card.copy}</p>
+        <h3 className="font-display text-xl font-bold text-ink-blue md:text-2xl">{card.label}</h3>
+        <p className="mt-1.5 text-sm text-ink-blue md:text-base">{card.copy}</p>
         {!card.comingSoon && (
           <span className="mt-auto inline-flex w-fit items-center rounded-full bg-navy px-5 py-2 font-display text-sm font-semibold text-white shadow-sm transition-all duration-500 ease-gentle group-hover:-translate-y-0.5 group-hover:shadow-md md:text-base">
             View All

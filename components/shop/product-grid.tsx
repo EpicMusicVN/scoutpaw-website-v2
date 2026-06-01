@@ -59,7 +59,7 @@ export function ProductGrid({ products }: { products: ShopProduct[] }) {
       </div>
 
       {filtered.length === 0 ? (
-        <p className="mt-12 text-center font-display text-lg text-ink/70">
+        <p className="mt-12 text-center font-display text-lg text-ink-blue/70">
           No products in this category yet — check back soon.
         </p>
       ) : (
@@ -95,7 +95,7 @@ function FilterChip({
       className={`inline-flex min-h-[40px] items-center rounded-full px-5 font-display text-sm font-semibold uppercase tracking-wider transition-all duration-200 ease-gentle md:text-base ${
         active
           ? "bg-ink text-surface shadow-cozy"
-          : "bg-surface text-ink border border-ink/15 shadow-sm hover:-translate-y-0.5 hover:bg-brand-primary/30 hover:border-ink/30"
+          : "bg-surface text-ink-blue border border-ink/15 shadow-sm hover:-translate-y-0.5 hover:bg-brand-primary/30 hover:border-ink/30"
       }`}
     >
       {label}

@@ -14,7 +14,18 @@ function seededRand(seed: number): number {
   return x - Math.floor(x);
 }
 
-export function PawPrintPattern({ count = 24 }: { count?: number }) {
+/**
+ * `tone` controls stamp color:
+ *   - "light" (default) → dark-ink stamps for light/white bg (`text-ink-blue/10`)
+ *   - "dark"            → white/yellow stamps for dark navy bg (`text-white/15`)
+ */
+export function PawPrintPattern({
+  count = 24,
+  tone = "light",
+}: {
+  count?: number;
+  tone?: "light" | "dark";
+}) {
   const paws = Array.from({ length: count }, (_, i) => {
     const r1 = seededRand(i + 1);
     const r2 = seededRand(i + 100);
@@ -28,10 +39,12 @@ export function PawPrintPattern({ count = 24 }: { count?: number }) {
     };
   });
 
+  const colorClass = tone === "dark" ? "text-white/15" : "text-ink-blue/10";
+
   return (
     <div
       aria-hidden
-      className="pointer-events-none absolute inset-0 hidden overflow-hidden text-ink/10 md:block"
+      className={`pointer-events-none absolute inset-0 hidden overflow-hidden md:block ${colorClass}`}
     >
       {paws.map((p, i) => (
         <PawIcon

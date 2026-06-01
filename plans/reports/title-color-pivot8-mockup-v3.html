@@ -1,0 +1,429 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Pivot #8 v3 — Bluey-vibe playful kids brand</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root {
+    --brand-primary: #ffd70c;
+    --brand-gold: #b8862e;
+    --ink-blue: #1a3a5c;
+    --navy: #397fc5;
+    --ink: #2b1d10;
+    --paper: #c6e7e9;
+    --surface: #ffffff;
+
+    /* Bluey-leaning palette additions */
+    --cream-warm: #fff5dc;       /* warm cream surface */
+    --cobalt: #1f4d96;            /* vibrant deep blue, slightly brighter than ink-blue */
+    --cobalt-bright: #2563a8;     /* lighter cobalt for kickers */
+    --coral-warm: #ee5a47;        /* punchy warm coral, hotter than --accent-coral */
+    --coral-soft: #f6856f;        /* lighter coral for surfaces */
+    --mint: #8fcf9b;              /* soft kid-tv mint */
+    --honey: #ffc935;             /* between brand-primary and brand-gold */
+    --peach-soft: #fcd5c4;        /* existing peach */
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; font-family: "Segoe UI", system-ui, sans-serif; color: var(--ink-blue); }
+  body { background: #efece6; }
+  .top-bar { position: sticky; top: 0; z-index: 100; background: var(--ink); color: var(--surface); padding: 12px 24px; }
+  .top-bar h1 { margin: 0; font-size: 14px; font-weight: 600; }
+  .top-bar p { margin: 4px 0 0; opacity: .8; font-size: 12px; }
+
+  .legend {
+    max-width: 1200px; margin: 32px auto; padding: 24px;
+    background: white; border-radius: 12px;
+    border: 1px solid rgba(0,0,0,.1); font-size: 14px; line-height: 1.55;
+  }
+  .legend h2 { margin: 0 0 12px; font-size: 18px; }
+  .legend h3 { margin: 16px 0 8px; font-size: 15px; }
+  .legend table { width: 100%; border-collapse: collapse; margin: 8px 0; }
+  .legend th, .legend td { padding: 8px 12px; text-align: left; border-bottom: 1px solid rgba(0,0,0,.08); vertical-align: top; }
+  .legend th { background: var(--cream-warm); font-weight: 600; }
+  .legend code { background: rgba(0,0,0,.05); padding: 2px 6px; border-radius: 4px; font-family: Menlo, Consolas, monospace; font-size: 12px; }
+  .swatch { display: inline-block; width: 14px; height: 14px; border-radius: 3px; vertical-align: middle; margin-right: 6px; border: 1px solid rgba(0,0,0,.2); }
+  .pass { color: #1f7a3a; font-weight: 600; }
+
+  .frame {
+    max-width: 1200px; margin: 32px auto; background: var(--surface);
+    border-radius: 16px; overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0,0,0,.08); border: 1px solid rgba(0,0,0,.08);
+  }
+  .frame-header { padding: 16px 24px; background: var(--cobalt); color: var(--surface); }
+  .frame-header h2 { margin: 0; font-size: 18px; }
+  .frame-header p { margin: 4px 0 0; font-size: 13px; opacity: .85; }
+  .frame-header .badge {
+    display: inline-block; margin-left: 8px; padding: 2px 8px; border-radius: 999px;
+    background: var(--honey); color: var(--ink-blue);
+    font-size: 11px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase;
+  }
+  .frame-header .badge.ok { background: #62c281; color: var(--ink-blue); }
+
+  /* Page mock */
+  .page { background: var(--cream-warm); padding: 0; }
+  .hero { position: relative; padding: 72px 32px 96px; text-align: center; }
+  .hero .kicker { font-size: 11px; letter-spacing: .3em; font-weight: 700; text-transform: uppercase; }
+  .hero h1 { margin: 14px 0 0; font-size: 64px; line-height: 1; font-weight: 900; letter-spacing: -0.01em; }
+  .hero p { margin: 18px auto 0; max-width: 540px; font-size: 16px; line-height: 1.5; opacity: .85; }
+
+  .cloud-divider {
+    height: 40px;
+    background:
+      radial-gradient(ellipse 80px 30px at 10% 50%, white 60%, transparent 62%),
+      radial-gradient(ellipse 120px 35px at 35% 50%, white 60%, transparent 62%),
+      radial-gradient(ellipse 100px 30px at 60% 50%, white 60%, transparent 62%),
+      radial-gradient(ellipse 90px 28px at 85% 50%, white 60%, transparent 62%);
+    background-color: var(--cream-warm);
+  }
+
+  .banner { padding: 80px 32px; text-align: center; }
+  .banner .kicker { font-size: 12px; letter-spacing: .3em; font-weight: 700; text-transform: uppercase; }
+  .banner h2 { margin: 14px 0 0; font-size: 56px; line-height: 1.05; font-weight: 900; letter-spacing: -0.01em; }
+  .banner p { margin: 16px auto 0; max-width: 600px; font-size: 16px; opacity: .85; }
+
+  .card-section { padding: 32px 32px 72px; }
+  .pup-spotlight {
+    max-width: 920px; margin: 0 auto;
+    background: var(--surface); border-radius: 32px; padding: 32px;
+    box-shadow: 0 8px 32px rgba(43,29,16,.08);
+    display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: center;
+  }
+  .pup-spotlight .kicker { font-size: 11px; letter-spacing: .25em; font-weight: 700; text-transform: uppercase; color: var(--ink-blue); opacity: .7; }
+  .pup-spotlight h2 { margin: 8px 0 0; font-size: 36px; line-height: 1.05; font-weight: 800; color: var(--ink-blue); }
+  .pup-spotlight p { margin: 12px 0 0; font-size: 15px; line-height: 1.5; opacity: .85; }
+  .pup-spotlight .visual { background: var(--peach-soft); border-radius: 24px; aspect-ratio: 1; display: grid; place-items: center; font-size: 80px; }
+
+  .deal-block {
+    max-width: 920px; margin: 32px auto 0; border-radius: 32px;
+    background: linear-gradient(120deg, var(--honey) 0%, var(--coral-soft) 100%);
+    padding: 40px;
+    display: grid; grid-template-columns: 1.3fr 1fr; gap: 24px; align-items: center;
+  }
+  .deal-block .badge {
+    display: inline-block; background: var(--ink); color: var(--surface);
+    padding: 4px 12px; border-radius: 999px;
+    font-size: 11px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase;
+  }
+  .deal-block h2 { margin: 16px 0 0; font-size: 40px; line-height: 1.05; font-weight: 800; color: var(--ink-blue); }
+  .deal-block p { margin: 12px 0 0; font-size: 15px; opacity: .85; }
+  .deal-block .visual { background: var(--peach-soft); border-radius: 16px; aspect-ratio: 16/10; display: grid; place-items: center; font-size: 64px; }
+
+  /* --- VARIANT-SPECIFIC OVERRIDES --- */
+
+  /* D1 — Cobalt + Honey signature */
+  .v-d1 .hero h1, .v-d1 .banner h2 { color: var(--cobalt); }
+  .v-d1 .hero .kicker, .v-d1 .banner .kicker { color: var(--honey); -webkit-text-stroke: 0.5px var(--brand-gold); }
+
+  /* D2 — Coral pop */
+  .v-d2 .hero h1, .v-d2 .banner h2 { color: var(--coral-warm); }
+  .v-d2 .hero .kicker, .v-d2 .banner .kicker { color: var(--cobalt); }
+
+  /* D3 — Sticker yellow with cobalt outline on cyan body */
+  .v-d3 .page { background: var(--paper); }
+  .v-d3 .cloud-divider { background-color: var(--paper); background:
+      radial-gradient(ellipse 80px 30px at 10% 50%, white 60%, transparent 62%),
+      radial-gradient(ellipse 120px 35px at 35% 50%, white 60%, transparent 62%),
+      radial-gradient(ellipse 100px 30px at 60% 50%, white 60%, transparent 62%),
+      radial-gradient(ellipse 90px 28px at 85% 50%, white 60%, transparent 62%);
+      background-color: var(--paper);
+  }
+  .v-d3 .hero h1, .v-d3 .banner h2 {
+    color: var(--brand-primary);
+    -webkit-text-stroke: 2.5px var(--cobalt);
+    paint-order: stroke fill;
+    text-shadow: 4px 4px 0 rgba(31,77,150,.25);
+  }
+  .v-d3 .hero .kicker, .v-d3 .banner .kicker { color: var(--cobalt); }
+
+  /* D4 — Alternating: hero cobalt, banner coral (multi-color rotation) */
+  .v-d4 .hero h1 { color: var(--cobalt); }
+  .v-d4 .hero .kicker { color: var(--honey); -webkit-text-stroke: 0.5px var(--brand-gold); }
+  .v-d4 .banner h2 { color: var(--coral-warm); }
+  .v-d4 .banner .kicker { color: var(--cobalt); }
+  .v-d4 .banner { background: var(--cream-warm); }
+
+  /* D5 — Honey hour: honey titles, cobalt kicker, on cream */
+  .v-d5 .hero h1, .v-d5 .banner h2 { color: var(--honey); -webkit-text-stroke: 1.5px var(--cobalt); paint-order: stroke fill; }
+  .v-d5 .hero .kicker, .v-d5 .banner .kicker { color: var(--cobalt); }
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+  <h1>Pivot #8 v3 — Bluey-vibe palettes (playful kids brand)</h1>
+  <p>5 directions. Cream-warm body bg replaces cyan (closer to Bluey-on-paper feel). Saturated cobalt + coral + honey instead of muted gold. Card titles still <code>ink-blue</code>.</p>
+</div>
+
+<div class="legend">
+  <h2>What changed from v2</h2>
+  <p>You said v2 was "wrong direction entirely" and wanted Bluey-vibe playful kids brand. v3 swaps the body bg from cyan to <strong>warm cream</strong> (Bluey's signature paper-color), introduces a brighter <strong>cobalt</strong> (deeper than navy, more saturated than ink-blue), warmer <strong>coral</strong>, and brings the <strong>honey</strong> in as a kicker accent (not a title). Card surfaces still light, card titles still ink-blue.</p>
+
+  <h3>The 5 Bluey-direction options</h3>
+  <table>
+    <thead><tr><th>Frame</th><th>Body bg</th><th>Hero h1</th><th>Banner h2</th><th>Kicker</th><th>AA</th><th>Personality</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>D1</strong></td>
+        <td><span class="swatch" style="background:#fff5dc"></span>cream-warm</td>
+        <td><span class="swatch" style="background:#1f4d96"></span>cobalt</td>
+        <td><span class="swatch" style="background:#1f4d96"></span>cobalt</td>
+        <td><span class="swatch" style="background:#ffc935"></span>honey</td>
+        <td class="pass">~10:1</td>
+        <td>Bluey signature: confident cobalt titles with sunny honey kickers. Most "official kids brand" feel.</td>
+      </tr>
+      <tr>
+        <td><strong>D2</strong></td>
+        <td><span class="swatch" style="background:#fff5dc"></span>cream-warm</td>
+        <td><span class="swatch" style="background:#ee5a47"></span>coral-warm</td>
+        <td><span class="swatch" style="background:#ee5a47"></span>coral-warm</td>
+        <td><span class="swatch" style="background:#1f4d96"></span>cobalt</td>
+        <td class="pass">~5.5:1</td>
+        <td>Punchy coral on cream. Highest energy. Reads as warm + alive.</td>
+      </tr>
+      <tr>
+        <td><strong>D3</strong></td>
+        <td><span class="swatch" style="background:#c6e7e9"></span>cyan (unchanged)</td>
+        <td><span class="swatch" style="background:#ffd70c"></span>honey w/ cobalt outline</td>
+        <td><span class="swatch" style="background:#ffd70c"></span>honey w/ cobalt outline</td>
+        <td><span class="swatch" style="background:#1f4d96"></span>cobalt</td>
+        <td class="pass">~10:1 (outline)</td>
+        <td>Sticker-pop: honey yellow titles with cobalt outline. Yellow stays vibrant; outline provides AA. Strongest "sticker" / "Saturday-morning-cartoon" feel.</td>
+      </tr>
+      <tr>
+        <td><strong>D4</strong></td>
+        <td><span class="swatch" style="background:#fff5dc"></span>cream-warm</td>
+        <td><span class="swatch" style="background:#1f4d96"></span>cobalt</td>
+        <td><span class="swatch" style="background:#ee5a47"></span>coral (alternates per section)</td>
+        <td>varies</td>
+        <td class="pass">~5-10:1</td>
+        <td>Hero anchors with cobalt; section banners pop with coral. Multi-color rotation gives the page energy variation.</td>
+      </tr>
+      <tr>
+        <td><strong>D5</strong></td>
+        <td><span class="swatch" style="background:#fff5dc"></span>cream-warm</td>
+        <td><span class="swatch" style="background:#ffc935"></span>honey w/ cobalt outline</td>
+        <td><span class="swatch" style="background:#ffc935"></span>honey w/ cobalt outline</td>
+        <td><span class="swatch" style="background:#1f4d96"></span>cobalt</td>
+        <td class="pass">~10:1 (outline)</td>
+        <td>Sunny variant of D3 — honey on cream instead of cyan. Less "TV" more "storybook." Warm + bright.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Where this lands relative to Bluey</h3>
+  <p style="margin-bottom:0;">Bluey itself uses cobalt + honey + coral on a warm cream/paper background, with bold display type. D1 / D4 / D5 hit that aesthetic most directly. D2 is hotter (more Bluey-coral-card-game). D3 is the most "sticker pop" — closest to the Saturday-morning cartoon energy if that's the vibe you want.</p>
+</div>
+
+<!-- D1 -->
+<div class="frame">
+  <div class="frame-header">
+    <h2>D1 — Cobalt titles + honey kicker on cream (Bluey signature) <span class="badge ok">AA PASS</span></h2>
+    <p>The "official kids brand" combo. Cobalt anchors, honey kicker brings sunshine.</p>
+  </div>
+  <div class="page v-d1">
+    <div class="hero">
+      <p class="kicker">SCOUTPAW TV</p>
+      <h1>Cozy stories, calm music, the whole pack.</h1>
+      <p>Hand-crafted lullabies and visual adventures for the dogs in your life.</p>
+    </div>
+    <div class="cloud-divider"></div>
+    <div class="banner">
+      <p class="kicker">Watch the Pack</p>
+      <h2>Stories made for sleepy pups.</h2>
+      <p>Fresh episodes every week — calm, paced for naps, scored for dogs.</p>
+    </div>
+    <div class="cloud-divider"></div>
+    <div class="card-section">
+      <div class="pup-spotlight">
+        <div class="visual">🐶</div>
+        <div>
+          <p class="kicker">Pack Captain</p>
+          <h2>Say hi to Max.</h2>
+          <p>The soulful, golden heart of ScoutPaw. Max anchors the pack with calm energy.</p>
+        </div>
+      </div>
+      <div class="deal-block">
+        <div>
+          <span class="badge">Latest Drop</span>
+          <h2>The Cozy Season Bundle</h2>
+          <p>Most-loved calming gear and snuggle picks wrapped into one wagging-good deal.</p>
+        </div>
+        <div class="visual">🎁</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- D2 -->
+<div class="frame">
+  <div class="frame-header">
+    <h2>D2 — Coral pop on cream <span class="badge ok">AA PASS</span></h2>
+    <p>Highest energy. Warm coral titles, cobalt kicker. Reads punchy + alive.</p>
+  </div>
+  <div class="page v-d2">
+    <div class="hero">
+      <p class="kicker">SCOUTPAW TV</p>
+      <h1>Cozy stories, calm music, the whole pack.</h1>
+      <p>Hand-crafted lullabies and visual adventures for the dogs in your life.</p>
+    </div>
+    <div class="cloud-divider"></div>
+    <div class="banner">
+      <p class="kicker">Watch the Pack</p>
+      <h2>Stories made for sleepy pups.</h2>
+      <p>Fresh episodes every week — calm, paced for naps, scored for dogs.</p>
+    </div>
+    <div class="cloud-divider"></div>
+    <div class="card-section">
+      <div class="pup-spotlight">
+        <div class="visual">🐶</div>
+        <div>
+          <p class="kicker">Pack Captain</p>
+          <h2>Say hi to Max.</h2>
+          <p>The soulful, golden heart of ScoutPaw. Max anchors the pack with calm energy.</p>
+        </div>
+      </div>
+      <div class="deal-block">
+        <div>
+          <span class="badge">Latest Drop</span>
+          <h2>The Cozy Season Bundle</h2>
+          <p>Most-loved calming gear and snuggle picks wrapped into one wagging-good deal.</p>
+        </div>
+        <div class="visual">🎁</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- D3 -->
+<div class="frame">
+  <div class="frame-header">
+    <h2>D3 — Sticker yellow with cobalt outline (cyan body unchanged) <span class="badge ok">AA PASS via outline</span></h2>
+    <p>The "Saturday morning cartoon" treatment. Yellow stays vibrant; cobalt outline + slight shadow gives it sticker-pop and AA legibility on cyan.</p>
+  </div>
+  <div class="page v-d3">
+    <div class="hero">
+      <p class="kicker">SCOUTPAW TV</p>
+      <h1>Cozy stories, calm music, the whole pack.</h1>
+      <p>Hand-crafted lullabies and visual adventures for the dogs in your life.</p>
+    </div>
+    <div class="cloud-divider"></div>
+    <div class="banner">
+      <p class="kicker">Watch the Pack</p>
+      <h2>Stories made for sleepy pups.</h2>
+      <p>Fresh episodes every week — calm, paced for naps, scored for dogs.</p>
+    </div>
+    <div class="cloud-divider"></div>
+    <div class="card-section">
+      <div class="pup-spotlight">
+        <div class="visual">🐶</div>
+        <div>
+          <p class="kicker">Pack Captain</p>
+          <h2>Say hi to Max.</h2>
+          <p>The soulful, golden heart of ScoutPaw. Max anchors the pack with calm energy.</p>
+        </div>
+      </div>
+      <div class="deal-block">
+        <div>
+          <span class="badge">Latest Drop</span>
+          <h2>The Cozy Season Bundle</h2>
+          <p>Most-loved calming gear and snuggle picks wrapped into one wagging-good deal.</p>
+        </div>
+        <div class="visual">🎁</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- D4 -->
+<div class="frame">
+  <div class="frame-header">
+    <h2>D4 — Cobalt hero + coral banners (multi-color rotation) <span class="badge ok">AA PASS</span></h2>
+    <p>Hero anchors with cobalt. Section banners pop with coral. Page rhythm gains energy variation.</p>
+  </div>
+  <div class="page v-d4">
+    <div class="hero">
+      <p class="kicker">SCOUTPAW TV</p>
+      <h1>Cozy stories, calm music, the whole pack.</h1>
+      <p>Hand-crafted lullabies and visual adventures for the dogs in your life.</p>
+    </div>
+    <div class="cloud-divider"></div>
+    <div class="banner">
+      <p class="kicker">Watch the Pack</p>
+      <h2>Stories made for sleepy pups.</h2>
+      <p>Fresh episodes every week — calm, paced for naps, scored for dogs.</p>
+    </div>
+    <div class="cloud-divider"></div>
+    <div class="card-section">
+      <div class="pup-spotlight">
+        <div class="visual">🐶</div>
+        <div>
+          <p class="kicker">Pack Captain</p>
+          <h2>Say hi to Max.</h2>
+          <p>The soulful, golden heart of ScoutPaw. Max anchors the pack with calm energy.</p>
+        </div>
+      </div>
+      <div class="deal-block">
+        <div>
+          <span class="badge">Latest Drop</span>
+          <h2>The Cozy Season Bundle</h2>
+          <p>Most-loved calming gear and snuggle picks wrapped into one wagging-good deal.</p>
+        </div>
+        <div class="visual">🎁</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- D5 -->
+<div class="frame">
+  <div class="frame-header">
+    <h2>D5 — Honey hour: honey w/ cobalt outline on cream <span class="badge ok">AA PASS via outline</span></h2>
+    <p>Sunny variant of D3 — honey on cream instead of cyan. Less "TV", more "storybook." Warm + bright.</p>
+  </div>
+  <div class="page v-d5">
+    <div class="hero">
+      <p class="kicker">SCOUTPAW TV</p>
+      <h1>Cozy stories, calm music, the whole pack.</h1>
+      <p>Hand-crafted lullabies and visual adventures for the dogs in your life.</p>
+    </div>
+    <div class="cloud-divider"></div>
+    <div class="banner">
+      <p class="kicker">Watch the Pack</p>
+      <h2>Stories made for sleepy pups.</h2>
+      <p>Fresh episodes every week — calm, paced for naps, scored for dogs.</p>
+    </div>
+    <div class="cloud-divider"></div>
+    <div class="card-section">
+      <div class="pup-spotlight">
+        <div class="visual">🐶</div>
+        <div>
+          <p class="kicker">Pack Captain</p>
+          <h2>Say hi to Max.</h2>
+          <p>The soulful, golden heart of ScoutPaw. Max anchors the pack with calm energy.</p>
+        </div>
+      </div>
+      <div class="deal-block">
+        <div>
+          <span class="badge">Latest Drop</span>
+          <h2>The Cozy Season Bundle</h2>
+          <p>Most-loved calming gear and snuggle picks wrapped into one wagging-good deal.</p>
+        </div>
+        <div class="visual">🎁</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="legend">
+  <h2>If you pick one</h2>
+  <ul>
+    <li><strong>D1 / D2 / D5</strong> — title color + body bg flip from cyan to cream + new <code>--cobalt</code> + <code>--coral-warm</code> tokens added. ~1.5h implementation including <code>globals.css</code> + tailwind config additions.</li>
+    <li><strong>D3</strong> — body bg stays cyan; title color + outline added via Tailwind arbitrary properties. ~1h implementation.</li>
+    <li><strong>D4</strong> — same as D1 + per-section coral application on h2 banners. ~2h implementation.</li>
+  </ul>
+  <p style="margin-bottom:0;">Body-bg flip (cyan → cream) is the bigger change. It affects every page consistently and is hard to undo piecemeal. If you want to test the bg flip safely first, I can do D3 (cyan unchanged) and we measure how it feels live before committing to a fuller palette shift.</p>
+</div>
+
+</body>
+</html>

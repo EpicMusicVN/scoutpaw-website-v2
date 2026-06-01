@@ -3,6 +3,7 @@ import charactersJson from "@/content/characters.json";
 import comingSoonJson from "@/content/coming-soon.json";
 import playlistsJson from "@/content/playlists.json";
 import siteConfigJson from "@/content/site-config.json";
+import topPicksJson from "@/content/top-picks.json";
 import videosJson from "@/content/videos.json";
 import type { ContentSource } from "../adapter";
 import {
@@ -11,12 +12,14 @@ import {
   ComingSoonFileSchema,
   PlaylistsFileSchema,
   SiteConfigSchema,
+  TopPicksContentSchema,
   VideosFileSchema,
   type Channel,
   type Character,
   type ComingSoonPage,
   type Playlist,
   type SiteConfig,
+  type TopPicksContent,
   type Video,
   type VideoContent,
 } from "../schemas";
@@ -33,6 +36,14 @@ const comingSoonPages: ComingSoonPage[] =
 const channels: Channel[] = ChannelsFileSchema.parse(channelsJson).channels;
 const playlists: Playlist[] = PlaylistsFileSchema.parse(playlistsJson).playlists;
 const siteConfig: SiteConfig = SiteConfigSchema.parse(siteConfigJson);
+
+// Top Picks — validate once, then keep picks sorted by `order` so the UI never
+// has to re-sort. The deal block passes through untouched.
+const topPicksParsed: TopPicksContent = TopPicksContentSchema.parse(topPicksJson);
+const topPicks: TopPicksContent = {
+  deal: topPicksParsed.deal,
+  picks: [...topPicksParsed.picks].sort((a, b) => a.order - b.order),
+};
 
 const sortedCharacters = [...characters].sort((a, b) => a.order - b.order);
 
@@ -93,5 +104,8 @@ export const jsonContentSource: ContentSource = {
   },
   async getComingSoonPageBySlug(slug) {
     return comingSoonPages.find((p) => p.slug === slug) ?? null;
+  },
+  async getTopPicks() {
+    return topPicks;
   },
 };

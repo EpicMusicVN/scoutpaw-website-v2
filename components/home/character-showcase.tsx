@@ -23,13 +23,13 @@ export async function CharacterShowcase() {
 
       <div className="relative mx-auto max-w-hero px-4 md:px-8">
         <header className="text-center">
-          <p className="font-display text-xs font-bold uppercase tracking-[0.25em] text-brand-gold md:text-sm">
+          <p className="font-display text-xs font-bold uppercase tracking-[0.25em] text-cobalt md:text-sm">
             Explore Characters
           </p>
-          <h2 className="mt-3 font-display text-4xl font-bold text-ink md:text-6xl lg:text-7xl">
+          <h2 className="mt-3 font-display text-4xl font-bold heading-sticker-honey md:text-6xl lg:text-7xl">
             Meet the Whole Pack
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-base text-ink/85 md:text-lg">
+          <p className="mx-auto mt-4 max-w-2xl text-base text-ink-blue/85 md:text-lg">
             Five distinct pups, each with their own quirks, songs, and favourite
             napping spots. Pick a friend and dive in.
           </p>

@@ -45,18 +45,18 @@ export function FeatureBanner({
           {/* Copy column — padded inside the card. */}
           <div className="relative z-10 px-4 py-16 md:py-20 md:pl-12 md:pr-8">
             {kicker && (
-              <p className="font-display text-xs font-bold uppercase tracking-[0.3em] text-warm-muted md:text-sm">
+              <p className="font-display text-xs font-bold uppercase tracking-[0.3em] text-ink-blue/70 md:text-sm">
                 {kicker}
               </p>
             )}
-            <h2 className="mt-3 font-display text-5xl font-bold leading-[0.98] text-ink md:text-6xl lg:text-7xl">
+            <h2 className="mt-3 font-display text-5xl font-bold leading-[0.98] heading-sticker-honey md:text-6xl lg:text-7xl">
               {title}
             </h2>
-            <p className="mt-5 max-w-md text-base text-warm-text md:text-lg lg:text-xl">
+            <p className="mt-5 max-w-md text-base text-ink-blue/85 md:text-lg lg:text-xl">
               {body}
             </p>
             {subDescription && (
-              <p className="mt-4 max-w-md text-sm italic text-warm-muted md:text-base">
+              <p className="mt-4 max-w-md text-sm italic text-ink-blue/70 md:text-base">
                 {subDescription}
               </p>
             )}

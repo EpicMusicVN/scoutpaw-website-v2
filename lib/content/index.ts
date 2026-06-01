@@ -21,11 +21,16 @@ export const content: ContentSource = selected;
 export type {
   Channel,
   Character,
+  CharacterProduct,
   ComingSoonPage,
+  DealBlock,
   NavItem,
   Playlist,
   PlaylistCategory,
   SiteConfig,
+  TopPick,
+  TopPickCategory,
+  TopPicksContent,
   Video,
   VideoContent,
 } from "./schemas";

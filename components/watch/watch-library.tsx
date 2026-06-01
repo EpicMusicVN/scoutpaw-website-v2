@@ -73,13 +73,13 @@ export function WatchLibrary({
       {/* Active playlist banner — shown only when ?playlist= is set */}
       {activePlaylist && (
         <div className="mx-auto mb-8 flex max-w-3xl flex-wrap items-center justify-between gap-3 rounded-full border border-ink/10 bg-surface px-5 py-3 shadow-cozy md:px-7">
-          <p className="font-display text-sm font-bold text-ink md:text-base">
+          <p className="font-display text-sm font-bold text-ink-blue md:text-base">
             <span className="opacity-65">Playlist:</span> {activePlaylist.title}
           </p>
           <Link
             href="#library"
             scroll={false}
-            className="inline-flex items-center gap-1.5 font-display text-sm font-semibold text-ink hover:text-brand-gold"
+            className="inline-flex items-center gap-1.5 font-display text-sm font-semibold text-ink-blue hover:text-brand-gold"
           >
             Clear
             <span aria-hidden="true">×</span>
@@ -114,16 +114,16 @@ export function WatchLibrary({
       <div className="mt-10">
         {filtered.length === 0 ? (
           <div className="mx-auto max-w-2xl rounded-[2rem] border border-ink/10 bg-surface p-10 text-center shadow-cozy">
-            <h2 className="font-display text-2xl font-bold text-ink md:text-3xl">
+            <h2 className="font-display text-2xl font-bold text-brand-gold md:text-3xl">
               No episodes here yet.
             </h2>
-            <p className="mt-3 text-ink/85">
+            <p className="mt-3 text-ink-blue/85">
               Try another filter or clear the playlist to see the full library.
             </p>
             <button
               type="button"
               onClick={() => setActive("all")}
-              className="mt-6 inline-flex items-center gap-1.5 font-display text-sm font-semibold text-ink hover:text-brand-gold"
+              className="mt-6 inline-flex items-center gap-1.5 font-display text-sm font-semibold text-ink-blue hover:text-brand-gold"
             >
               Reset character filter
               <span aria-hidden="true">→</span>
@@ -175,7 +175,7 @@ export function WatchLibrary({
                           {characterTags.slice(0, 3).map((c) => (
                             <li
                               key={c.slug}
-                              className="rounded-full bg-paper px-2 py-0.5 text-[0.65rem] font-medium text-ink/75"
+                              className="rounded-full bg-paper px-2 py-0.5 text-[0.65rem] font-medium text-ink-blue/75"
                               style={{
                                 boxShadow: `inset 0 -2px 0 ${c.accentColor}`,
                               }}
@@ -185,7 +185,7 @@ export function WatchLibrary({
                           ))}
                         </ul>
                       )}
-                      <h3 className="line-clamp-2 font-display text-base font-semibold leading-tight text-ink md:text-lg">
+                      <h3 className="line-clamp-2 font-display text-base font-semibold leading-tight text-ink-blue md:text-lg">
                         {video.title}
                       </h3>
                     </div>
@@ -224,15 +224,15 @@ function FilterChip({
           isActive
             ? "border-ink bg-ink text-surface shadow-cozy"
             : disabled
-              ? "border-ink/10 bg-surface text-ink/40 cursor-not-allowed"
-              : "border-ink/15 bg-surface text-ink hover:border-ink/30 hover:bg-brand-primary/30",
+              ? "border-ink/10 bg-surface text-ink-blue/40 cursor-not-allowed"
+              : "border-ink/15 bg-surface text-ink-blue hover:border-ink/30 hover:bg-brand-primary/30",
         )}
       >
         {label}
         <span
           className={cn(
             "rounded-full px-1.5 py-0.5 text-[0.65rem] font-bold",
-            isActive ? "bg-surface/20 text-surface" : "bg-ink/10 text-ink/70",
+            isActive ? "bg-surface/20 text-surface" : "bg-ink/10 text-ink-blue/70",
           )}
         >
           {count}

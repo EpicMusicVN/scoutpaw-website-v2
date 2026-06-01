@@ -89,7 +89,7 @@ export function HeroVideo({ src, poster, title, className }: Props) {
           "absolute bottom-4 right-4 z-10 inline-flex items-center justify-center rounded-full transition-transform duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2",
           isMuted
             ? "gap-1.5 bg-brand-coral px-3.5 py-2 font-display text-xs font-bold uppercase tracking-[0.15em] text-white shadow-cozy-md hover:scale-105 focus-visible:ring-white motion-safe:animate-pulse md:text-sm"
-            : "h-10 w-10 bg-white/70 text-ink shadow-sm backdrop-blur-sm hover:scale-110 focus-visible:ring-brand-primary",
+            : "h-10 w-10 bg-white/70 text-ink-blue shadow-sm backdrop-blur-sm hover:scale-110 focus-visible:ring-brand-primary",
         )}
       >
         {isMuted ? (

@@ -29,6 +29,9 @@ const config: Config = {
           teal: withOpacity("--accent-teal-rgb"),
         },
         ink: withOpacity("--ink-rgb"),
+        "ink-blue": withOpacity("--ink-blue-rgb"),
+        // Pivot #8 — sticker-honey title outline + kicker color (saturated cobalt).
+        cobalt: withOpacity("--cobalt-rgb"),
         cream: withOpacity("--bg-cream-rgb"),
         surface: withOpacity("--surface-rgb"),
         // `paper` (not `base`) — `base` would generate a `text-base` color

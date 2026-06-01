@@ -29,8 +29,8 @@
     },
     {
       "label": "Characters",
-      "href": "/coming-soon/characters",
-      "enabled": false
+      "href": "/characters",
+      "enabled": true
     },
     {
       "label": "Shop",
@@ -44,8 +44,8 @@
     },
     {
       "label": "Top Picks",
-      "href": "/coming-soon/top-picks",
-      "enabled": false
+      "href": "/top-picks",
+      "enabled": true
     },
     {
       "label": "Activities",
@@ -60,7 +60,7 @@
     },
     {
       "label": "Characters",
-      "href": "/#meet-the-pack"
+      "href": "/characters"
     },
     {
       "label": "Shop",
@@ -72,7 +72,7 @@
     },
     {
       "label": "Top Picks",
-      "href": "/coming-soon/top-picks"
+      "href": "/top-picks"
     },
     {
       "label": "Activities",

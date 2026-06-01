@@ -61,11 +61,11 @@ export function VideoRail({
       <header className="flex flex-wrap items-end justify-between gap-4">
         <div>
           {kicker && (
-            <p className="font-display text-xs font-bold uppercase tracking-[0.3em] text-brand-gold md:text-sm">
+            <p className="font-display text-xs font-bold uppercase tracking-[0.3em] text-cobalt md:text-sm">
               {kicker}
             </p>
           )}
-          <h2 className="mt-1.5 font-display text-3xl font-bold text-ink md:text-4xl lg:text-5xl">
+          <h2 className="mt-1.5 font-display text-3xl font-bold text-brand-gold md:text-4xl lg:text-5xl">
             {title}
           </h2>
         </div>
@@ -78,7 +78,7 @@ export function VideoRail({
             {...(/^https?:\/\//.test(seeAllHref)
               ? { target: "_blank", rel: "noopener noreferrer" }
               : {})}
-            className="inline-flex items-center gap-1.5 font-display text-sm font-semibold text-ink hover:text-brand-gold md:text-base"
+            className="inline-flex items-center gap-1.5 font-display text-sm font-semibold text-ink-blue hover:text-brand-gold md:text-base"
           >
             {seeAllLabel}
             <span aria-hidden="true">→</span>
@@ -137,7 +137,7 @@ function NavArrow({
       aria-label={direction === "left" ? "Scroll left" : "Scroll right"}
       onClick={onClick}
       tabIndex={visible ? 0 : -1}
-      className={`absolute top-1/2 z-10 hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-surface text-ink shadow-cozy-md transition-all duration-200 hover:scale-105 md:inline-flex ${
+      className={`absolute top-1/2 z-10 hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-surface text-ink-blue shadow-cozy-md transition-all duration-200 hover:scale-105 md:inline-flex ${
         direction === "left" ? "-left-1" : "-right-1"
       } ${visible ? "opacity-100" : "pointer-events-none opacity-0"}`}
     >

@@ -58,13 +58,13 @@ export function AboutShop() {
   return (
     <section className="mx-auto max-w-hero px-4 py-24 md:px-8 md:py-32">
       <header className="text-center">
-        <p className="font-display text-xs font-bold uppercase tracking-[0.3em] text-brand-gold md:text-sm">
+        <p className="font-display text-xs font-bold uppercase tracking-[0.3em] text-cobalt md:text-sm">
           The ScoutPaw Story
         </p>
-        <h2 className="mt-3 font-display text-4xl font-bold text-ink md:text-6xl lg:text-7xl">
+        <h2 className="mt-3 font-display text-4xl font-bold heading-sticker-honey md:text-6xl lg:text-7xl">
           More About ScoutPaw Shop.
         </h2>
-        <p className="mx-auto mt-4 max-w-2xl text-base text-ink/85 md:text-lg">
+        <p className="mx-auto mt-4 max-w-2xl text-base text-ink-blue/85 md:text-lg">
           A small, considered range — built for real homes and the dogs who fill them.
         </p>
       </header>
@@ -76,17 +76,17 @@ export function AboutShop() {
               className="flex h-full flex-col rounded-[2rem] p-7 shadow-cozy transition-all duration-300 ease-gentle hover:-translate-y-2 hover:shadow-cozy-lg md:p-9"
               style={{ backgroundColor: pillar.bg }}
             >
-              <div className="text-ink/85">
+              <div className="text-ink-blue/85">
                 <pillar.Icon />
               </div>
-              <h3 className="mt-6 font-display text-2xl font-bold leading-tight text-ink md:text-3xl">
+              <h3 className="mt-6 font-display text-2xl font-bold leading-tight text-ink-blue md:text-3xl">
                 {pillar.title}
               </h3>
               <span
                 aria-hidden="true"
                 className="mt-3 block h-1 w-12 rounded-full bg-ink/40"
               />
-              <p className="mt-5 text-base leading-relaxed text-ink/90 md:text-lg">
+              <p className="mt-5 text-base leading-relaxed text-ink-blue/90 md:text-lg">
                 {pillar.body}
               </p>
             </article>

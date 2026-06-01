@@ -21,16 +21,13 @@ export function ComingSoonHero({
           className="object-contain"
         />
       </div>
-      <p
-        className="mt-4 font-display text-sm font-bold uppercase tracking-widest"
-        style={{ color: character.accentColor }}
-      >
+      <p className="mt-4 font-display text-sm font-bold uppercase tracking-widest text-ink-blue">
         Coming Soon
       </p>
-      <h1 className="mt-2 font-display text-3xl font-bold text-ink md:text-5xl">
+      <h1 className="mt-2 font-display text-3xl font-bold leading-tight heading-sticker-honey md:text-5xl">
         {page.title}
       </h1>
-      <p className="mx-auto mt-4 max-w-2xl text-base text-ink/75 md:text-lg">
+      <p className="mx-auto mt-4 max-w-2xl text-base text-ink-blue/85 md:text-lg">
         {page.tagline}
       </p>
     </section>

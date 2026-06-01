@@ -81,10 +81,10 @@ export function OurChannels({
     >
       <header className="flex flex-wrap items-end justify-between gap-4">
         <div>
-          <p className="font-display text-xs font-bold uppercase tracking-[0.3em] text-brand-gold md:text-sm">
+          <p className="font-display text-xs font-bold uppercase tracking-[0.3em] text-cobalt md:text-sm">
             The Network
           </p>
-          <h2 className="mt-1.5 font-display text-3xl font-bold text-ink md:text-4xl lg:text-5xl">
+          <h2 className="mt-1.5 font-display text-3xl font-bold text-brand-gold md:text-4xl lg:text-5xl">
             Our Channels.
           </h2>
         </div>
@@ -196,7 +196,7 @@ function CompactChannelCard({
         ) : (
           <span
             aria-hidden="true"
-            className="absolute -top-6 left-4 flex h-12 w-12 items-center justify-center rounded-full font-display text-lg font-bold text-ink shadow-cozy"
+            className="absolute -top-6 left-4 flex h-12 w-12 items-center justify-center rounded-full font-display text-lg font-bold text-ink-blue shadow-cozy"
             style={{
               background: channel.bannerColor
                 ? `linear-gradient(135deg, ${channel.avatarColor ?? channel.bannerColor} 0%, ${channel.bannerColor} 100%)`
@@ -208,10 +208,10 @@ function CompactChannelCard({
         )}
 
         <div className="mt-6">
-          <h3 className="line-clamp-1 font-display text-base font-bold text-ink">
+          <h3 className="line-clamp-1 font-display text-base font-bold text-ink-blue">
             {channel.name}
           </h3>
-          <p className="mt-0.5 text-xs text-ink/65">
+          <p className="mt-0.5 text-xs text-ink-blue/65">
             {formatSubs(channel.subscriberCount)} subs
           </p>
         </div>
@@ -259,7 +259,7 @@ function NavArrow({
       aria-label={direction === "left" ? "Scroll channels left" : "Scroll channels right"}
       onClick={onClick}
       tabIndex={visible ? 0 : -1}
-      className={`absolute top-1/2 z-10 inline-flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-surface text-ink shadow-cozy-md transition-all duration-200 hover:scale-105 lg:hidden ${
+      className={`absolute top-1/2 z-10 inline-flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-surface text-ink-blue shadow-cozy-md transition-all duration-200 hover:scale-105 lg:hidden ${
         direction === "left" ? "-left-1" : "-right-1"
       } ${visible ? "opacity-100" : "pointer-events-none opacity-0"}`}
     >

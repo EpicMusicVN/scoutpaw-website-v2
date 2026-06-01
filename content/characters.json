@@ -4,14 +4,31 @@
       "slug": "rocky",
       "name": "Rocky",
       "breed": "Husky",
-      "tagline": "Always up for an adventure",
-      "bio": "Rocky, our \"Welcome Wag-on,\" is the heart of the crew. This snuggle master loves head-tilting to music and carrying his plushie, filling our home with love. He's our ScoutPaw Captain!",
-      "funFacts": [
-        "He believes every nap is a musical masterpiece and every stranger is just a best friend who hasn't shared a golden snack yet.",
-        "Has memorized the exact creak of the back door opening.",
-        "Dreams loudly. Visibly. Probably about snow."
-      ],
+      "tagline": "THE WILD, WOO-WOOING SPIRIT OF SCOUTPAW",
+      "bio": "Rocky, our 'Howl-of-Fame' singer, is an adventurous leader. His voice and playful energy turn every day into an epic journey.",
+      "quote": "He believes every song deserves a howl-along and every living room is just an indoor mountain waiting to be climbed.",
       "image": "characters/husky-bg.png",
+      "poses": [
+        "characters-position/husky1.png",
+        "characters-position/husky2.png",
+        "characters-position/husky3.png"
+      ],
+      "products": [
+        {
+          "id": "rocky-adventure-hoodie",
+          "title": "Rocky Adventure Hoodie",
+          "image": "shop/2.jpg",
+          "badge": "New",
+          "ctaHref": "https://puppylullabytv-shop.fourthwall.com/"
+        },
+        {
+          "id": "rocky-howl-along-bandana",
+          "title": "Howl-Along Bandana",
+          "image": "characters/husky-bg.png",
+          "ctaHref": "https://linktr.ee/puppycaretaker.shop"
+        }
+      ],
+      "merchCtaHref": "https://puppylullabytv-shop.fourthwall.com/",
       "accentColor": "#5BC0EB",
       "order": 1
     },
@@ -19,14 +36,31 @@
       "slug": "max",
       "name": "Max",
       "breed": "Golden Retriever",
-      "tagline": "The pack's sunny optimist",
-      "bio": "Max is the warm, golden heart of ScoutPaw — always first to the door, last to leave a nap, and ready to make every walk feel like the best part of your day. If the pack had a mayor, Max would win on the strength of tail wags alone.",
-      "funFacts": [
-        "Believes every stranger is a friend who hasn't said hi yet.",
-        "Has a favourite sunbeam in the kitchen and will defend it against all furniture.",
-        "Carries a stuffed duck named 'Mr. Fluff' on every long walk."
-      ],
+      "tagline": "THE SOULFUL, GOLDEN HEART OF SCOUTPAW",
+      "bio": "Max, our 'Welcome Wag-on,' is the heart of the crew. This snuggle master loves head-tilting to music and carrying his plushie, filling our home with love. He's our ScoutPaw Captain!",
+      "quote": "He believes every nap is a musical masterpiece and every stranger is just a best friend who hasn't shared a golden snack yet.",
       "image": "characters/golden-2.png",
+      "poses": [
+        "characters-position/golden1.png",
+        "characters-position/golden2.png",
+        "characters-position/golden3.png"
+      ],
+      "products": [
+        {
+          "id": "max-plushie-buddy",
+          "title": "Max Plushie Buddy",
+          "image": "shop/1.jpg",
+          "badge": "Bestseller",
+          "ctaHref": "https://puppylullabytv-shop.fourthwall.com/"
+        },
+        {
+          "id": "max-golden-lullaby-blanket",
+          "title": "Golden Lullaby Blanket",
+          "image": "characters/golden-2.png",
+          "ctaHref": "https://linktr.ee/puppycaretaker.shop"
+        }
+      ],
+      "merchCtaHref": "https://linktr.ee/puppycaretaker.shop",
       "accentColor": "#FFB627",
       "order": 2
     },
@@ -34,14 +68,30 @@
       "slug": "oscar",
       "name": "Oscar",
       "breed": "Collie",
-      "tagline": "The thoughtful storyteller",
-      "bio": "Oscar notices everything — the weather change before you do, the squirrel two yards over, the way the late afternoon light hits the rug just right. He's gentle, loyal, and the pup most likely to nudge you toward a long, slow afternoon at home.",
-      "funFacts": [
-        "Has a precise spot on the rug. Do not sit on it.",
-        "Soft sigher of the pack — at least three contented sighs per evening.",
-        "Watches squirrels with the focus of a documentary filmmaker."
-      ],
+      "tagline": "THE BRILLIANT, BEAMING MIND OF SCOUTPAW",
+      "bio": "Oscar, the 'Professor of Play,' keeps your dog mentally sharp and relaxed with music. He's the smartest pup around!",
+      "quote": "He believes every day needs a job to do - and his favorite job is being the best study buddy your dog ever had.",
       "image": "characters/collie-bg.png",
+      "poses": [
+        "characters-position/collie1.png",
+        "characters-position/collie2.png"
+      ],
+      "products": [
+        {
+          "id": "oscar-professor-tee",
+          "title": "Professor Oscar Tee",
+          "image": "characters/collie-bg.png",
+          "ctaHref": "https://puppylullabytv-shop.fourthwall.com/"
+        },
+        {
+          "id": "oscar-study-buddy-puzzle",
+          "title": "Study Buddy Puzzle Toy",
+          "image": "shop/1.jpg",
+          "badge": "Top rated",
+          "ctaHref": "https://linktr.ee/puppycaretaker.shop"
+        }
+      ],
+      "merchCtaHref": "https://linktr.ee/puppycaretaker.shop",
       "accentColor": "#9C6644",
       "order": 3
     },
@@ -49,14 +99,31 @@
       "slug": "buddy",
       "name": "Buddy",
       "breed": "Corgi",
-      "tagline": "Big personality, little legs",
-      "bio": "Buddy is the pack's joyful chaos — short legs, long opinions, and a strong belief that every floor is improved by a good zoom. He's the one who'll bring a toy to the meeting, then forget the meeting and just play.",
-      "funFacts": [
-        "Performs the famous Corgi sploot at exactly 4:42 every afternoon.",
-        "Can hear a kibble drop from three rooms away.",
-        "Convinced he is, in fact, a much larger dog."
-      ],
+      "tagline": "THE SPUNKY, LOW-RIDING SPARK OF SCOUTPAW",
+      "bio": "Buddy: big personality, short legs! This 'Professional Splooter' uses satellite ears to catch every beat. Fluffy trousers & pack leader, he proves you don't need height to liven up the party.",
+      "quote": "He believes no snack is too high to reach and every song is an excuse for a full-body wiggle.",
       "image": "characters/corgi-bg.png",
+      "poses": [
+        "characters-position/corgi2.png",
+        "characters-position/corgi1.png",
+        "characters-position/corgi3.png"
+      ],
+      "products": [
+        {
+          "id": "buddy-sploot-plushie",
+          "title": "Buddy Sploot Plushie",
+          "image": "characters/corgi-bg.png",
+          "badge": "Fan favourite",
+          "ctaHref": "https://puppylullabytv-shop.fourthwall.com/"
+        },
+        {
+          "id": "buddy-wiggle-sticker-pack",
+          "title": "Wiggle-Butt Sticker Pack",
+          "image": "shop/2.jpg",
+          "ctaHref": "https://linktr.ee/puppycaretaker.shop"
+        }
+      ],
+      "merchCtaHref": "https://puppylullabytv-shop.fourthwall.com/",
       "accentColor": "#F4A261",
       "order": 4
     },
@@ -64,14 +131,30 @@
       "slug": "bella",
       "name": "Bella",
       "breed": "Poodle",
-      "tagline": "Soft heart, tidy paws",
-      "bio": "Bella is the pack's quiet thinker — composed, curious, and impeccably tidy. Don't let the pillow-soft coat fool you: there's a sharp little observer in there who notices when you've changed the playlist halfway through.",
-      "funFacts": [
-        "Wipes paws unprompted. Yes, really.",
-        "Has strong opinions about which blanket goes on which couch.",
-        "Will quietly judge a poorly tossed ball, then fetch it anyway."
-      ],
+      "tagline": "THE ELEGANT, ENCHANTING STAR OF SCOUTPAW",
+      "bio": "Bella, the crew's graceful 'Prima Ballerina,' uses her sharp mind to dance beautifully through musical stories, turning living rooms into peaceful stages.",
+      "quote": "She believes every calming melody is a dance and every dream is better when it's high-fashion.",
       "image": "characters/poodle-bg.png",
+      "poses": [
+        "characters-position/poodle1.png",
+        "characters-position/poodle2.png"
+      ],
+      "products": [
+        {
+          "id": "bella-ballet-plushie",
+          "title": "Bella Ballet Plushie",
+          "image": "characters/poodle-bg.png",
+          "badge": "New",
+          "ctaHref": "https://puppylullabytv-shop.fourthwall.com/"
+        },
+        {
+          "id": "bella-prima-ballerina-tote",
+          "title": "Prima Ballerina Tote",
+          "image": "shop/promotion.jpg",
+          "ctaHref": "https://linktr.ee/puppycaretaker.shop"
+        }
+      ],
+      "merchCtaHref": "https://linktr.ee/puppycaretaker.shop",
       "accentColor": "#B8A1D9",
       "order": 5
     }

@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
+import { FilterChip } from "@/components/ui/filter-chip";
 import { EmptyVideos } from "@/components/watch/empty-videos";
 import { VideoCard } from "@/components/watch/video-card";
 import type { Video, VideoContent } from "@/lib/content";
@@ -73,13 +74,13 @@ export function ExploreVideos({
       className="mx-auto max-w-hero scroll-mt-24 px-4 py-16 md:px-8 md:py-24"
     >
       <header className="text-center">
-        <p className="font-display text-xs font-bold uppercase tracking-[0.3em] text-brand-gold md:text-sm">
+        <p className="font-display text-xs font-bold uppercase tracking-[0.3em] text-cobalt md:text-sm">
           The Library
         </p>
-        <h2 className="mt-3 font-display text-4xl font-bold text-ink md:text-5xl lg:text-6xl">
+        <h2 className="mt-3 font-display text-4xl font-bold heading-sticker-honey md:text-5xl lg:text-6xl">
           Explore Videos.
         </h2>
-        <p className="mx-auto mt-3 max-w-2xl text-base text-ink/85 md:text-lg">
+        <p className="mx-auto mt-3 max-w-2xl text-base text-ink-blue/85 md:text-lg">
           Pick a vibe — top viewed videos surface first.
         </p>
       </header>
@@ -150,31 +151,6 @@ export function ExploreVideos({
   );
 }
 
-function FilterChip({
-  active,
-  onClick,
-  children,
-}: {
-  active: boolean;
-  onClick: () => void;
-  children: React.ReactNode;
-}) {
-  return (
-    <button
-      type="button"
-      aria-pressed={active}
-      onClick={onClick}
-      className={`inline-flex min-h-[40px] items-center rounded-full px-4 font-display text-sm font-semibold transition-all duration-150 md:px-5 md:text-base ${
-        active
-          ? "bg-ink text-surface shadow-sm"
-          : "bg-surface text-ink/85 hover:bg-brand-primary/30 hover:text-ink"
-      } focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2 focus-visible:ring-offset-paper`}
-    >
-      {children}
-    </button>
-  );
-}
-
 function NavArrow({
   direction,
   visible,
@@ -190,7 +166,7 @@ function NavArrow({
       aria-label={direction === "left" ? "Scroll left" : "Scroll right"}
       onClick={onClick}
       tabIndex={visible ? 0 : -1}
-      className={`absolute top-1/2 z-10 hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-surface text-ink shadow-cozy-md transition-all duration-200 hover:scale-105 md:inline-flex ${
+      className={`absolute top-1/2 z-10 hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-surface text-ink-blue shadow-cozy-md transition-all duration-200 hover:scale-105 md:inline-flex ${
         direction === "left" ? "-left-1" : "-right-1"
       } ${visible ? "opacity-100" : "pointer-events-none opacity-0"}`}
     >

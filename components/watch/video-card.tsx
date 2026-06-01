@@ -68,13 +68,13 @@ export function VideoCard({
           </span>
         )}
         {video.category && variant !== "compact" && (
-          <span className="absolute left-3 top-3 rounded-full bg-brand-primary/95 px-2.5 py-1 font-display text-[0.65rem] font-bold uppercase tracking-[0.18em] text-ink md:text-xs">
+          <span className="absolute left-3 top-3 rounded-full bg-brand-primary/95 px-2.5 py-1 font-display text-[0.65rem] font-bold uppercase tracking-[0.18em] text-ink-blue md:text-xs">
             {video.category.replace("-", " ")}
           </span>
         )}
       </div>
       <div className="mt-4">
-        <h3 className={`line-clamp-2 font-display font-bold leading-tight text-ink ${titleSize}`}>
+        <h3 className={`line-clamp-2 font-display font-bold leading-tight text-ink-blue ${titleSize}`}>
           {video.title}
         </h3>
         <MetaLine video={video} channelLabel={channelLabel} />
@@ -102,7 +102,7 @@ function MetaLine({ video, channelLabel }: { video: Video; channelLabel?: string
   if (parts.length === 0) return null;
 
   return (
-    <div className="mt-1.5 flex flex-wrap items-center gap-x-2.5 gap-y-1 text-sm text-ink/70">
+    <div className="mt-1.5 flex flex-wrap items-center gap-x-2.5 gap-y-1 text-sm text-ink-blue/70">
       {parts.map((part, i) => (
         <span key={i} className="inline-flex items-center gap-2.5">
           {i > 0 && <span aria-hidden="true">•</span>}

@@ -29,13 +29,13 @@ export async function VideoGrid() {
       className="mx-auto max-w-hero scroll-mt-24 px-4 py-24 md:px-8 md:py-32"
     >
       <header className="text-center">
-        <p className="font-display text-xs font-bold uppercase tracking-[0.3em] text-brand-gold md:text-sm">
+        <p className="font-display text-xs font-bold uppercase tracking-[0.3em] text-cobalt md:text-sm">
           Watch Together
         </p>
-        <h2 className="mt-3 font-display text-4xl font-bold text-ink md:text-6xl lg:text-7xl">
+        <h2 className="mt-3 font-display text-4xl font-bold heading-sticker-honey md:text-6xl lg:text-7xl">
           Peace. Play. Playback.
         </h2>
-        <p className="mx-auto mt-4 max-w-2xl text-base text-ink/85 md:text-lg">
+        <p className="mx-auto mt-4 max-w-2xl text-base text-ink-blue/85 md:text-lg">
           Switch on ScoutPaw TV - soothing rhythms and cozy colors crafted to keep your best friend company.
         </p>
       </header>
@@ -60,7 +60,7 @@ export async function VideoGrid() {
           href={youtubeUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-1.5 font-display text-base font-semibold text-ink hover:text-brand-gold"
+          className="inline-flex items-center gap-1.5 font-display text-base font-semibold text-ink-blue hover:text-brand-gold"
         >
           Join the pack on YouTube
           <span aria-hidden="true">↗</span>

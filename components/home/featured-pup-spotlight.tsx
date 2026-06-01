@@ -14,7 +14,7 @@ export async function FeaturedPupSpotlight() {
   const max = characters.find((c) => c.slug === "max") ?? characters[0];
   if (!max) return null;
 
-  const quote = max.funFacts[0];
+  const quote = max.quote;
 
   return (
     <section className="relative mx-auto max-w-hero scroll-mt-24 px-4 py-12 md:px-8 md:py-16">
@@ -30,22 +30,22 @@ export async function FeaturedPupSpotlight() {
         <div className="relative mx-auto grid items-center gap-10 md:grid-cols-[1fr_1.1fr] md:gap-16">
           {/* Copy block */}
           <div className="relative z-10 order-2 md:order-1">
-            <p className="font-display text-xs font-bold uppercase tracking-[0.3em] text-warm-muted md:text-sm">
+            <p className="font-display text-xs font-bold uppercase tracking-[0.3em] text-ink-blue/70 md:text-sm">
               MEET THE PACK LEADER
             </p>
-            <h2 className="mt-3 font-display text-4xl font-bold leading-[0.95] text-ink md:whitespace-nowrap md:text-6xl lg:text-7xl">
+            <h2 className="mt-3 font-display text-4xl font-bold leading-[0.95] heading-sticker-honey md:whitespace-nowrap md:text-6xl lg:text-7xl">
               Say hi to <span className="text-brand-gold">Max</span>
             </h2>
-            <p className="mt-2 font-display text-lg tracking-wide text-warm-muted md:text-xl">
+            <p className="mt-2 font-display text-lg tracking-wide text-ink-blue/70 md:text-xl">
               The soulful, golden heart of ScoutPaw
             </p>
-            <p className="mt-6 max-w-md text-base text-warm-text/90 md:text-lg lg:text-xl">
+            <p className="mt-6 max-w-md text-base text-ink-blue/85 md:text-lg lg:text-xl">
               {max.bio}
             </p>
 
             {quote && (
               <blockquote className="relative mt-8 max-w-md rounded-3xl border-l-4 border-brand-gold bg-surface/70 p-5 backdrop-blur-sm md:p-6">
-                <p className="font-display text-base italic text-warm-text md:text-lg">
+                <p className="font-display text-base italic text-ink-blue md:text-lg">
                   &ldquo;{quote}&rdquo;
                 </p>
               </blockquote>

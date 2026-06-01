@@ -57,4 +57,7 @@ export const sanityContentSource: ContentSource = {
   async getComingSoonPageBySlug() {
     return notImplemented("getComingSoonPageBySlug");
   },
+  async getTopPicks() {
+    return notImplemented("getTopPicks");
+  },
 };

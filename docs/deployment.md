@@ -32,7 +32,7 @@ In Vercel dashboard → Project → Settings → Environment Variables, add:
 | `CONTENT_SOURCE` | `json` | Production, Preview |
 | `SHOPIFY_MODE` | `mock` (until store live → `live`) | All |
 | `SHOPIFY_STORE_DOMAIN` | (empty for now) | All |
-| `SHOPIFY_STOREFRONT_TOKEN` | (empty for now) | All |
+| `SHOPIFY_STOREFRONT_TOKEN` | (empty for now; `shpss_...` once Storefront token issued) | All |
 | `NEWSLETTER_MODE` | `stub` (until Resend ready → `live`) | All |
 | `RESEND_API_KEY` | `re_xxx` from https://resend.com/api-keys | Production |
 | `TEAM_NOTIFICATION_EMAIL` | team inbox (e.g., `team@scoutpaw.tv`) | Production |
@@ -69,10 +69,12 @@ Visit production URL and verify:
 ## Switching Mock → Live
 
 ### Shopify (when store is ready)
-1. Generate Storefront API token in Shopify admin → Apps → Develop apps → Storefront API
-2. Set `SHOPIFY_MODE=live`, `SHOPIFY_STORE_DOMAIN=your-shop.myshopify.com`, `SHOPIFY_STOREFRONT_TOKEN=...`
+1. In Shopify **Partners Dev Dashboard**, open your app → **Storefront API access tokens** → generate a token. Copy the `shpss_...` value.
+2. Set `SHOPIFY_MODE=live`, `SHOPIFY_STORE_DOMAIN=your-shop.myshopify.com`, `SHOPIFY_STOREFRONT_TOKEN=shpss_...`. We read the token server-side via raw `fetch`; do not prefix it `NEXT_PUBLIC_*`.
 3. Redeploy. Real products replace mocks. Buy Now opens real Shopify URLs.
 4. (Optional) Register Shopify webhook → POST `https://{site}/api/revalidate` with `REVALIDATE_SECRET` (route not yet built — add when needed).
+
+**Note (2026-01-01 deprecation):** Legacy Custom Apps with static `shpat_...` admin tokens are no longer issued. New apps go through the Partners Dev Dashboard. For a public-catalog product grid like ours, Storefront API is the recommended path; Admin API requires the client-credentials grant flow which adds 24h-token-rotation complexity for no benefit here.
 
 ### Resend (when account is ready)
 1. Sign up at https://resend.com, copy API key from dashboard

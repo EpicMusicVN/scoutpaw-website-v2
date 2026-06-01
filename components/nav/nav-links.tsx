@@ -32,10 +32,10 @@ export function NavLinks({ navItems }: { navItems: NavItem[] }) {
                 className={cn(
                   "nav-underline relative inline-flex min-h-[44px] items-center rounded-full px-4 py-2 font-display text-sm font-bold uppercase tracking-wider transition-colors duration-200 md:px-5 md:text-base",
                   active
-                    ? "text-ink"
+                    ? "text-ink-blue"
                     : item.enabled
-                      ? "text-ink hover:text-ink"
-                      : "text-ink/45 hover:text-ink/70",
+                      ? "text-ink-blue hover:text-ink-blue"
+                      : "text-ink-blue/45 hover:text-ink-blue/70",
                 )}
               >
                 {item.label}

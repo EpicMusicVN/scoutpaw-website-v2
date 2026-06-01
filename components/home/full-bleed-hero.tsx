@@ -25,13 +25,13 @@ export function FullBleedHero({
 }) {
   const CardBody = () => (
     <>
-      <p className="font-display text-xs font-bold uppercase tracking-[0.3em] text-warm-muted md:text-sm">
+      <p className="font-display text-xs font-bold uppercase tracking-[0.3em] text-cobalt md:text-sm">
         {kicker}
       </p>
-      <h1 className="mt-3 font-display text-3xl font-bold leading-[1.05] text-ink md:text-4xl lg:text-5xl xl:text-[3.5rem]">
+      <h1 className="mt-3 font-display text-3xl font-bold leading-[1.05] heading-sticker-honey md:text-4xl lg:text-5xl xl:text-[3.5rem]">
         {title}
       </h1>
-      <p className="mt-4 text-base leading-relaxed text-warm-text lg:text-lg">
+      <p className="mt-4 text-base leading-relaxed text-ink-blue lg:text-lg">
         {description}
       </p>
     </>

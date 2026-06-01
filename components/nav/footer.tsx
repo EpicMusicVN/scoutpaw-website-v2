@@ -114,7 +114,7 @@ export async function Footer() {
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label={`${config.brand.name} on ${s.label}`}
-                        className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-white/5 text-white transition-all duration-200 hover:-translate-y-0.5 hover:border-brand-primary hover:bg-brand-primary hover:text-ink"
+                        className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-white/5 text-white transition-all duration-200 hover:-translate-y-0.5 hover:border-brand-primary hover:bg-brand-primary hover:text-ink-blue"
                       >
                         <SocialIcon platform={s.platform} />
                       </Link>
