@@ -1,5 +1,55 @@
 # Project Changelog
 
+## [2026-06-11] - SEO & AEO Code-Max Pass
+
+### Overview
+Follow-up to the SEO/AEO remediation: squeeze every code-controllable signal using data already in the repo (no new content/assets). Lifts ceilings to ~Technical 90 / On-Page 92 / AEO 82. The remaining gap to 100 stays Ops-only (`260611-0509-seo-aeo-remediation/ops-prep-checklist.md`). Plan: `plans/260611-0724-seo-aeo-code-max/`.
+
+### Changes
+- **VideoObject enrichment** (`lib/seo/structured-data.ts`) — `duration`→ISO 8601 (`PT1H24M18S`), `interactionStatistic` (WatchAction + viewCount), `publisher`→Org `@id`, templated `description` (no title-echo). All 22 videos qualify.
+- **`@id` entity linking** — Organization (`#organization`) + WebSite (`#website`) get stable `@id`; WebSite `publisher`, VideoObject `publisher`, and Product `brand` all reference the Org `@id` (cross-block graph, no single-`@graph` refactor).
+- **Organization** — added `alternateName` (ScoutPaw) + `slogan` (tagline).
+- **Product** (`lib/shopify/{queries,types,get-products}.ts` + structured-data) — extended Storefront query for `availableForSale` + first-variant `sku`; Product schema now emits `brand`, `itemCondition`, real `availability` (In/OutOfStock), and `sku`. Verified live: real sku `4978642_12634`.
+- **OG images** (`lib/seo/og-image.ts` new) — measured `banner.png` (2754×1536); OG images declare `width`/`height`/`alt` site-wide; per-page OG images gain `alt`.
+- **Image sitemap** (`app/sitemap.ts`) — every entry carries a representative absolute image (`<image:image>`).
+- **Richer root metadata** (`layout.tsx`) — `applicationName`, `authors`/`creator`/`publisher`, `category: Pets`, `formatDetection`.
+- **Visible breadcrumbs** (`components/ui/breadcrumbs.tsx` new) — accessible `<nav aria-label="Breadcrumb">` on detail pages (`characters/[slug]`, `coming-soon/[slug]`), sharing one trail array with `breadcrumbSchema` (visible + structured never drift).
+
+### Validation
+- `npx tsc --noEmit` clean · `npx next lint` clean
+- Live (dev): VideoObject `duration`/`interactionStatistic`/`publisher` present; Org `@id`+`alternateName`+`slogan`; WebSite `publisher`→Org; Product `brand`/`sku`/`availability`/`itemCondition`; OG `width=2754`/`height=1536`/`alt`; sitemap `<image:image>`; breadcrumbs `aria-label`+`aria-current`. `@id` identical across all cross-refs.
+- Mock Shopify mode unaffected (schema defaults fill new fields; no Product schema emitted).
+
+### Out of Scope (still Ops, tracked in ops-prep-checklist.md)
+Real per-page OG images, keyword-driven copy, X handle, founding date/contact, product reviews, content last-modified dates, Search Console/Bing, prod www env + 308 redirect. Post-deploy: Google Rich Results Test on VideoObject + Product.
+
+## [2026-06-11] - SEO & AEO Remediation
+
+### Overview
+Closed every machine-readable discovery gap on the live site. Audit scored Technical SEO 62/100, AEO 28/100 — fundamentals were strong (SSR, per-page metadata, OG/Twitter) but the site had no robots.txt, no sitemap, no canonical tags, and zero structured data (invisible to AI answer engines). Added P0+P1+P2 remediation: crawl surfaces, full JSON-LD coverage, FAQ content, and llms.txt — all sourced from the `lib/content` adapter so they survive the json→payload migration. Plan: `plans/260611-0509-seo-aeo-remediation/`.
+
+### Changes
+- **Crawl surfaces** (at `app/` root, not the `(frontend)` route group — robots/manifest 404 from inside a group): `app/robots.ts` (allow all, disallow `/admin` `/api/`, sitemap pointer), `app/sitemap.ts` (7 static routes + character & coming-soon slugs from the adapter — 16 URLs), `app/manifest.ts` (PWA manifest from brand + palette).
+- **Structured data** — `components/seo/json-ld.tsx` (escaped `<script type=application/ld+json>`), `lib/seo/structured-data.ts` (builders: organization, website, videoObject, product, breadcrumb, faq). Injected: Organization + WebSite site-wide (root layout); VideoObject on `/watch`; Product+Offer on `/shop` (live Shopify mode only); BreadcrumbList on detail/section pages; FAQPage on home.
+- **Metadata hardening** — `lib/seo/site-url.ts` single origin resolver (throws in prod if `NEXT_PUBLIC_SITE_URL` unset — kills the old silent `scoutpaw.vercel.app` fallback). `app/(frontend)/layout.tsx`: canonical, OG `siteName`/`locale`/image alt, Twitter card, async root layout injecting site schema. Per-page `alternates.canonical` on all 8 routes + 2 dynamic.
+- **AEO content** — `content/faq.json` (8 calming-music/dog-wellness Q&A), `components/home/faq-section.tsx` (native `<details>` accordion, zero client JS), `public/llms.txt`. Added `FaqItem` schema + `getFaq()` to the adapter contract (`lib/content/{schemas,adapter,index}.ts`, json-source + payload-source stub).
+
+### Key Decisions
+- **Shop Product schema gated on `SHOPIFY_MODE !== "mock"`** — never ships mock prices. Verified: live mode emits 7 real products with real prices.
+- **`/top-picks` gets NO price-bearing schema** — Amazon Associates ToS forbids displaying prices without PA-API. Breadcrumb only.
+- **WebSite schema omits `SearchAction`** — no on-site query-URL search (existing search is client-side filtering).
+
+### Validation
+- `npx tsc --noEmit` clean · `npx next lint` clean
+- Live (dev): `/robots.txt`, `/sitemap.xml` (16 URLs), `/manifest.webmanifest`, `/llms.txt` all 200
+- JSON-LD verified rendering: Organization+WebSite (all pages), FAQPage 8 Q&A (home), VideoObject ×22 (watch), Product+Offer ×7 + Breadcrumb (shop live), Breadcrumb (character)
+- Code review: DONE_WITH_CONCERNS, no blockers. Applied fixes: absolute logo/manifest-icon URLs (R2-env-independent), env-doc correction, VideoObject description TODO.
+
+### Out of Scope / Follow-up (ops)
+- **apex→www 308 redirect** — set in Vercel dashboard (no middleware/`vercel.json` in repo); currently 307.
+- **Prod `NEXT_PUBLIC_SITE_URL` must be `https://www.scoutpaw.tv`** (www, the live canonical host) — local env uses apex, so locally-rendered canonical/sitemap/llms.txt show apex. Confirm prod value before launch.
+- Post-deploy: submit sitemap in Google Search Console; run Rich Results Test on the public URL.
+
 ## [2026-06-01] - Pivot #8 — Sticker-honey titles + cobalt kickers (D3)
 
 ### Overview

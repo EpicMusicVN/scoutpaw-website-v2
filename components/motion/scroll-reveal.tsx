@@ -3,8 +3,14 @@
 import { motion, useReducedMotion } from "framer-motion";
 
 /**
- * Wraps a section/element with a fade-up entrance triggered when 20% in view.
- * Once revealed, stays revealed (no re-fade on scroll back). Reduced-motion safe.
+ * Wraps a section/element with a fade-up entrance triggered when it enters the
+ * viewport. Once revealed, stays revealed (no re-fade on scroll back).
+ * Reduced-motion safe.
+ *
+ * `viewport.amount` is "some" (any part visible), NOT a fraction: a fraction
+ * like 0.2 is *unreachable* on sections taller than ~5× the viewport (you can
+ * never get 20% of them on screen at once), which left tall mobile sections —
+ * e.g. the 1-column shop product grid — stuck at `opacity:0` forever.
  */
 export function ScrollReveal({
   children,
@@ -24,7 +30,7 @@ export function ScrollReveal({
     <motion.div
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.2 }}
+      viewport={{ once: true, amount: "some" }}
       transition={reduce ? { duration: 0.01 } : { duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] }}
       className={className}
     >

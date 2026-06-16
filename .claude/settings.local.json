@@ -183,7 +183,14 @@
       "WebFetch(domain:www.amazon.com)",
       "Bash(grep -oE 'images/I/[A-Za-z0-9+_-]{8,}\\\\.\\(jpg|png\\)' /tmp/amazon-test.html)",
       "Bash(cygpath -w /tmp/amz-B0CLLLV8TD.html)",
-      "Bash(grep -Eo \"Watch [^<]{1,80}on YouTube|Shop [^<]{1,40}Collection\")"
+      "Bash(grep -Eo \"Watch [^<]{1,80}on YouTube|Shop [^<]{1,40}Collection\")",
+      "WebFetch(domain:payloadcms.com)",
+      "Bash(npm view *)",
+      "Bash(echo \"=== EXIT $? ===\")",
+      "Bash(node -e \"console.log\\(require\\('sharp/package.json'\\).version\\)\")",
+      "WebFetch(domain:scoutpaw.tv)",
+      "Bash(Select-Object -First 30)",
+      "PowerShell(Start-Process \"D:\\\\works\\\\emvn\\\\scoutpaw-v2\\\\plans\\\\260611-0509-seo-aeo-remediation\\\\seo-audit-dashboard.html\"; \"opened\")"
     ]
   }
 }

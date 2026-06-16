@@ -26,7 +26,7 @@ Approved design: `plans/reports/brainstorm-260526-1538-cms-architecture.md`.
 
 | Phase | Name | Status |
 |-------|------|--------|
-| 1 | [Foundation](./phase-01-foundation.md) | Pending |
+| 1 | [Foundation](./phase-01-foundation.md) | In progress (scaffold done; cred-gated) |
 | 2 | [Top Picks Migration](./phase-02-top-picks-migration.md) | Pending |
 | 3 | [Promotions Collection](./phase-03-promotions-collection.md) | Pending |
 | 4 | [Globals Migration](./phase-04-globals-migration.md) | Pending |
@@ -84,9 +84,15 @@ Shopify                              ← discount codes + checkout (truth)
 - R2: already in stack, near-free at this volume
 - **Total CMS infra cost: $0–40/mo**
 
+## Resolved Decisions (2026-06-04 review)
+
+- **Postgres host → Neon.** Pooled connection string (mandatory for Vercel serverless — direct connections exhaust limits). Scale-to-zero + DB branching for safe migration testing. Vercel Postgres is Neon-backed anyway; Supabase's bundled auth/storage are redundant (Payload=auth, R2=storage).
+- **Promo scheduling → keep plan's server-side ISR-60s (Phase 3 as written).** Server filters by request-time `now`, so promo copy only enters HTML once live — zero infra, no copy leak, no cron. Client-side reveal was considered and rejected (would leak soon-to-be-live copy + flash-of-content). Guardrail confirmed: `shopifyCodeSlug` is display-only; Shopify enforces the real code, so nothing abusable ships early.
+- **Driver confirmed:** real upcoming promo campaign (scheduling) + frequent edits by non-technical CNL editors → full Payload is justified, not over-engineered.
+
 ## Open Questions (To Resolve Before / During Phase 1)
 
-1. **Postgres host** — Vercel Postgres (frictionless single-deploy story) vs. Neon (better free tier, branch DBs) vs. Supabase (auth/storage bundled but redundant here). Recommendation deferred; pick at Phase 1 install.
+1. **Payload ↔ Next/React pre-flight** — verify current-stable Payload 3.x against Next 15.0.7 + React 19 BEFORE install; bump Next to latest 15.x patch if Payload requires it.
 2. **2FA scope** — MVP requirement or post-launch? Default: post-launch.
 3. **Audit log retention** — Payload versions table grows unbounded. Default policy or compliance-driven cap?
 4. **`sanity-source.ts` removal timing** — Delete in Phase 1 with first commit, or keep dormant until Phase 8 retirement? Default: delete in Phase 1 (no consumer).

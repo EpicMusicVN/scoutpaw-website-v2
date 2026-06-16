@@ -2,6 +2,7 @@ import type {
   Channel,
   Character,
   ComingSoonPage,
+  FaqItem,
   Playlist,
   SiteConfig,
   TopPicksContent,
@@ -36,4 +37,5 @@ export interface ContentSource {
   getComingSoonPages(): Promise<ComingSoonPage[]>;
   getComingSoonPageBySlug(slug: string): Promise<ComingSoonPage | null>;
   getTopPicks(): Promise<TopPicksContent>;
+  getFaq(): Promise<FaqItem[]>;
 }

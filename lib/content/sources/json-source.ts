@@ -1,6 +1,7 @@
 import channelsJson from "@/content/channels.json";
 import charactersJson from "@/content/characters.json";
 import comingSoonJson from "@/content/coming-soon.json";
+import faqJson from "@/content/faq.json";
 import playlistsJson from "@/content/playlists.json";
 import siteConfigJson from "@/content/site-config.json";
 import topPicksJson from "@/content/top-picks.json";
@@ -10,6 +11,7 @@ import {
   ChannelsFileSchema,
   CharactersFileSchema,
   ComingSoonFileSchema,
+  FaqFileSchema,
   PlaylistsFileSchema,
   SiteConfigSchema,
   TopPicksContentSchema,
@@ -17,6 +19,7 @@ import {
   type Channel,
   type Character,
   type ComingSoonPage,
+  type FaqItem,
   type Playlist,
   type SiteConfig,
   type TopPicksContent,
@@ -36,6 +39,7 @@ const comingSoonPages: ComingSoonPage[] =
 const channels: Channel[] = ChannelsFileSchema.parse(channelsJson).channels;
 const playlists: Playlist[] = PlaylistsFileSchema.parse(playlistsJson).playlists;
 const siteConfig: SiteConfig = SiteConfigSchema.parse(siteConfigJson);
+const faqItems: FaqItem[] = FaqFileSchema.parse(faqJson).items;
 
 // Top Picks — validate once, then keep picks sorted by `order` so the UI never
 // has to re-sort. The deal block passes through untouched.
@@ -107,5 +111,8 @@ export const jsonContentSource: ContentSource = {
   },
   async getTopPicks() {
     return topPicks;
+  },
+  async getFaq() {
+    return faqItems;
   },
 };
