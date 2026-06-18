@@ -169,7 +169,7 @@ function CompactChannelCard({
           <div className="pointer-events-none absolute -bottom-2 -right-2 h-24 w-24 transition-transform duration-500 ease-out group-hover:scale-105">
             <Image
               src={assetUrl(character.image)}
-              alt=""
+              alt={`${character.name} the ${character.breed}`}
               fill
               sizes="96px"
               className="object-contain drop-shadow-[0_8px_16px_rgba(43,29,16,0.15)]"
@@ -181,13 +181,10 @@ function CompactChannelCard({
       {/* Body: avatar circle overlaps banner edge */}
       <div className="relative flex flex-1 flex-col p-4">
         {channel.avatarUrl ? (
-          <span
-            aria-hidden="true"
-            className="absolute -top-6 left-4 h-12 w-12 overflow-hidden rounded-full bg-surface shadow-cozy"
-          >
+          <span className="absolute -top-6 left-4 h-12 w-12 overflow-hidden rounded-full bg-surface shadow-cozy">
             <Image
               src={channel.avatarUrl}
-              alt=""
+              alt={`${channel.name} channel avatar`}
               width={48}
               height={48}
               className="h-full w-full object-cover"

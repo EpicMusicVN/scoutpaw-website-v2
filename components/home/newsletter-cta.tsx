@@ -164,24 +164,21 @@ export function NewsletterCTA({
         </div>
       </div>
 
-      {/* Character pose decoratives — anchored to the card's bottom-left and
-          bottom-right corners. Poses sit ON the card (no translate-y / no
-          overhang below) and extend upward from each corner. Slight rotation
-          adds personality without breaking the corner alignment. */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-x-0 bottom-0 hidden lg:block"
-      >
+      {/* Character poses anchored to the card's bottom corners. They depict
+          named pack members (Golden + Husky), so they carry descriptive alt for
+          image SEO rather than empty decorative alt — pointer-events-none keeps
+          them non-interactive. */}
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 hidden lg:block">
         <Image
           src={assetUrl("characters-position/golden1.png")}
-          alt=""
+          alt="Golden the Golden Retriever from the ScoutPaw pack"
           width={900}
           height={1200}
           className="absolute left-0 bottom-0 h-auto w-80 translate-y-1/2 -rotate-6 origin-bottom-left"
         />
         <Image
           src={assetUrl("characters-position/husky2.png")}
-          alt=""
+          alt="Husky from the ScoutPaw pack"
           width={900}
           height={1200}
           className="absolute right-0 bottom-0 h-auto w-80 translate-y-1/2 rotate-6 origin-bottom-right"

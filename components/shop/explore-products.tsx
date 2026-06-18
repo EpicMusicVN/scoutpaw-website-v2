@@ -100,11 +100,10 @@ export function ExploreProducts() {
                   <div className="absolute inset-0 p-6 md:p-8">
                     <Image
                       src={tile.image}
-                      alt=""
+                      alt={tile.title ?? categoryLabel(tile.category)}
                       fill
                       sizes="(min-width: 1024px) 25vw, 50vw"
                       className="object-contain object-center transition-transform duration-500 ease-gentle group-hover:scale-105"
-                      aria-hidden="true"
                     />
                   </div>
                 </div>

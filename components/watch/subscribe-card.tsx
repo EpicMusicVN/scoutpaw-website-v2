@@ -34,20 +34,17 @@ export function SubscribeCard({ youtubeUrl }: { youtubeUrl: string }) {
       {/* Character pose decoratives — same pattern as the VIP card: anchored to
           the card's bottom-left / bottom-right corners with translate-y-1/2 so
           50% sits ON the card and 50% hangs BELOW. */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-x-0 bottom-0 hidden lg:block"
-      >
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 hidden lg:block">
         <Image
           src={assetUrl("characters-position/corgi1.png")}
-          alt=""
+          alt="Corgi from the ScoutPaw pack"
           width={900}
           height={1200}
           className="absolute left-0 bottom-0 h-auto w-80 translate-y-1/2 -rotate-4 origin-bottom-left"
         />
         <Image
           src={assetUrl("characters-position/collie1.png")}
-          alt=""
+          alt="Collie from the ScoutPaw pack"
           width={900}
           height={1200}
           className="absolute right-0 bottom-0 h-auto w-80 translate-y-1/2 rotate-4 origin-bottom-right"

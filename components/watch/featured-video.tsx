@@ -45,7 +45,7 @@ export function FeaturedVideo({
           <div className="relative aspect-video w-full">
             <Image
               src={thumbnail}
-              alt=""
+              alt={`${video.title} — ScoutPaw TV calming video thumbnail`}
               fill
               sizes="(min-width: 768px) 60vw, 100vw"
               className="object-cover transition-transform duration-500 group-hover:scale-105"

@@ -35,7 +35,7 @@ export function DealBlock({ deal }: { deal: DealBlockData }) {
         <div className="relative aspect-[16/10] w-full md:aspect-auto md:min-h-[320px]">
           <Image
             src={assetUrl(deal.image)}
-            alt=""
+            alt={deal.title}
             fill
             sizes="(min-width: 768px) 40vw, 100vw"
             className="object-cover"

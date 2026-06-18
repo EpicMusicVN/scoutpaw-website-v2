@@ -11,7 +11,7 @@ import { breadcrumbSchema } from "@/lib/seo/structured-data";
 import { assetUrl } from "@/lib/utils/asset-url";
 
 const PAGE_DESCRIPTION =
-  "Hand-picked favourites from the ScoutPaw pack — cozy apparel, calming pet supplies, playful toys, and home comforts, plus the latest popular offers.";
+  "The pack's most-loved picks — hand-picked favourites from the ScoutPaw pack: cozy apparel, calming pet supplies, playful toys, and home comforts, plus the latest popular offers.";
 
 export const metadata: Metadata = {
   title: "Top Picks",
