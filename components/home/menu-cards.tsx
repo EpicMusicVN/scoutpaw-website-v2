@@ -6,6 +6,14 @@ type Card = {
   label: string;
   copy: string;
   image: string;
+  /** Descriptive alt for the card illustration — fuels image SEO + a11y. */
+  imageAlt: string;
+  /**
+   * Concise accessible name for the whole-card link. Without it the anchor text
+   * is the entire card (label + full copy + "View All") — flagged as an overlong
+   * internal anchor. This collapses it to a short, meaningful phrase.
+   */
+  linkLabel: string;
   href: string;
   comingSoon?: boolean;
 };
@@ -25,18 +33,24 @@ export function MenuCards() {
       label: "CHARACTERS",
       copy: "Learn more about Rocky, Max, and all your favorite furry friends from the pack!",
       image: assetUrl("card/characters.png"),
+      imageAlt: "Cartoon dogs of the ScoutPaw pack",
+      linkLabel: "Meet the ScoutPaw characters",
       href: "#meet-the-pack",
     },
     {
       label: "SHOP",
       copy: "Treat your pup to new favorites and grab something cute for yourself! From doggy essentials to fun human gear, there's a little magic here for both of you.",
       image: assetUrl("card/shop.png"),
+      imageAlt: "ScoutPaw dog essentials and gear",
+      linkLabel: "Shop ScoutPaw dog products",
       href: "/shop",
     },
     {
       label: "WATCH",
       copy: "Experience every musical adventure and cartoon designed to keep your pup company all day.",
       image: assetUrl("card/watch.png"),
+      imageAlt: "ScoutPaw calming videos for dogs",
+      linkLabel: "Watch ScoutPaw videos",
       href: "/watch",
     },
   ];
@@ -104,11 +118,10 @@ function MenuCard({ card }: { card: Card }) {
       >
         <Image
           src={card.image}
-          alt=""
+          alt={card.imageAlt}
           fill
           sizes="(min-width:1024px) 192px, (min-width:640px) 176px, 160px"
           className="object-contain p-3 drop-shadow-[0_12px_18px_rgba(43,29,16,0.22)]"
-          aria-hidden="true"
         />
       </div>
 
@@ -142,7 +155,7 @@ function MenuCard({ card }: { card: Card }) {
     );
   }
   return (
-    <Link href={card.href} className={wrapperClass}>
+    <Link href={card.href} aria-label={card.linkLabel} className={wrapperClass}>
       {content}
     </Link>
   );

@@ -8,6 +8,9 @@ const withBundleAnalyzer = bundleAnalyzer({
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
+  // Strip the default `X-Powered-By: Next.js` response header — it leaks the
+  // stack to scanners and adds no value (flagged by the SEO audit).
+  poweredByHeader: false,
   images: {
     remotePatterns: [
       { protocol: "https", hostname: "cdn.shopify.com" },

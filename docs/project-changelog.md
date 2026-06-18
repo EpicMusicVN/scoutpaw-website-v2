@@ -1,5 +1,25 @@
 # Project Changelog
 
+## [2026-06-18] - SEO & AEO On-Page Remediation (Batch 2)
+
+### Overview
+Closes the open findings from the 2026-06-18 homepage scan that the prior remediation missed — mostly a duplicate-content root cause plus header/freshness/alt/anchor/citation nits. Code + an ops checklist for the off-site items. Plan: `plans/260618-0548-seo-aeo-onpage-batch2/`.
+
+### Changes
+- **Hero dedup** (`components/home/full-bleed-hero.tsx`) — root cause of "duplicate H1", "duplicate headings", and "2 duplicate text blocks (`Max, Rocky…`)": `FullBleedHero` rendered its `CardBody` (kicker + `<h1>` + description) **twice** (mobile card + desktop blob), so CSS-blind crawlers counted both. Now renders once — a single node switched between an in-flow mobile glass card and a `md:absolute` desktop overlay blob via responsive utilities. Homepage raw HTML now has exactly one `<h1>`. Sibling heroes (watch/character-detail/coming-soon/feature-banner) audited — each already single-render.
+- **`X-Powered-By` removed** (`next.config.ts`) — `poweredByHeader: false`.
+- **Freshness signal** (`lib/seo/build-date.ts` new, `lib/seo/structured-data.ts`) — WebSite JSON-LD now emits `datePublished` + build-time `dateModified` (auto-refreshes each deploy; `NEXT_PUBLIC_BUILD_DATE` override supported). Satisfies the AEO content-freshness check.
+- **Image alt** (`components/home/menu-cards.tsx`, `components/watch/video-card.tsx`) — 6 meaningful homepage images given descriptive `alt` (3 menu cards + video thumbnails incl. placeholder fallback). 2 decorative character poses intentionally keep `alt=""` (WCAG-correct; parent `aria-hidden`).
+- **Anchor cleanup** (`components/home/menu-cards.tsx`) — overlong whole-card anchors (label + full copy + "View All") collapsed via concise `aria-label`s. Reused anchors are site-wide nav (header/footer) — left intact by design.
+- **External citations** (`components/home/calming-science-note.tsx` new, `app/(frontend)/page.tsx`) — "Why calming works" note after the video section with 2 outbound credible links (American Kennel Club + Physiology & Behavior / Bowman et al. 2015), `rel="noopener noreferrer"`. Satisfies the AEO ≥2-external-citations check + adds E-E-A-T.
+
+### Validation
+- `pnpm typecheck` clean · `pnpm lint` clean · code-reviewed (DONE, no blocking issues)
+- Live (dev): 1 `<h1>`, no `X-Powered-By` header, `dateModified` present, only 2 decorative `alt=""`, 3 card `aria-label`s, 2 outbound citation links.
+
+### Out of Scope (Ops/off-site — see `plans/260618-0548-.../ops-offsite-checklist.md`)
+Canonical "different page" = D1 apex↔www host mismatch (`NEXT_PUBLIC_SITE_URL=www` + apex→www 308); backlinks/digital-PR; server-clock host verification. **None of the code gains are live until `feat/seo-aeo-remediation` deploys.**
+
 ## [2026-06-11] - SEO & AEO Code-Max Pass
 
 ### Overview

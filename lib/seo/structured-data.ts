@@ -1,6 +1,7 @@
 import type { FaqItem, SiteConfig, Video } from "@/lib/content";
 import type { ShopProduct } from "@/lib/shopify/types";
 import { assetUrl } from "@/lib/utils/asset-url";
+import { SITE_MODIFIED_DATE, SITE_PUBLISHED_DATE } from "@/lib/seo/build-date";
 import type { JsonLdData } from "@/components/seo/json-ld";
 
 /**
@@ -67,6 +68,9 @@ export function organizationSchema(config: SiteConfig, siteUrl: string): JsonLdD
 /**
  * WebSite node. No `potentialAction`/SearchAction — the site has no on-site
  * query-URL search (existing search is client-side filtering only).
+ * `datePublished`/`dateModified` supply the freshness signal AEO engines look
+ * for; `dateModified` is the build date (see `build-date.ts`) so every deploy
+ * refreshes it automatically.
  */
 export function websiteSchema(config: SiteConfig, siteUrl: string): JsonLdData {
   return {
@@ -77,6 +81,8 @@ export function websiteSchema(config: SiteConfig, siteUrl: string): JsonLdData {
     url: siteUrl,
     description: config.brand.description,
     inLanguage: "en",
+    datePublished: SITE_PUBLISHED_DATE,
+    dateModified: SITE_MODIFIED_DATE,
     publisher: { "@id": orgId(siteUrl) },
   };
 }

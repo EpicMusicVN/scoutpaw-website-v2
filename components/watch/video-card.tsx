@@ -51,7 +51,7 @@ export function VideoCard({
       <div className="relative aspect-video overflow-hidden rounded-[1.5rem] border border-ink/10 bg-ink/5 shadow-cozy transition-all duration-300 ease-gentle group-hover:-translate-y-1 group-hover:shadow-cozy-lg">
         <Image
           src={thumbnail}
-          alt=""
+          alt={`${video.title} — ScoutPaw TV calming video thumbnail`}
           fill
           sizes={variant === "featured" ? "(min-width: 768px) 60vw, 100vw" : "(min-width: 768px) 33vw, 100vw"}
           className="object-cover transition-transform duration-500 group-hover:scale-105"

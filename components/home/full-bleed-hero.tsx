@@ -63,24 +63,23 @@ export function FullBleedHero({
         />
       </div>
 
-      {/* Mobile: in-flow white-tinted glass card below banner. */}
-      <div className="relative mx-4 -mt-8 max-w-md rounded-3xl border border-ink/10 bg-white/90 p-6 shadow-cozy-xl backdrop-blur-xl md:hidden">
-        <CardBody />
-      </div>
-
-      {/* Desktop: top-left glass blob tucked under the navbar. A radial mask
-          fades the white tint + backdrop-blur into the banner imagery at the
-          edges, so the text reads on a soft glow instead of a hard UI rectangle.
-          Character faces (Home) and products (Shop) keep visual focus. */}
-      <div className="pointer-events-none absolute inset-0 hidden items-start md:flex">
-        <div className="pointer-events-auto mx-auto w-full max-w-hero px-8 pt-12 lg:pt-16">
-          <div className="relative max-w-sm px-8 py-7 lg:max-w-md lg:px-10 lg:py-9">
-            {/* Glass blob — bg tint + blur, edges fade via radial mask.
+      {/* Hero text — rendered ONCE so CSS-blind crawlers see a single <h1> and
+          a single description string (the prior dual-render emitted two of each,
+          tripping duplicate-H1 / duplicate-text SEO checks).
+          Mobile (<md): in-flow white-tinted glass card below the banner.
+          md+: the same node becomes a top-left glass blob absolutely overlaying
+          the banner, tucked under the navbar. A radial mask fades the white tint
+          + backdrop-blur into the banner imagery so the text reads on a soft glow
+          instead of a hard UI rectangle. */}
+      <div className="relative md:pointer-events-none md:absolute md:inset-0 md:flex md:items-start">
+        <div className="mx-4 -mt-8 max-w-md rounded-3xl border border-ink/10 bg-white/90 p-6 shadow-cozy-xl backdrop-blur-xl md:pointer-events-auto md:mx-auto md:mt-0 md:w-full md:max-w-hero md:rounded-none md:border-0 md:bg-transparent md:p-0 md:px-8 md:pt-12 md:shadow-none md:backdrop-blur-none lg:pt-16">
+          <div className="relative md:max-w-sm md:px-8 md:py-7 lg:max-w-md lg:px-10 lg:py-9">
+            {/* Glass blob — desktop only (mobile uses the card surface above).
                 inset-[-1.5rem] extends the visual layer beyond the text
-                container so the fade has falloff room. */}
+                container so the radial fade has falloff room. */}
             <div
               aria-hidden
-              className="pointer-events-none absolute inset-[-1.5rem] bg-white/55 backdrop-blur-xl"
+              className="pointer-events-none absolute inset-[-1.5rem] hidden bg-white/55 backdrop-blur-xl md:block"
               style={{
                 WebkitMaskImage:
                   "radial-gradient(ellipse at center, rgba(0,0,0,1) 35%, rgba(0,0,0,0) 95%)",

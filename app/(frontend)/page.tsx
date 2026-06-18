@@ -1,3 +1,4 @@
+import { CalmingScienceNote } from "@/components/home/calming-science-note";
 import { CharacterShowcase } from "@/components/home/character-showcase";
 import { FaqSection } from "@/components/home/faq-section";
 import { FeatureBanner } from "@/components/home/feature-banner";
@@ -63,6 +64,10 @@ export default async function HomePage() {
 
       <ScrollReveal>
         <VideoGrid />
+      </ScrollReveal>
+
+      <ScrollReveal>
+        <CalmingScienceNote />
       </ScrollReveal>
 
       <CloudDivider />
