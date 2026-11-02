@@ -1,0 +1,19 @@
+# ScoutPaw TV
+
+> ScoutPaw TV is a calming entertainment brand for dogs and their humans. Five animated pups — Max, Rocky, Oscar, Buddy, and Bella — front a library of gentle music and soothing visuals, plus a small shop of pup-friendly gear. The mood is cozy, low-key, and relaxing rather than stimulating.
+
+ScoutPaw content streams for free and is designed as a relaxing companion for naps, quiet time, and everyday calm — not as a medical or behavioral treatment. For anxiety or health concerns, owners should consult a veterinarian.
+
+## Main pages
+
+- [Home](https://www.scoutpaw.tv/): Brand overview, featured pup, and latest videos.
+- [Characters](https://www.scoutpaw.tv/characters): Meet the five-dog pack — Max, Rocky, Oscar, Buddy, and Bella.
+- [Watch](https://www.scoutpaw.tv/watch): The full library of calming videos and sounds.
+- [Shop](https://www.scoutpaw.tv/shop): Plushes, prints, apparel, and accessories.
+- [Top Picks](https://www.scoutpaw.tv/top-picks): Curated favorite gear for pups and pet-parents.
+
+## Reference
+
+- [Privacy Policy](https://www.scoutpaw.tv/privacy)
+- [Terms of Use](https://www.scoutpaw.tv/terms)
+- [YouTube channel](https://www.youtube.com/@ScoutPaw)

@@ -59,11 +59,10 @@ function PlaylistCard({ playlist, index }: { playlist: Playlist; index: number }
       <div className="relative aspect-[4/3] w-full overflow-hidden">
         <Image
           src={assetUrl(playlist.coverImage)}
-          alt=""
+          alt={`${playlist.title} playlist`}
           fill
           sizes="(min-width: 768px) 33vw, 100vw"
           className={`object-cover opacity-85 transition-transform duration-500 ease-out ${url ? "group-hover:scale-105" : ""}`}
-          aria-hidden="true"
         />
         {/* Bottom shade for legibility */}
         <div

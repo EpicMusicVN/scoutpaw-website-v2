@@ -266,3 +266,14 @@ export const PlaylistsFileSchema = z.object({
 export const ComingSoonFileSchema = z.object({
   pages: z.array(ComingSoonPageSchema),
 });
+
+// FAQ — drives both a visible accordion and FAQPage structured data (AEO).
+// Plain-text answers only (no markup) so they serialize cleanly into JSON-LD.
+export const FaqItemSchema = z.object({
+  question: z.string().min(1),
+  answer: z.string().min(1),
+});
+export type FaqItem = z.infer<typeof FaqItemSchema>;
+export const FaqFileSchema = z.object({
+  items: z.array(FaqItemSchema),
+});

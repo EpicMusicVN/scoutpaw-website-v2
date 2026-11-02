@@ -14,6 +14,12 @@ export const PRODUCTS_QUERY = /* GraphQL */ `
         description
         tags
         onlineStoreUrl
+        availableForSale
+        variants(first: 1) {
+          nodes {
+            sku
+          }
+        }
         featuredImage {
           url
           altText

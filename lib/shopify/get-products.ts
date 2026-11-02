@@ -12,6 +12,8 @@ type LiveResponseNode = {
   description: string;
   tags: string[];
   onlineStoreUrl: string | null;
+  availableForSale: boolean;
+  variants: { nodes: Array<{ sku: string | null }> };
   featuredImage: { url: string; altText: string | null } | null;
   priceRange: { minVariantPrice: { amount: string; currencyCode: string } };
 };
@@ -40,6 +42,8 @@ function mapNode(node: LiveResponseNode): ShopProduct {
     price: node.priceRange.minVariantPrice,
     onlineStoreUrl: node.onlineStoreUrl ?? buildStorefrontUrl(node.handle),
     tags: node.tags ?? [],
+    availableForSale: node.availableForSale ?? true,
+    sku: node.variants?.nodes?.[0]?.sku ?? null,
   };
 }
 

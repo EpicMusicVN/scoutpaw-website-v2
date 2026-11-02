@@ -54,7 +54,7 @@ export function WatchHero({
             ) : (
               <Image
                 src={thumbnail}
-                alt=""
+                alt={`${featured.title} — featured ScoutPaw TV video`}
                 fill
                 priority
                 sizes="(min-width: 1024px) 1400px, 100vw"
@@ -92,8 +92,7 @@ export function WatchHero({
           {/* Left flank pose — xl+ only, larger at 2xl */}
           <Image
             src={assetUrl("characters-position/husky1.png")}
-            alt=""
-            aria-hidden
+            alt="Husky from the ScoutPaw pack"
             width={320}
             height={180}
             className="pointer-events-none absolute left-4 top-4 hidden h-auto w-56 -rotate-6 xl:block 2xl:w-72"
@@ -101,8 +100,7 @@ export function WatchHero({
           {/* Right flank pose */}
           <Image
             src={assetUrl("characters-position/corgi2.png")}
-            alt=""
-            aria-hidden
+            alt="Corgi from the ScoutPaw pack"
             width={320}
             height={180}
             className="pointer-events-none absolute right-4 top-4 hidden h-auto w-56 rotate-6 xl:block 2xl:w-72"

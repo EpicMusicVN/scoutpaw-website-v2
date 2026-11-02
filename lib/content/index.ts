@@ -1,12 +1,12 @@
 import type { ContentSource } from "./adapter";
 import { jsonContentSource } from "./sources/json-source";
-import { sanityContentSource } from "./sources/sanity-source";
+import { payloadContentSource } from "./sources/payload-source";
 
 const mode = process.env.CONTENT_SOURCE ?? "json";
 
 const sources: Record<string, ContentSource> = {
   json: jsonContentSource,
-  sanity: sanityContentSource,
+  payload: payloadContentSource,
 };
 
 const selected = sources[mode];
@@ -24,6 +24,7 @@ export type {
   CharacterProduct,
   ComingSoonPage,
   DealBlock,
+  FaqItem,
   NavItem,
   Playlist,
   PlaylistCategory,

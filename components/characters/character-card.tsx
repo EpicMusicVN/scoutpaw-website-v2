@@ -19,10 +19,18 @@ type Variant = "default" | "featured" | "compact";
 export function CharacterCard({
   character,
   variant = "default",
+  bgColor,
 }: {
   character: Character;
   variant?: Variant;
+  /**
+   * Overrides the card backdrop + hover-glow color. Used by the home
+   * "Meet the Whole Pack" showcase to set per-pup colors independently of the
+   * shared `character.accentColor` (which still drives the Characters page).
+   */
+  bgColor?: string;
 }) {
+  const cardColor = bgColor ?? character.accentColor;
   const aspectClass =
     variant === "featured"
       ? "aspect-[1/2]"
@@ -43,7 +51,7 @@ export function CharacterCard({
       <div
         className={`relative overflow-hidden rounded-[2rem] shadow-cozy transition-all duration-300 ease-gentle group-hover:-translate-y-1.5 group-hover:shadow-cozy-xl ${aspectClass}`}
         style={{
-          backgroundColor: character.accentColor,
+          backgroundColor: cardColor,
         }}
       >
         {/* Paw scatter — behind the character image. Fixed positions per card
@@ -55,7 +63,7 @@ export function CharacterCard({
           aria-hidden="true"
           className="pointer-events-none absolute inset-0 rounded-[2rem] opacity-0 transition-opacity duration-300 group-hover:opacity-100"
           style={{
-            boxShadow: `inset 0 0 0 4px rgba(255,255,255,0.55), 0 0 32px ${character.accentColor}aa`,
+            boxShadow: `inset 0 0 0 4px rgba(255,255,255,0.55), 0 0 32px ${cardColor}aa`,
           }}
         />
 

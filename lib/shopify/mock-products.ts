@@ -1,11 +1,13 @@
 import { assetUrl } from "@/lib/utils/asset-url";
-import type { ShopProduct } from "./types";
+import type { ShopProductInput } from "./types";
 
 /**
  * Mock fixture data — used when SHOPIFY_MODE=mock (Shopify store not yet live).
- * Same shape as live Storefront response so swap is mechanical.
+ * Same shape as live Storefront response so swap is mechanical. Typed as the
+ * schema INPUT so defaulted fields (availableForSale, sku) can be omitted; the
+ * `ShopProductsSchema.parse()` in get-products fills them.
  */
-export const mockProducts: ShopProduct[] = [
+export const mockProducts: ShopProductInput[] = [
   {
     id: "mock-1",
     handle: "scoutpaw-pack-poster",

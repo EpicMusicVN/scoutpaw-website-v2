@@ -12,6 +12,12 @@ import type { CharacterTheme } from "@/lib/content/character-themes";
 import { assetUrl } from "@/lib/utils/asset-url";
 
 /**
+ * Characters whose two CTA cards render with the Shop and YouTube images
+ * swapped (the Shop card shows the YouTube product image and vice versa).
+ */
+const MERCH_IMAGE_SWAP = new Set(["buddy", "bella", "oscar"]);
+
+/**
  * Full-viewport character scene with layered scroll choreography. Each
  * `<section>` contributes `100vh` to page scroll height; the inner div is
  * `md:sticky md:top-0 md:h-screen` so the scene pins as the user scrolls.
@@ -118,13 +124,13 @@ export function CharacterSection({
             flip ? "md:[&>div:first-child]:order-2" : ""
           }`}
         >
-          {/* Visual — pose fills its grid column's full width. No max-w cap
-              and no dvh-height sizing — the pose stays as large as the column
-              allows, with aspect-[3/4] preserving the portrait shape. Each
-              character scene's `md:h-[100dvh]` host gives generous vertical
-              room. Pose may extend below the initial fold on smaller laptops;
-              the sticky scroll behavior keeps it in view as the user scrolls. */}
-          <div className="relative mx-auto aspect-[3/4] w-full">
+          {/* Visual — pose fills its grid column. On desktop the box grows to
+              ~80dvh so the pose reads large within the 100dvh scene (was a
+              column-width aspect box that left it small amid the whitespace);
+              `object-center` centers it vertically against the text column,
+              which the parent grid `items-center` already aligns. Mobile keeps
+              the portrait aspect box. */}
+          <div className="relative mx-auto aspect-[3/4] w-full md:aspect-auto md:h-[80dvh]">
             <span
               aria-hidden="true"
               className="absolute left-1/2 top-1/2 h-3/4 w-3/4 -translate-x-1/2 -translate-y-1/2 rounded-full opacity-40 blur-3xl"
@@ -135,8 +141,8 @@ export function CharacterSection({
               alt={`${name} the ${breed}`}
               fill
               priority={priority}
-              sizes="(min-width: 768px) 560px, 80vw"
-              className="object-contain object-bottom drop-shadow-[0_28px_50px_rgba(43,29,16,0.30)]"
+              sizes="(min-width: 768px) 640px, 80vw"
+              className="object-contain object-center drop-shadow-[0_28px_50px_rgba(43,29,16,0.30)]"
             />
           </div>
 
@@ -168,11 +174,20 @@ export function CharacterSection({
                 new destinations. Each character section therefore exposes
                 exactly two cards. */}
             {(() => {
+              // Swap which product image feeds each CTA card for the slugs in
+              // MERCH_IMAGE_SWAP (Shop card shows the YouTube image, & vice versa).
+              const swap = MERCH_IMAGE_SWAP.has(slug);
+              const shopImg =
+                (swap ? products[1]?.image : products[0]?.image) ?? image;
+              const youtubeImg =
+                (swap ? products[0]?.image : products[1]?.image) ??
+                products[0]?.image ??
+                image;
               const shopCard: CharacterProduct | null = merchCtaHref
                 ? {
                     id: `${slug}-shop-cta`,
                     title: `Shop ${name}'s Collection`,
-                    image: products[0]?.image ?? image,
+                    image: shopImg,
                     badge: "Shop",
                     ctaHref: merchCtaHref,
                   }
@@ -181,7 +196,7 @@ export function CharacterSection({
                 ? {
                     id: `${slug}-youtube-cta`,
                     title: `Watch ${channel.name} on YouTube`,
-                    image: products[1]?.image ?? products[0]?.image ?? image,
+                    image: youtubeImg,
                     badge: "YouTube",
                     ctaHref: channel.url,
                   }
