@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "Support",
   description:
     "Help with the ScoutPaw TV apps: contact our team, supported devices, playback tips, and answers to common questions.",
+  alternates: { canonical: "/support" },
 };
 
 const SUPPORT_EMAIL = "admin@scoutpaw.tv";
