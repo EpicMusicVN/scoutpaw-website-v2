@@ -158,7 +158,7 @@ export default function PrivacyPage() {
             <p>
               Reports don&apos;t include any account, name, device ID, install ID or advertising ID,
               and they don&apos;t use cookies. We don&apos;t keep individual reports: we only add
-              them up into daily totals per video and platform, so the statistics can&apos;t be
+              them up into totals per video, platform and time period (hour or day), so the statistics can&apos;t be
               traced back to you. Like any website or app, your IP address reaches our hosting
               provider, Cloudflare, when your device connects to our server. Cloudflare may use it
               briefly to deliver and protect the service, for example to block abusive traffic, but
@@ -336,7 +336,7 @@ export default function PrivacyPage() {
               Analytics, no longer than 14 months.
             </li>
             <li>
-              <strong>Viewing statistics:</strong> kept as daily totals for as long as they help us
+              <strong>Viewing statistics:</strong> kept only as totals per video and platform for as long as they help us
               run ScoutPaw. They don&apos;t identify anyone.
             </li>
             <li>
