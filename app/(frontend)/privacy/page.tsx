@@ -10,7 +10,13 @@ export const metadata: Metadata = {
 };
 
 const CONTACT_EMAIL = "admin@scoutpaw.tv";
-const LAST_UPDATED = "November 2, 2026";
+const LAST_UPDATED = "November 3, 2026";
+const POSTAL_ADDRESS = [
+  "Rockwater Group Inc.",
+  "15760 Ventura Blvd #1020",
+  "Encino, CA 91436",
+  "United States",
+];
 
 const linkClass =
   "font-semibold text-cobalt underline underline-offset-2 hover:text-ink-blue";
@@ -86,10 +92,18 @@ export default function PrivacyPage() {
 
         <Section id="privacy-who" title="Who we are">
           <p>
-            ScoutPaw is a product of Rockwater Inc., a company based in the United States
+            ScoutPaw is a product of Rockwater Group Inc., a California company
             (&ldquo;Rockwater&rdquo;, &ldquo;we&rdquo;, &ldquo;us&rdquo;). Rockwater is responsible
-            for the information described in this policy. You can reach us at <ContactLink />.
+            for the information described in this policy. You can reach us at <ContactLink /> or
+            by post at:
           </p>
+          <address className="not-italic">
+            {POSTAL_ADDRESS.map((line) => (
+              <span key={line} className="block">
+                {line}
+              </span>
+            ))}
+          </address>
         </Section>
 
         <Section id="privacy-scope" title="What this policy covers">
@@ -113,8 +127,9 @@ export default function PrivacyPage() {
             <p>
               When you join the ScoutPaw newsletter on our website, we receive your email address,
               which sign-up form you used (for example, the one on the home page) and the time you
-              signed up. Our email provider, Resend, delivers these details to our team inbox. We
-              use your email address only to send you ScoutPaw news and updates.
+              signed up. Our email provider, Resend, delivers these details to our team inbox. Our
+              marketing team uses your email address only to send you ScoutPaw news and updates,
+              from an address ending in @scoutpaw.tv.
             </p>
             <p>
               To stop spam, our server briefly uses your IP address to limit how many sign-ups can
@@ -122,7 +137,8 @@ export default function PrivacyPage() {
               short-term memory and is not saved with your sign-up.
             </p>
             <p>
-              You can unsubscribe at any time by emailing <ContactLink />.
+              You can unsubscribe at any time with the unsubscribe link in any newsletter email, or
+              by emailing <ContactLink />.
             </p>
           </SubSection>
 
@@ -189,7 +205,8 @@ export default function PrivacyPage() {
               Ads are switched off in ScoutPaw today, so our apps and web player don&apos;t request
               or show ads. They do include advertising technology so we can turn on video ads in
               the future: Google&apos;s Interactive Media Ads (IMA) SDK for Google Ad Manager, and
-              on Roku, Roku&apos;s advertising framework. Our Android apps also declare
+              on Roku, the Roku Advertising Framework, which serves ads through Roku&apos;s own ad
+              service. Our Android apps also declare
               permission to use the Android advertising ID, which is only read when an ad is
               requested.
             </p>
@@ -213,13 +230,15 @@ export default function PrivacyPage() {
               there. Shopify processes your order and payment under its own privacy policy. We
               receive the details needed to fulfil your order, such as your name, shipping address,
               email address and what you bought. We don&apos;t receive your full payment card
-              details. Our apps don&apos;t sell anything; their shop link opens our website.
+              details. Our own team packs and ships orders; we don&apos;t pass them to an outside
+              print or fulfilment company. Our apps don&apos;t sell anything; their shop link opens
+              our website.
             </p>
             <p>
-              Our website also links to other stores and pages, such as Amazon, Fourthwall and
-              Linktree. As an Amazon Associate we earn from qualifying purchases. If you follow one
-              of these links, that company may use cookies to know that you came from ScoutPaw,
-              and its own privacy policy applies. We don&apos;t receive your name or payment
+              Our website also links to our own Fourthwall shop and Linktree page, and to products
+              on Amazon through our Amazon affiliate links. As an Amazon Associate we earn from
+              qualifying purchases. If you follow one of these links, that company may use cookies
+              to know that you came from ScoutPaw, and its own privacy policy applies. We don&apos;t receive your name or payment
               details from these companies.
             </p>
           </SubSection>
@@ -286,7 +305,8 @@ export default function PrivacyPage() {
             </li>
             <li>
               <strong>Google (IMA SDK and Google Ad Manager)</strong> and{" "}
-              <strong>Roku</strong>: video advertising, only once ads are switched on.
+              <strong>Roku (Roku Advertising Framework)</strong>: video advertising, only once ads
+              are switched on.
             </li>
           </ul>
           <p>
@@ -332,8 +352,9 @@ export default function PrivacyPage() {
               address.
             </li>
             <li>
-              <strong>Website analytics:</strong> for the retention period set in Google
-              Analytics, no longer than 14 months.
+              <strong>Website analytics:</strong> Google Analytics&apos; default retention
+              period. Visit-level data, linked to a cookie, is deleted after 2 months; after that we
+              keep only overall totals that don&apos;t identify anyone.
             </li>
             <li>
               <strong>Viewing statistics:</strong> kept only as totals per video and platform for as long as they help us
@@ -388,16 +409,17 @@ export default function PrivacyPage() {
 
         <Section id="privacy-children" title="Children">
           <p>
-            ScoutPaw is made for dog owners. Our website and apps are not directed to children
-            under 13, and we don&apos;t knowingly collect personal information from children under
-            13. If you think a child has given us personal information, for example by joining the
-            newsletter, email <ContactLink /> and we will delete it.
+            ScoutPaw is made for dog owners. Our website and apps are not directed to children,
+            and we don&apos;t knowingly collect personal information from children under 13, or
+            under 16 in the European Economic Area and the UK. Children under these ages should not
+            join the newsletter. If you think a child has given us personal information, email{" "}
+            <ContactLink /> and we will delete it.
           </p>
         </Section>
 
         <Section id="privacy-transfers" title="International transfers">
           <p>
-            Rockwater Inc. is based in the United States, and our service providers operate in the
+            Rockwater Group Inc. is based in the United States, and our service providers operate in the
             United States and around the world. Your information may therefore be processed outside
             your country. Where the law requires it, we rely on the safeguards our providers offer
             for these transfers, such as the European Commission&apos;s Standard Contractual
@@ -434,8 +456,8 @@ export default function PrivacyPage() {
         </Section>
 
         <footer className="mt-12 border-t border-ink-blue/10 pt-6 text-sm text-ink-blue/70">
-          <p>ScoutPaw is a product of Rockwater Inc.</p>
-          <p className="mt-1">&copy; 2026 Rockwater Inc.</p>
+          <p>ScoutPaw is a product of Rockwater Group Inc.</p>
+          <p className="mt-1">&copy; 2026 Rockwater Group Inc.</p>
         </footer>
       </div>
     </article>

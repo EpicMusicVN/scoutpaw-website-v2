@@ -125,8 +125,22 @@ export async function Footer() {
             </div>
           </div>
 
-          <div className="mt-12 border-t border-white/10 pt-6 text-center text-xs text-white/65 md:text-sm">
-            &copy; {year} {config.brand.fullName}. {config.brand.tagline}.
+          <div className="mt-12 flex flex-col items-center gap-3 border-t border-white/10 pt-6 text-center text-xs text-white/65 md:text-sm">
+            <ul className="flex items-center gap-5">
+              <li>
+                <Link href="/privacy" className="text-white/85 underline-offset-2 hover:text-white hover:underline">
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link href="/support" className="text-white/85 underline-offset-2 hover:text-white hover:underline">
+                  Support
+                </Link>
+              </li>
+            </ul>
+            <p>
+              &copy; {year} {config.brand.fullName}. {config.brand.tagline}.
+            </p>
           </div>
         </div>
       </div>
