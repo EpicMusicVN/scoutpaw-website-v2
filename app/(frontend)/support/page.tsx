@@ -161,8 +161,8 @@ export default function SupportPage() {
         </section>
 
         <footer className="mt-12 border-t border-ink-blue/10 pt-6 text-sm text-ink-blue/70">
-          <p>ScoutPaw is a product of Rockwater Inc.</p>
-          <p className="mt-1">&copy; 2026 Rockwater Inc.</p>
+          <p>ScoutPaw is a product of Rockwater Group Inc.</p>
+          <p className="mt-1">&copy; 2026 Rockwater Group Inc.</p>
         </footer>
       </div>
     </article>
