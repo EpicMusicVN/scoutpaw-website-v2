@@ -75,9 +75,9 @@ export async function Footer() {
               <Image
                 src={assetUrl(config.brand.logoText)}
                 alt={config.brand.fullName}
-                width={222}
-                height={50}
-                className="h-8 w-auto [filter:drop-shadow(0_0_12px_rgba(255,215,12,0.5))_drop-shadow(0_2px_6px_rgba(255,215,12,0.35))] md:h-10 lg:h-12"
+                width={292}
+                height={48}
+                className="h-8 w-auto [filter:drop-shadow(0_2px_6px_rgba(15,37,64,0.35))] md:h-10 lg:h-12"
               />
               <p className="mt-4 max-w-xs text-sm text-white/80 md:text-base">
                 {config.brand.description}
@@ -114,7 +114,7 @@ export async function Footer() {
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label={`${config.brand.name} on ${s.label}`}
-                        className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-white/5 text-white transition-all duration-200 hover:-translate-y-0.5 hover:border-brand-primary hover:bg-brand-primary hover:text-ink-blue"
+                        className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-white/5 text-white transition-all duration-200 hover:-translate-y-0.5 hover:border-brand-primary hover:bg-brand-primary hover:text-ink"
                       >
                         <SocialIcon platform={s.platform} />
                       </Link>

@@ -27,7 +27,7 @@ export function VideoCard({
   const thumbnail = video.thumbnail
     ? assetUrl(video.thumbnail)
     : isPlaceholder
-      ? assetUrl("banner/banner.png")
+      ? assetUrl("brand/scene/pack-scene.webp")
       : `https://i.ytimg.com/vi/${video.youtubeId}/hqdefault.jpg`;
   const href = isPlaceholder
     ? "https://www.youtube.com"
@@ -68,7 +68,7 @@ export function VideoCard({
           </span>
         )}
         {video.category && variant !== "compact" && (
-          <span className="absolute left-3 top-3 rounded-full bg-brand-primary/95 px-2.5 py-1 font-display text-[0.65rem] font-bold uppercase tracking-[0.18em] text-ink-blue md:text-xs">
+          <span className="absolute left-3 top-3 rounded-full bg-brand-primary/95 px-2.5 py-1 font-display text-[0.65rem] font-bold uppercase tracking-[0.18em] text-ink md:text-xs">
             {video.category.replace("-", " ")}
           </span>
         )}

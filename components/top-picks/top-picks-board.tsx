@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import { DealBlock as DealBlockCard } from "@/components/top-picks/deal-block";
 import { OfferCard } from "@/components/top-picks/offer-card";
 import { FilterChip } from "@/components/ui/filter-chip";
+import { PupNoseRow } from "@/components/ui/pup-nose";
 import type { DealBlock, TopPick, TopPickCategory } from "@/lib/content";
 import {
   TOP_PICK_CATEGORIES,
@@ -83,7 +84,8 @@ export function TopPicksBoard({
       <div className="mt-10 md:mt-12">
         {filtered.length === 0 ? (
           <p className="text-center text-base text-ink-blue/70 md:text-lg">
-            No picks in this category yet — check back soon. 🐾
+            No picks in this category yet — check back soon.{" "}
+            <PupNoseRow />
           </p>
         ) : (
           <ul className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">

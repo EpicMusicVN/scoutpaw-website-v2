@@ -96,7 +96,7 @@ export const VideoSchema = z.object({
   playlistId: z.string().optional(),
   // Optional local video asset. When present, hero/playback surfaces render
   // an inline <video> instead of the YouTube thumbnail. Store as a bare key
-  // (e.g. "watch/intro.mp4"); UI resolves via lib/utils/asset-url.
+  // (e.g. "watch/episode.mp4"); UI resolves via lib/utils/asset-url.
   videoSrc: z.string().optional(),
   videoPoster: z.string().optional(),
 });

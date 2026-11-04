@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 
 /**
  * Wide horizontal feature banner — Shop spotlight on the home page.
- * Contained rounded card with a warm-tan → yellow → peach gradient bg. Inside:
+ * Contained rounded card with a warm-tan → soft orange → peach gradient bg. Inside:
  * a magazine-style split — copy on one side, full-bleed image filling the other
  * side edge-to-edge of the card.
  */
@@ -34,7 +34,7 @@ export function FeatureBanner({
         className="relative overflow-hidden rounded-[2.5rem] border border-ink/10 shadow-cozy-md"
         style={{
           background:
-            "linear-gradient(120deg, var(--bg-warm-tan) 0%, var(--brand-primary) 55%, var(--bg-peach) 100%)",
+            "linear-gradient(120deg, var(--bg-warm-tan) 0%, var(--brand-primary-soft) 55%, var(--bg-peach) 100%)",
         }}
       >
         <div
@@ -45,7 +45,7 @@ export function FeatureBanner({
           {/* Copy column — padded inside the card. */}
           <div className="relative z-10 px-4 py-16 md:py-20 md:pl-12 md:pr-8">
             {kicker && (
-              <p className="font-display text-xs font-bold uppercase tracking-[0.3em] text-ink-blue/70 md:text-sm">
+              <p className="font-display text-xs font-bold uppercase tracking-[0.3em] text-ink-blue/85 md:text-sm">
                 {kicker}
               </p>
             )}
@@ -56,7 +56,7 @@ export function FeatureBanner({
               {body}
             </p>
             {subDescription && (
-              <p className="mt-4 max-w-md text-sm italic text-ink-blue/70 md:text-base">
+              <p className="mt-4 max-w-md text-sm italic text-ink-blue/85 md:text-base">
                 {subDescription}
               </p>
             )}

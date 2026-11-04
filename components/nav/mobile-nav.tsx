@@ -73,8 +73,8 @@ export function MobileNav({
             <Image
               src={logoText}
               alt="ScoutPaw"
-              width={200}
-              height={64}
+              width={244}
+              height={40}
               className="h-10 w-auto [filter:drop-shadow(0_2px_6px_rgba(43,29,16,0.25))]"
             />
             <button
@@ -107,7 +107,7 @@ export function MobileNav({
                       className={cn(
                         "flex items-center justify-between gap-3 rounded-2xl px-4 py-4 font-display text-2xl font-bold uppercase tracking-wide transition-colors",
                         active
-                          ? "bg-brand-primary text-ink-blue shadow-cozy"
+                          ? "bg-brand-primary text-ink shadow-cozy"
                           : item.enabled
                             ? "text-ink-blue hover:bg-ink/5"
                             : "text-ink-blue/45 hover:bg-ink/5 hover:text-ink-blue/65",
@@ -130,7 +130,7 @@ export function MobileNav({
               <Link
                 href="/shop"
                 onClick={() => setOpen(false)}
-                className="cta-shimmer inline-flex min-h-[56px] items-center justify-center rounded-full bg-brand-primary px-6 font-display text-lg font-bold text-ink-blue shadow-cozy"
+                className="cta-shimmer inline-flex min-h-[56px] items-center justify-center rounded-full bg-brand-primary px-6 font-display text-lg font-bold text-ink shadow-cozy"
               >
                 Shop the Pack
               </Link>

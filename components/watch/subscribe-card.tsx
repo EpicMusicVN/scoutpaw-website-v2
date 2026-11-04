@@ -36,18 +36,18 @@ export function SubscribeCard({ youtubeUrl }: { youtubeUrl: string }) {
           50% sits ON the card and 50% hangs BELOW. */}
       <div className="pointer-events-none absolute inset-x-0 bottom-0 hidden lg:block">
         <Image
-          src={assetUrl("characters-position/corgi1.png")}
-          alt="Corgi from the ScoutPaw pack"
-          width={900}
-          height={1200}
-          className="absolute left-0 bottom-0 h-auto w-80 translate-y-1/2 -rotate-4 origin-bottom-left"
+          src={assetUrl("brand/characters/buddy-stand.webp")}
+          alt="Buddy the Corgi from the ScoutPaw pack"
+          width={1050}
+          height={1400}
+          className="absolute left-0 bottom-0 h-auto w-40 translate-y-1/2"
         />
         <Image
-          src={assetUrl("characters-position/collie1.png")}
-          alt="Collie from the ScoutPaw pack"
-          width={900}
-          height={1200}
-          className="absolute right-0 bottom-0 h-auto w-80 translate-y-1/2 rotate-4 origin-bottom-right"
+          src={assetUrl("brand/characters/oscar-stand.webp")}
+          alt="Oscar the Collie from the ScoutPaw pack"
+          width={1050}
+          height={1400}
+          className="absolute right-0 bottom-0 h-auto w-40 translate-y-1/2"
         />
       </div>
       </div>

@@ -1,5 +1,22 @@
 # Project Changelog
 
+## [2026-11-04] - 2D Brand Art + Wordmark-Orange Accent
+
+### Overview
+Replaces every 3D-rendered character, logo and scene with the new 2D cartoon brand pack, and moves the brand accent from yellow `#FFD70C` to the wordmark orange `#FA6502`. Layout and page structure are unchanged.
+
+### Changes
+- **Brand art** (`public/assets/brand/`, exported by `scripts/export-brand-art.sh` from the original pack, which is not committed) — one 1050x1400 standing pose per pup, all cut with one shared crop box and one scale so the pups keep the designer's relative sizes and stand on the same ground line (every former 3D pose and `*-bg.png` maps to it), Buddy + Max logo (nav), flat wordmark (footer, mobile menu), wordmark-free hills scene (home/characters hero, video and playlist fallbacks), 1200x630 share card, compass/hat/camera props (home menu cards), Buddy app icon + favicons.
+- **Asset resolution** (`lib/utils/asset-url.ts`) — keys under `brand/` always resolve to the deployment's own `/assets/brand/…`, even when `NEXT_PUBLIC_R2_BASE_URL` is set, because the new art is not mirrored to the R2 bucket. Remove the prefix once it is uploaded.
+- **Accent colour** (`app/(frontend)/globals.css`, `content/site-config.json`) — `--brand-primary` is `#fa6502`; new `--brand-primary-soft` (`#fdc19a`) replaces the saturated accent as the mid-stop of the warm gradient cards. Text on solid orange switched to `text-ink` (5.4:1) because white (3.0:1) and ink-blue (3.8:1) fail AA; `/70` copy on the gradient cards raised to `/85`.
+- **Pup noses** (`public/assets/brand/noses/`, `components/ui/pup-nose.tsx`) — one 96px nose per pup replaces the site's small decorative marks: paw scatters (character cards, home showcase and menu sections, newsletter corners), the character-page motif shapes (now that pup's own nose), paw emoji and the empty-state paw icon (now a row of all five noses), and the list bullets on the support and privacy pages (`.list-noses`).
+- **Pup hover** — cards that hold a pup (character, character merch, product and channel cards) no longer lift or zoom on hover/focus, which pushed the hovered pup off the shared ground; they show a brand-orange ring + glow instead (`.pup-highlight`, box-shadow only).
+- **Watch hero** — the featured video no longer plays the 3D `watch/intro.mp4`; it falls back to the 2D scene thumbnail linking to YouTube.
+- **Removed** — all 3D files under `public/assets/{banner,card,characters,characters-position,logo,watch}` and their `assets/` source copies, the old paw favicon, and the obsolete `scripts/normalize-pose-assets.sh`.
+
+### Not covered (remote data)
+YouTube video thumbnails and channel avatars (ytimg / googleusercontent), live Shopify product images, and the old 3D objects still stored in the R2 bucket are not repo assets and were left untouched.
+
 ## [2026-06-18] - SEO & AEO On-Page Remediation (Batch 2)
 
 ### Overview

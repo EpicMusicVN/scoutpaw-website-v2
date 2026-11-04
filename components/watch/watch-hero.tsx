@@ -25,7 +25,7 @@ export function WatchHero({
   const thumbnail = featured.thumbnail
     ? assetUrl(featured.thumbnail)
     : isPlaceholder
-      ? assetUrl("banner/banner.png")
+      ? assetUrl("brand/scene/pack-scene.webp")
       : `https://i.ytimg.com/vi/${featured.youtubeId}/maxresdefault.jpg`;
   const videoHref = isPlaceholder
     ? youtubeChannelUrl
@@ -73,7 +73,7 @@ export function WatchHero({
               </div>
             )}
             {featured.category && (
-              <span className="absolute left-4 top-4 rounded-full bg-brand-primary/95 px-3 py-1.5 font-display text-xs font-bold uppercase tracking-[0.2em] text-ink-blue md:text-sm">
+              <span className="absolute left-4 top-4 rounded-full bg-brand-primary/95 px-3 py-1.5 font-display text-xs font-bold uppercase tracking-[0.2em] text-ink md:text-sm">
                 {VIDEO_CONTENT_LABELS[featured.category]}
               </span>
             )}
@@ -89,21 +89,22 @@ export function WatchHero({
             with pose size at xl+ so the full body fits inside the section's
             overflow-hidden bounds (poses are anchored top-4 and would clip). */}
         <div className="relative mt-10 md:mt-12 pb-20 xl:pb-32 2xl:pb-40">
-          {/* Left flank pose — xl+ only, larger at 2xl */}
+          {/* Left flank pose — xl+ only, larger at 2xl. Both flanks stay upright
+              at the same width and top so their feet share one ground line. */}
           <Image
-            src={assetUrl("characters-position/husky1.png")}
-            alt="Husky from the ScoutPaw pack"
-            width={320}
-            height={180}
-            className="pointer-events-none absolute left-4 top-4 hidden h-auto w-56 -rotate-6 xl:block 2xl:w-72"
+            src={assetUrl("brand/characters/rocky-stand.webp")}
+            alt="Rocky the Husky from the ScoutPaw pack"
+            width={1050}
+            height={1400}
+            className="pointer-events-none absolute left-4 top-4 hidden h-auto w-56 xl:block 2xl:w-72"
           />
           {/* Right flank pose */}
           <Image
-            src={assetUrl("characters-position/corgi2.png")}
-            alt="Corgi from the ScoutPaw pack"
-            width={320}
-            height={180}
-            className="pointer-events-none absolute right-4 top-4 hidden h-auto w-56 rotate-6 xl:block 2xl:w-72"
+            src={assetUrl("brand/characters/buddy-stand.webp")}
+            alt="Buddy the Corgi from the ScoutPaw pack"
+            width={1050}
+            height={1400}
+            className="pointer-events-none absolute right-4 top-4 hidden h-auto w-56 xl:block 2xl:w-72"
           />
 
           {/* Centered text + CTAs — direct on cyan body bg (light surface) */}

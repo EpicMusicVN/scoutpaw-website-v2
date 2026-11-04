@@ -6,7 +6,7 @@ export function ShopEmptyState() {
     <div className="mx-auto flex max-w-xl flex-col items-center rounded-3xl bg-surface p-12 text-center shadow-md">
       <div className="relative h-48 w-48">
         <Image
-          src={assetUrl("characters/husky-bg.png")}
+          src={assetUrl("brand/characters/rocky-stand.webp")}
           alt="Rocky waiting"
           fill
           sizes="200px"

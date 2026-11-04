@@ -1,21 +1,15 @@
 /**
  * Per-character visual theme for the detail pages. Presentational only
- * (gradients + decorative motif) — kept in TS, not `characters.json` (which
- * holds copy). One detail-page template renders every character; the theme is
- * what makes each page feel distinct. Directions mirror each pup's YouTube
- * channel identity (Max → Puppy Lullaby TV, Rocky → Happy Paws Cartoon, etc.).
+ * (gradients + atmosphere; the motif scatter is the pup's own nose) — kept in
+ * TS, not `characters.json` (which holds copy). One detail-page template
+ * renders every character; the theme is what makes each page feel distinct.
+ * Directions mirror each pup's YouTube channel identity (Max → Puppy Lullaby
+ * TV, Rocky → Happy Paws Cartoon, etc.).
  */
-
-export type CharacterMotif =
-  | "notes"
-  | "bursts"
-  | "sparkles"
-  | "geo"
-  | "mountains";
 
 /**
  * Signature atmospheric layer rendered by `<CharacterAtmosphere />` — one
- * distinctive full-bleed mood per pup, layered behind the motif scatter so each
+ * distinctive full-bleed mood per pup, layered behind the nose scatter so each
  * detail page reads visibly unique:
  *   nightlight → warm radial glow · motion → diagonal speed streaks ·
  *   ribbons → drifting ballet ribbons · blueprint → faint learning grid ·
@@ -33,10 +27,8 @@ export interface CharacterTheme {
   heroGradient: string;
   /** Soft tint behind the story block. */
   surfaceTint: string;
-  /** Decorative mid-tone color — motif fills + themed accents. Never a text bg. */
+  /** Decorative mid-tone color — atmosphere tint + themed accents. Never a text bg. */
   decor: string;
-  /** Decorative motif set rendered by `<CharacterMotif />`. */
-  motif: CharacterMotif;
   /** Signature atmospheric layer rendered by `<CharacterAtmosphere />`. */
   atmosphere: CharacterAtmosphere;
   /**
@@ -54,7 +46,6 @@ const DEFAULT_THEME: CharacterTheme = {
   heroGradient: "linear-gradient(165deg, #FFE3A8 0%, #FBC65A 48%, #FFF6E0 100%)",
   surfaceTint: "#FFF8E8",
   decor: "#E0A23A",
-  motif: "notes",
   atmosphere: "nightlight",
   titleColor: "ink-blue",
 };
@@ -66,7 +57,6 @@ const CHARACTER_THEMES: Record<string, CharacterTheme> = {
     heroGradient: "linear-gradient(165deg, #FFE3A8 0%, #FBC65A 48%, #FFF6E0 100%)",
     surfaceTint: "#FFF8E8",
     decor: "#E0A23A",
-    motif: "notes",
     atmosphere: "nightlight",
     titleColor: "ink-blue",
   },
@@ -76,7 +66,6 @@ const CHARACTER_THEMES: Record<string, CharacterTheme> = {
     heroGradient: "linear-gradient(165deg, #FFD2A0 0%, #F6A24E 48%, #FFF1E0 100%)",
     surfaceTint: "#FFF1E2",
     decor: "#E07B3C",
-    motif: "bursts",
     atmosphere: "motion",
     titleColor: "ink-blue",
   },
@@ -86,7 +75,6 @@ const CHARACTER_THEMES: Record<string, CharacterTheme> = {
     heroGradient: "linear-gradient(165deg, #E6D9F4 0%, #F3CFE0 50%, #FBF1F7 100%)",
     surfaceTint: "#F8F0F8",
     decor: "#9F86C8",
-    motif: "sparkles",
     atmosphere: "ribbons",
     titleColor: "ink-blue",
   },
@@ -96,7 +84,6 @@ const CHARACTER_THEMES: Record<string, CharacterTheme> = {
     heroGradient: "linear-gradient(165deg, #CFE6DA 0%, #E8D8B8 52%, #FBF6E8 100%)",
     surfaceTint: "#F2F4E8",
     decor: "#3E8C7E",
-    motif: "geo",
     atmosphere: "blueprint",
     titleColor: "ink-blue",
   },
@@ -106,7 +93,6 @@ const CHARACTER_THEMES: Record<string, CharacterTheme> = {
     heroGradient: "linear-gradient(165deg, #BFE3F3 0%, #6FB9DE 48%, #EAF6FB 100%)",
     surfaceTint: "#EDF6FA",
     decor: "#3E8FC4",
-    motif: "mountains",
     atmosphere: "ridge",
     titleColor: "ink-blue",
   },

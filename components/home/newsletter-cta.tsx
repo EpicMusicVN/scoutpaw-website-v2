@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import { PawIcon } from "@/components/ui/paw-icon";
+import { PupNose, PupNoseRow, packNoseAt } from "@/components/ui/pup-nose";
 import { track } from "@/lib/analytics/track";
 import { assetUrl } from "@/lib/utils/asset-url";
 
@@ -71,7 +71,7 @@ export function NewsletterCTA({
           translate-y-1/2 for the 50% overlap / 50% hang-off look. */}
       <div className="relative">
       <div className="relative overflow-hidden rounded-[2rem] border border-ink/10 bg-surface px-6 py-10 text-center shadow-cozy-md md:px-12 md:py-14">
-        <CornerPaws />
+        <CornerNoses />
 
         <div className="relative">
           <p className="font-display text-xs font-bold uppercase tracking-[0.3em] text-cobalt md:text-sm">
@@ -90,7 +90,8 @@ export function NewsletterCTA({
               aria-live="polite"
               className="mt-10 font-display text-xl text-ink-blue md:text-2xl"
             >
-              You&apos;re on the list. Welcome to the pack. 🐾
+              You&apos;re on the list. Welcome to the pack.{" "}
+              <PupNoseRow />
             </p>
           ) : (
             <form
@@ -164,24 +165,25 @@ export function NewsletterCTA({
         </div>
       </div>
 
-      {/* Character poses anchored to the card's bottom corners. They depict
-          named pack members (Golden + Husky), so they carry descriptive alt for
+      {/* Character poses anchored to the card's bottom corners — upright and at
+          the same width so both pups stand on the same ground line. They depict
+          named pack members (Max + Rocky), so they carry descriptive alt for
           image SEO rather than empty decorative alt — pointer-events-none keeps
           them non-interactive. */}
       <div className="pointer-events-none absolute inset-x-0 bottom-0 hidden lg:block">
         <Image
-          src={assetUrl("characters-position/golden1.png")}
-          alt="Golden the Golden Retriever from the ScoutPaw pack"
-          width={900}
-          height={1200}
-          className="absolute left-0 bottom-0 h-auto w-80 translate-y-1/2 -rotate-6 origin-bottom-left"
+          src={assetUrl("brand/characters/max-stand.webp")}
+          alt="Max the Golden Retriever from the ScoutPaw pack"
+          width={1050}
+          height={1400}
+          className="absolute left-0 bottom-0 h-auto w-40 translate-y-1/2"
         />
         <Image
-          src={assetUrl("characters-position/husky2.png")}
-          alt="Husky from the ScoutPaw pack"
-          width={900}
-          height={1200}
-          className="absolute right-0 bottom-0 h-auto w-80 translate-y-1/2 rotate-6 origin-bottom-right"
+          src={assetUrl("brand/characters/rocky-stand.webp")}
+          alt="Rocky the Husky from the ScoutPaw pack"
+          width={1050}
+          height={1400}
+          className="absolute right-0 bottom-0 h-auto w-40 translate-y-1/2"
         />
       </div>
       </div>
@@ -208,21 +210,25 @@ function Spinner() {
 }
 
 /**
- * Tiny paw-print decoratives in each corner. Pure CSS / SVG, no animation.
+ * Pup-nose decoratives in the card's top corners (Max and Rocky, matching the
+ * poses below). The bottom corners stay clear: the poses fill them at lg+ and
+ * the social-proof line runs into them on narrow screens. No animation.
  */
-function CornerPaws() {
-  const Paw = ({ className }: { className: string }) => (
-    <PawIcon
-      className={`absolute h-12 w-12 text-ink-blue/15 md:h-16 md:w-16 ${className}`}
-    />
-  );
+const CORNER_NOSES = [
+  "left-4 top-4 -rotate-6 md:left-10 md:top-10",
+  "right-4 top-4 rotate-6 md:right-10 md:top-10",
+];
 
+function CornerNoses() {
   return (
     <>
-      <Paw className="left-6 top-8 -rotate-12 md:left-12 md:top-12" />
-      <Paw className="right-8 top-12 rotate-12 md:right-16 md:top-16" />
-      <Paw className="bottom-10 left-10 rotate-45 md:bottom-16 md:left-20" />
-      <Paw className="bottom-8 right-6 -rotate-12 md:bottom-12 md:right-12" />
+      {CORNER_NOSES.map((place, i) => (
+        <PupNose
+          key={place}
+          slug={packNoseAt(i)}
+          className={`absolute h-8 w-8 opacity-90 md:h-12 md:w-12 ${place}`}
+        />
+      ))}
     </>
   );
 }

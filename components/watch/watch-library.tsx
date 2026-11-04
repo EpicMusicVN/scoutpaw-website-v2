@@ -151,7 +151,7 @@ export function WatchLibrary({
                           video.thumbnail
                             ? assetUrl(video.thumbnail)
                             : video.youtubeId.startsWith("TODO")
-                              ? assetUrl("banner/banner.png")
+                              ? assetUrl("brand/scene/pack-scene.webp")
                               : `https://i.ytimg.com/vi/${video.youtubeId}/hqdefault.jpg`
                         })`,
                       }}

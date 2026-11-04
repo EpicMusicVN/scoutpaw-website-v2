@@ -36,7 +36,7 @@ const FAQ: FaqItem[] = [
           ScoutPaw TV is built for these devices. Some apps are available now and others are
           coming soon:
         </p>
-        <ul className="mt-2 list-disc space-y-1 pl-5">
+        <ul className="mt-2 list-noses space-y-1">
           {DEVICES.map((device) => (
             <li key={device}>{device}</li>
           ))}
@@ -63,7 +63,7 @@ const FAQ: FaqItem[] = [
   {
     question: "A video won't play or keeps stopping. What can I do?",
     answer: (
-      <ul className="list-disc space-y-1 pl-5">
+      <ul className="list-noses space-y-1">
         <li>Check that your device is connected to the internet and the connection is steady.</li>
         <li>Close the app completely and open it again.</li>
         <li>Make sure you have the latest version of the app from your device&apos;s app store.</li>

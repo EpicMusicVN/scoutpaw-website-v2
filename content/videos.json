@@ -1,5 +1,5 @@
 {
-  "_note": "30 mock videos with rich Phase 4 schema. `id` is the stable internal key (mock-NNN). Replace TODO_youtube_id_N with real YouTube IDs when episodes go live; the `thumbnail` field falls back to `banner/banner.png` (a bare R2 key resolved via lib/utils/asset-url) so layouts demo before real assets land. `uploadDate` is ISO YYYY-MM-DD. `category` ∈ {dogs, cats, shorts, funny, product-reviews, community} — content axis for the /watch ExploreVideos filter chips. (Playlists carry the mood axis via `category` ∈ {calm-sounds, naps, adventures, ambient, stories, shorts}; the two enums are intentionally separate.) `playlistId` references content/playlists.json.",
+  "_note": "30 mock videos with rich Phase 4 schema. `id` is the stable internal key (mock-NNN). Replace TODO_youtube_id_N with real YouTube IDs when episodes go live; the `thumbnail` field falls back to `brand/scene/pack-scene.webp` (a bare R2 key resolved via lib/utils/asset-url) so layouts demo before real assets land. `uploadDate` is ISO YYYY-MM-DD. `category` ∈ {dogs, cats, shorts, funny, product-reviews, community} — content axis for the /watch ExploreVideos filter chips. (Playlists carry the mood axis via `category` ∈ {calm-sounds, naps, adventures, ambient, stories, shorts}; the two enums are intentionally separate.) `playlistId` references content/playlists.json.",
   "videos": [
     {
       "id": "mock-001",
@@ -11,7 +11,7 @@
       ],
       "viewCount": 482000,
       "duration": "1:24:18",
-      "thumbnail": "banner/banner.png",
+      "thumbnail": "brand/scene/pack-scene.webp",
       "uploadDate": "2026-04-22",
       "category": "dogs",
       "tags": [
@@ -20,9 +20,7 @@
         "ambient"
       ],
       "featured": true,
-      "playlistId": "pl-naps",
-      "videoSrc": "watch/intro.mp4",
-      "videoPoster": "watch/intro-poster.jpg"
+      "playlistId": "pl-naps"
     },
     {
       "id": "mock-002",
@@ -34,7 +32,7 @@
       ],
       "viewCount": 318000,
       "duration": "2:11:42",
-      "thumbnail": "banner/banner.png",
+      "thumbnail": "brand/scene/pack-scene.webp",
       "uploadDate": "2026-04-15",
       "category": "dogs",
       "tags": [
@@ -54,7 +52,7 @@
       ],
       "viewCount": 226000,
       "duration": "48:09",
-      "thumbnail": "banner/banner.png",
+      "thumbnail": "brand/scene/pack-scene.webp",
       "uploadDate": "2026-04-10",
       "category": "dogs",
       "tags": [
@@ -75,7 +73,7 @@
       ],
       "viewCount": 184000,
       "duration": "1:12:35",
-      "thumbnail": "banner/banner.png",
+      "thumbnail": "brand/scene/pack-scene.webp",
       "uploadDate": "2026-04-05",
       "category": "dogs",
       "tags": [
@@ -95,7 +93,7 @@
       ],
       "viewCount": 156000,
       "duration": "22:14",
-      "thumbnail": "banner/banner.png",
+      "thumbnail": "brand/scene/pack-scene.webp",
       "uploadDate": "2026-03-30",
       "category": "dogs",
       "tags": [
@@ -114,7 +112,7 @@
       ],
       "viewCount": 142000,
       "duration": "38:56",
-      "thumbnail": "banner/banner.png",
+      "thumbnail": "brand/scene/pack-scene.webp",
       "uploadDate": "2026-03-25",
       "category": "dogs",
       "tags": [
@@ -132,7 +130,7 @@
       "characterSlugs": [],
       "viewCount": 0,
       "duration": "0:00",
-      "thumbnail": "banner/banner.png",
+      "thumbnail": "brand/scene/pack-scene.webp",
       "uploadDate": "2026-05-19",
       "category": "cats",
       "tags": [
@@ -147,7 +145,7 @@
       "characterSlugs": [],
       "viewCount": 0,
       "duration": "0:00",
-      "thumbnail": "banner/banner.png",
+      "thumbnail": "brand/scene/pack-scene.webp",
       "uploadDate": "2026-05-19",
       "category": "cats",
       "tags": [
@@ -162,7 +160,7 @@
       "characterSlugs": [],
       "viewCount": 0,
       "duration": "0:00",
-      "thumbnail": "banner/banner.png",
+      "thumbnail": "brand/scene/pack-scene.webp",
       "uploadDate": "2026-05-19",
       "category": "cats",
       "tags": [
@@ -177,7 +175,7 @@
       "characterSlugs": [],
       "viewCount": 0,
       "duration": "0:00",
-      "thumbnail": "banner/banner.png",
+      "thumbnail": "brand/scene/pack-scene.webp",
       "uploadDate": "2026-05-19",
       "category": "cats",
       "tags": [
@@ -192,7 +190,7 @@
       "characterSlugs": [],
       "viewCount": 0,
       "duration": "0:00",
-      "thumbnail": "banner/banner.png",
+      "thumbnail": "brand/scene/pack-scene.webp",
       "uploadDate": "2026-05-19",
       "category": "cats",
       "tags": [
@@ -207,7 +205,7 @@
       "characterSlugs": [],
       "viewCount": 0,
       "duration": "0:00",
-      "thumbnail": "banner/banner.png",
+      "thumbnail": "brand/scene/pack-scene.webp",
       "uploadDate": "2026-05-19",
       "category": "cats",
       "tags": [
@@ -222,7 +220,7 @@
       "characterSlugs": [],
       "viewCount": 0,
       "duration": "0:00",
-      "thumbnail": "banner/banner.png",
+      "thumbnail": "brand/scene/pack-scene.webp",
       "uploadDate": "2026-05-19",
       "category": "cats",
       "tags": [
@@ -237,7 +235,7 @@
       "characterSlugs": [],
       "viewCount": 0,
       "duration": "0:00",
-      "thumbnail": "banner/banner.png",
+      "thumbnail": "brand/scene/pack-scene.webp",
       "uploadDate": "2026-05-19",
       "category": "funny",
       "tags": [
@@ -252,7 +250,7 @@
       "characterSlugs": [],
       "viewCount": 0,
       "duration": "0:00",
-      "thumbnail": "banner/banner.png",
+      "thumbnail": "brand/scene/pack-scene.webp",
       "uploadDate": "2026-05-19",
       "category": "funny",
       "tags": [
@@ -267,7 +265,7 @@
       "characterSlugs": [],
       "viewCount": 0,
       "duration": "0:00",
-      "thumbnail": "banner/banner.png",
+      "thumbnail": "brand/scene/pack-scene.webp",
       "uploadDate": "2026-05-19",
       "category": "funny",
       "tags": [
@@ -282,7 +280,7 @@
       "characterSlugs": [],
       "viewCount": 0,
       "duration": "0:00",
-      "thumbnail": "banner/banner.png",
+      "thumbnail": "brand/scene/pack-scene.webp",
       "uploadDate": "2026-05-19",
       "category": "funny",
       "tags": [
@@ -297,7 +295,7 @@
       "characterSlugs": [],
       "viewCount": 0,
       "duration": "0:00",
-      "thumbnail": "banner/banner.png",
+      "thumbnail": "brand/scene/pack-scene.webp",
       "uploadDate": "2026-05-19",
       "category": "funny",
       "tags": [
@@ -312,7 +310,7 @@
       "characterSlugs": [],
       "viewCount": 0,
       "duration": "0:00",
-      "thumbnail": "banner/banner.png",
+      "thumbnail": "brand/scene/pack-scene.webp",
       "uploadDate": "2026-05-19",
       "category": "funny",
       "tags": [
@@ -327,7 +325,7 @@
       "characterSlugs": [],
       "viewCount": 0,
       "duration": "0:00",
-      "thumbnail": "banner/banner.png",
+      "thumbnail": "brand/scene/pack-scene.webp",
       "uploadDate": "2026-05-19",
       "category": "funny",
       "tags": [
@@ -342,7 +340,7 @@
       "characterSlugs": [],
       "viewCount": 0,
       "duration": "0:00",
-      "thumbnail": "banner/banner.png",
+      "thumbnail": "brand/scene/pack-scene.webp",
       "uploadDate": "2026-05-19",
       "category": "funny",
       "tags": [
@@ -357,7 +355,7 @@
       "characterSlugs": [],
       "viewCount": 0,
       "duration": "0:00",
-      "thumbnail": "banner/banner.png",
+      "thumbnail": "brand/scene/pack-scene.webp",
       "uploadDate": "2026-05-19",
       "category": "funny",
       "tags": [

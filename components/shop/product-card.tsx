@@ -24,7 +24,9 @@ const tileBackgrounds = [
 ];
 
 /**
- * Premium sticker-style product card. Cozy shadow at rest, lifts on hover.
+ * Premium sticker-style product card. Cozy shadow at rest; hover/focus draws
+ * the orange pup-highlight ring (mock products are pup poses, so the card and
+ * image never lift or zoom).
  * Honey price pill overlays the top-right of the image. Image tile uses a
  * rotating accent backdrop. Click opens Shopify in a new tab and fires a
  * `BuyNowClick` analytics event (placeholders are no-op).
@@ -54,7 +56,7 @@ export function ProductCard({
       href={buyHref}
       onClick={onClick}
       aria-label={`Buy ${product.title}${isPlaceholder ? " (coming soon)" : " on Shopify"}`}
-      className="group relative flex h-full flex-col overflow-hidden rounded-[2rem] border border-ink/10 bg-surface shadow-cozy transition-all duration-300 ease-gentle hover:-translate-y-2 hover:shadow-cozy-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-4 focus-visible:ring-offset-paper"
+      className="pup-highlight group relative flex h-full flex-col overflow-hidden rounded-[2rem] border border-ink/10 bg-surface shadow-cozy focus-visible:outline-none"
       {...linkProps}
     >
       {product.imageUrl && (
@@ -67,13 +69,13 @@ export function ProductCard({
             alt={product.imageAlt ?? product.title}
             fill
             sizes="(min-width: 1280px) 25vw, (min-width: 768px) 33vw, (min-width: 640px) 50vw, 100vw"
-            className="object-contain p-7 transition-transform duration-500 ease-out group-hover:scale-110 md:p-9"
+            className="object-contain p-7 md:p-9"
           />
 
           {/* Honey price pill — sticker overlay top-right. Announced to AT
               (no aria-hidden) so screen-reader users hear the price up front. */}
           <span
-            className="absolute right-4 top-4 rounded-full bg-brand-primary px-4 py-1.5 font-display text-base font-bold text-ink-blue shadow-cozy md:text-lg"
+            className="absolute right-4 top-4 rounded-full bg-brand-primary px-4 py-1.5 font-display text-base font-bold text-ink shadow-cozy md:text-lg"
           >
             {price}
           </span>
@@ -115,7 +117,7 @@ export function ProductCard({
             top-left badge only; no duplicate label here. */}
         {!isPlaceholder && (
           <div className="mt-auto pt-5">
-            <span className="cta-shimmer inline-flex min-h-[48px] items-center justify-center rounded-full bg-brand-primary px-7 font-display text-base font-bold text-ink-blue shadow-cozy transition-all duration-200 group-hover:shadow-cozy-md">
+            <span className="cta-shimmer inline-flex min-h-[48px] items-center justify-center rounded-full bg-brand-primary px-7 font-display text-base font-bold text-ink shadow-cozy transition-all duration-200 group-hover:shadow-cozy-md">
               Buy Now
               <span
                 aria-hidden="true"

@@ -144,7 +144,7 @@ function CompactChannelCard({
     ? latestVideo.thumbnail
       ? assetUrl(latestVideo.thumbnail)
       : latestVideo.youtubeId.startsWith("TODO")
-        ? assetUrl("banner/banner.png")
+        ? assetUrl("brand/scene/pack-scene.webp")
         : `https://i.ytimg.com/vi/${latestVideo.youtubeId}/hqdefault.jpg`
     : null;
 
@@ -153,7 +153,7 @@ function CompactChannelCard({
       href={channel.url}
       target="_blank"
       rel="noopener noreferrer"
-      className="group relative flex h-full flex-col overflow-hidden rounded-[1.5rem] border border-ink/10 bg-surface shadow-cozy transition-all duration-300 ease-gentle hover:-translate-y-1 hover:shadow-cozy-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2 focus-visible:ring-offset-paper"
+      className="pup-highlight group relative flex h-full flex-col overflow-hidden rounded-[1.5rem] border border-ink/10 bg-surface shadow-cozy focus-visible:outline-none"
       aria-label={`Visit ${channel.name} on YouTube`}
     >
       {/* Banner block + character peek */}
@@ -166,7 +166,7 @@ function CompactChannelCard({
         }}
       >
         {character && (
-          <div className="pointer-events-none absolute -bottom-2 -right-2 h-24 w-24 transition-transform duration-500 ease-out group-hover:scale-105">
+          <div className="pointer-events-none absolute -bottom-2 -right-2 h-24 w-24">
             <Image
               src={assetUrl(character.image)}
               alt={`${character.name} the ${character.breed}`}
@@ -220,7 +220,7 @@ function CompactChannelCard({
               alt=""
               fill
               sizes="240px"
-              className="object-cover opacity-90 transition-transform duration-500 group-hover:scale-105"
+              className="object-cover opacity-90"
             />
             {latestVideo?.duration && (
               <span className="absolute bottom-1.5 right-1.5 rounded-full bg-ink/85 px-2 py-0.5 font-display text-[0.6rem] font-semibold text-surface">

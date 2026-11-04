@@ -7,11 +7,9 @@
       "tagline": "THE WILD, WOO-WOOING SPIRIT OF SCOUTPAW",
       "bio": "Rocky, our 'Howl-of-Fame' singer, is an adventurous leader. His voice and playful energy turn every day into an epic journey.",
       "quote": "He believes every song deserves a howl-along and every living room is just an indoor mountain waiting to be climbed.",
-      "image": "characters/husky-bg.png",
+      "image": "brand/characters/rocky-stand.webp",
       "poses": [
-        "characters-position/husky1.png",
-        "characters-position/husky2.png",
-        "characters-position/husky3.png"
+        "brand/characters/rocky-stand.webp"
       ],
       "products": [
         {
@@ -24,7 +22,7 @@
         {
           "id": "rocky-howl-along-bandana",
           "title": "Howl-Along Bandana",
-          "image": "characters/husky-bg.png",
+          "image": "brand/characters/rocky-stand.webp",
           "ctaHref": "https://linktr.ee/puppycaretaker.shop"
         }
       ],
@@ -39,11 +37,9 @@
       "tagline": "THE SOULFUL, GOLDEN HEART OF SCOUTPAW",
       "bio": "Max, our 'Welcome Wag-on,' is the heart of the crew. This snuggle master loves head-tilting to music and carrying his plushie, filling our home with love. He's our ScoutPaw Captain!",
       "quote": "He believes every nap is a musical masterpiece and every stranger is just a best friend who hasn't shared a golden snack yet.",
-      "image": "characters/golden-2.png",
+      "image": "brand/characters/max-stand.webp",
       "poses": [
-        "characters-position/golden1.png",
-        "characters-position/golden2.png",
-        "characters-position/golden3.png"
+        "brand/characters/max-stand.webp"
       ],
       "products": [
         {
@@ -56,7 +52,7 @@
         {
           "id": "max-golden-lullaby-blanket",
           "title": "Golden Lullaby Blanket",
-          "image": "characters/golden-2.png",
+          "image": "brand/characters/max-stand.webp",
           "ctaHref": "https://linktr.ee/puppycaretaker.shop"
         }
       ],
@@ -71,16 +67,15 @@
       "tagline": "THE BRILLIANT, BEAMING MIND OF SCOUTPAW",
       "bio": "Oscar, the 'Professor of Play,' keeps your dog mentally sharp and relaxed with music. He's the smartest pup around!",
       "quote": "He believes every day needs a job to do - and his favorite job is being the best study buddy your dog ever had.",
-      "image": "characters/collie-bg.png",
+      "image": "brand/characters/oscar-stand.webp",
       "poses": [
-        "characters-position/collie1.png",
-        "characters-position/collie2.png"
+        "brand/characters/oscar-stand.webp"
       ],
       "products": [
         {
           "id": "oscar-professor-tee",
           "title": "Professor Oscar Tee",
-          "image": "characters/collie-bg.png",
+          "image": "brand/characters/oscar-stand.webp",
           "ctaHref": "https://puppylullabytv-shop.fourthwall.com/"
         },
         {
@@ -102,17 +97,15 @@
       "tagline": "THE SPUNKY, LOW-RIDING SPARK OF SCOUTPAW",
       "bio": "Buddy: big personality, short legs! This 'Professional Splooter' uses satellite ears to catch every beat. Fluffy trousers & pack leader, he proves you don't need height to liven up the party.",
       "quote": "He believes no snack is too high to reach and every song is an excuse for a full-body wiggle.",
-      "image": "characters/corgi-bg.png",
+      "image": "brand/characters/buddy-stand.webp",
       "poses": [
-        "characters-position/corgi2.png",
-        "characters-position/corgi1.png",
-        "characters-position/corgi3.png"
+        "brand/characters/buddy-stand.webp"
       ],
       "products": [
         {
           "id": "buddy-sploot-plushie",
           "title": "Buddy Sploot Plushie",
-          "image": "characters/corgi-bg.png",
+          "image": "brand/characters/buddy-stand.webp",
           "badge": "Fan favourite",
           "ctaHref": "https://puppylullabytv-shop.fourthwall.com/"
         },
@@ -134,16 +127,15 @@
       "tagline": "THE ELEGANT, ENCHANTING STAR OF SCOUTPAW",
       "bio": "Bella, the crew's graceful 'Prima Ballerina,' uses her sharp mind to dance beautifully through musical stories, turning living rooms into peaceful stages.",
       "quote": "She believes every calming melody is a dance and every dream is better when it's high-fashion.",
-      "image": "characters/poodle-bg.png",
+      "image": "brand/characters/bella-stand.webp",
       "poses": [
-        "characters-position/poodle1.png",
-        "characters-position/poodle2.png"
+        "brand/characters/bella-stand.webp"
       ],
       "products": [
         {
           "id": "bella-ballet-plushie",
           "title": "Bella Ballet Plushie",
-          "image": "characters/poodle-bg.png",
+          "image": "brand/characters/bella-stand.webp",
           "badge": "New",
           "ctaHref": "https://puppylullabytv-shop.fourthwall.com/"
         },

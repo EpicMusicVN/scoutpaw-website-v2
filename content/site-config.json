@@ -4,8 +4,8 @@
     "fullName": "ScoutPaw TV",
     "tagline": "We're here to keep the pack company",
     "description": "Musical best friends for your pup's big day. Gentle sounds, cozy colors, and stories for every \"Good Boy.\"",
-    "logo": "logo/full-logo.png",
-    "logoText": "logo/text-logo.png"
+    "logo": "brand/logo/scoutpaw-logo-pups.webp",
+    "logoText": "brand/logo/scoutpaw-wordmark.webp"
   },
   "audience": {
     "primary": "dogs",
@@ -13,7 +13,7 @@
     "designNotes": "Dog-vision-friendly palette (blue/yellow dominant), high contrast, calm motion, audio-aware UI."
   },
   "palette": {
-    "brandPrimary": "#FFD70C",
+    "brandPrimary": "#FA6502",
     "brandSecondary": "#397FC5",
     "accentWarm": "#FFE968",
     "accentCool": "#C6E7E9",

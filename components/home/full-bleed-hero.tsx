@@ -2,20 +2,26 @@ import Image from "next/image";
 import { assetUrl } from "@/lib/utils/asset-url";
 
 /**
- * Letterbox hero with yellow gradient zones anchoring it to the yellow navbar
- * above and the FeatureBanner below. Left ~40% yellow zone hosts text on solid
- * yellow for max legibility; right ~25% mirror fade frames the image.
+ * Letterbox hero. A left page-colour fade hosts the text block on a soft glass
+ * glow; a narrow right fade melts the image edge into the page.
  *
- * Mobile (<md): banner at aspect-[4/3]; yellow-tinted glass card flows below.
+ * Mobile (<md): banner at aspect-[4/3]; white glass card flows below.
  * md+: banner at aspect-[16/9] inside max-w-[1600px]; text sits on the left
- * yellow zone, characters remain fully visible in center.
+ * fade, characters remain fully visible in the centre/right.
+ *
+ * The default image is the 2D pack scene. Its pups stand in the right ~70%, so
+ * it anchors right — the 4:3 mobile crop then keeps all five in frame — and
+ * gets a narrower right fade. Custom images keep the original 70% focal point
+ * and fade.
  */
+const DEFAULT_IMAGE_KEY = "brand/scene/pack-scene.webp";
+
 export function FullBleedHero({
   kicker,
   title,
   description,
-  image = assetUrl("banner/banner.png"),
-  imageAlt = "ScoutPaw — meet the pack of cartoon dogs welcoming you to ScoutPaw TV",
+  image,
+  imageAlt = "ScoutPaw — Max, Bella, Rocky, Buddy and Oscar, the pack of cartoon dogs welcoming you to ScoutPaw TV",
 }: {
   kicker: string;
   title: string;
@@ -23,6 +29,9 @@ export function FullBleedHero({
   image?: string;
   imageAlt?: string;
 }) {
+  const src = image ?? assetUrl(DEFAULT_IMAGE_KEY);
+  const objectPosition = image ? "70% 50%" : "100% 50%";
+
   const CardBody = () => (
     <>
       <p className="font-display text-xs font-bold uppercase tracking-[0.3em] text-cobalt md:text-sm">
@@ -43,23 +52,27 @@ export function FullBleedHero({
           gutters beyond 1600px. */}
       <div className="relative mx-auto w-full max-w-[1600px] aspect-[4/3] md:aspect-[16/9]">
         <Image
-          src={image}
+          src={src}
           alt={imageAlt}
           fill
           priority
           sizes="(min-width: 1600px) 1600px, 100vw"
           className="object-cover"
-          style={{ objectPosition: "70% 50%" }}
+          style={{ objectPosition }}
         />
         {/* Left cyan fade — banner image melts into the page bg. */}
         <div
           aria-hidden
           className="pointer-events-none absolute inset-y-0 left-0 hidden w-2/5 bg-gradient-to-r from-paper via-paper/70 to-transparent md:block"
         />
-        {/* Right cyan fade — image visually merges into the page bg below. */}
+        {/* Right cyan fade — image visually merges into the page bg below.
+            Kept narrow on the pack scene so Oscar, at its right edge, stays
+            visible. */}
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-y-0 right-0 hidden w-1/3 bg-gradient-to-l from-paper via-paper/60 to-transparent md:block"
+          className={`pointer-events-none absolute inset-y-0 right-0 hidden bg-gradient-to-l from-paper via-paper/60 to-transparent md:block ${
+            image ? "w-1/3" : "w-[12%]"
+          }`}
         />
       </div>
 

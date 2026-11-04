@@ -116,7 +116,7 @@ export function CharacterSection({
       >
         {/* Atmosphere/motif clipped to the scene by overflow-hidden above. */}
         <CharacterAtmosphere atmosphere={theme.atmosphere} color={theme.decor} />
-        <CharacterMotif motif={theme.motif} color={theme.decor} />
+        <CharacterMotif slug={character.slug} />
 
         {/* Content grid — sits above atmosphere/motif via z-10. */}
         <div
