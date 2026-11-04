@@ -11,14 +11,16 @@ This is a hard contract. All PRs must comply. The rules below were established a
 | Surface bg | Heading | Body | Example consumer |
 |---|---|---|---|
 | Light: white / `bg-surface` / cyan (`bg-paper`) / cream / warm-tan / themed `surfaceTint` | `text-navy` on h2; `heading-gradient-tri` h1 (3-stop navy→yellow→white) | `text-ink-blue` (deep navy `#1a3a5c`) | Default for cards, content sections, character page scenes |
-| Yellow: `bg-brand-primary` (full or alpha), yellow gradients | `text-ink-blue` (preferred) or `text-navy` | `text-ink-blue` | Primary buttons, brand pills, badges, video category labels |
+| Orange: `bg-brand-primary` (full or ≥95% alpha) | n/a (button or badge only) | `text-ink` (`#2b1d10`, 5.4:1) — never white (3.0:1) or `text-ink-blue` (3.8:1) | Primary buttons, price/brand pills, video category labels, mobile-nav active item, cookie accept |
+| Soft orange gradient cards (`--brand-primary-soft` mid-stop between warm-tan and peach) | `.heading-sticker-honey` | `text-ink-blue` or `text-ink-blue/85` (≥5.3:1) — not `/70` | `feature-banner`, `featured-pup-spotlight`, `deal-block` |
 | Deep navy: `bg-ink-blue` (full or alpha) | `heading-gradient-gold` + `text-shadow-bold` (h1) or `text-brand-primary` (kicker) | `text-white/85` or `text-brand-primary/80` | Reserved for future dark-surface usage. NOT currently applied to heroes — see Plan J reversal entry in changelog. |
 | Brand navy: `bg-navy` (`#397fc5` mid blue) | `text-white` | `text-white/90` (large only — body text needs careful sizing) | Footer wrapper, skip-link, subscribe-card YouTube button, menu-cards CTA pill, button `dark` variant |
 | Dark anchor: `bg-ink` (full or alpha) | n/a (button or badge only) | `text-surface` (white) or `text-cream` | Newsletter submit button, dark CTA badges, video duration pills, cookie banner |
 
 ### Forbidden combinations (WCAG AA violations)
 
-- **Yellow text on cyan / white / cream surfaces** — ~1.4:1 contrast, FAILS AA at any size. This is a physics problem, not a preference. Solve by changing the surface, not by adding shadow.
+- **Orange (`#fa6502`) text on cyan / white / cream surfaces without the sticker outline** — 2.3:1 on cyan, 3.0:1 on white; FAILS AA for body text. Solve by changing the surface or using `.heading-sticker-honey`, not by adding shadow.
+- **White or `text-ink-blue` text on solid orange** — 3.0:1 / 3.8:1, FAILS AA for body text. Use `text-ink`.
 - **Blue text on navy / blue surfaces** — too close in hue and luminance. FAILS AA.
 - **Brown ink on warm-tan** — borderline (~3:1). Use `text-ink-blue` (deep navy) instead — it's the body default for all light surfaces.
 
@@ -33,7 +35,8 @@ This is a hard contract. All PRs must comply. The rules below were established a
 |---|---|---|---|
 | `--ink-blue` | `#1a3a5c` | Deep navy — body text on light bg, hero container bg | `text-ink-blue`, `bg-ink-blue` |
 | `--bg-navy` | `#397fc5` | Brand mid-blue — footer wrapper, dark variant button, brand surfaces | `bg-navy`, `text-navy` |
-| `--brand-primary` | `#ffd70c` | Brand yellow — CTAs, brand pills, hero kickers on dark | `bg-brand-primary`, `text-brand-primary` |
+| `--brand-primary` | `#fa6502` | Brand orange (the ScoutPaw wordmark) — CTAs, brand pills, sticker-title fill | `bg-brand-primary`, `ring-brand-primary` |
+| `--brand-primary-soft` | `#fdc19a` | Light tint of the brand orange — mid-stop of the warm gradient cards that carry body copy | inline `var(--brand-primary-soft)` |
 | `--ink` | `#2b1d10` | Dark anchor — buttons, form borders, focus rings | `bg-ink`, `border-ink`, `ring-ink` |
 | `--accent-gold-dark` | `#b8862e` | Dark gold — used as start of `heading-gradient-gold` | `text-brand-gold` |
 | Surface | `#ffffff` | White cards | `bg-surface`, `text-surface` |
@@ -47,7 +50,7 @@ This is a hard contract. All PRs must comply. The rules below were established a
 | `text-brand-gold` (mid h2/h3 sub-headers) | Solid dark gold (`#b8862e`). Used on mid-tier headings (text-2xl/text-3xl) like sub-section titles, channel headers. AA-safe body size contrast on light surfaces (~4.5:1). Pivot #8 kept this rule — only large h2 banner kickers were swapped to cobalt; the mid sub-header h2/h3 fill stays dark gold. |
 | `text-cobalt` (hero + large-banner kickers, post pivot #8) | Saturated cobalt `#1f4d96`. New token introduced by pivot #8. Replaces `text-brand-gold` and `text-ink-blue` for kicker-only contexts (small uppercase tracked text above hero h1 + large h2 banners). Card-internal kickers retain the `text-ink-blue/70` family per locked rule. |
 | `text-ink-blue` (body, card-internal kickers) | Deep navy `#1a3a5c`. Used for body text, card titles, and card-internal kickers (with `/70` opacity). NOT used for hero / banner kickers post pivot #8. |
-| `.heading-sticker-honey` | **ACTIVE (pivot #8)** — solid honey-yellow fill with cobalt text-stroke + slight cobalt drop-shadow. Sticker-pop treatment for hero h1s + large h2 banner titles on the cyan body bg. AA-legible via the outline (~10:1 effective contrast). Em-sized stroke + shadow scale with heading font-size. 19 consumers. |
+| `.heading-sticker-honey` | **ACTIVE (pivot #8)** — solid brand-orange fill (honey-yellow until the 2026-11 2D rebrand) with cobalt text-stroke + slight cobalt drop-shadow. Sticker-pop treatment for hero h1s + large h2 banner titles on the cyan body bg. AA-legible via the outline (~10:1 effective contrast). Em-sized stroke + shadow scale with heading font-size. 19 consumers. |
 | `.heading-gradient-gold-light` | **RETIRED (pivot #8)** — was the gradient-gold utility that pivot #8 replaced. Removed from `globals.css`. Historical name preserved in comments for grep-ability. |
 | `heading-gradient-gold` | **RESERVED** — no current consumers. Dark-surface variant for future. |
 | `heading-gradient-tri` / `-cool` / `-warm` | **RESERVED** — no current consumers. |
@@ -72,7 +75,7 @@ These are NOT dead code — they are reserved infrastructure. Do not remove with
 All hero banners use:
 - **Surface**: light — `bg-paper` body cyan / `bg-surface` white / themed gradient (unchanged from pivot #7)
 - **Kicker** (e.g. "SCOUTPAW TV", "Coming Soon"): `text-cobalt` (saturated cobalt `#1f4d96`) — ~7:1 AA on cyan
-- **Title (h1)**: `.heading-sticker-honey` — solid honey fill (`#ffd70c`) with `0.04em` cobalt stroke + slight cobalt drop-shadow. Sticker-pop treatment.
+- **Title (h1)**: `.heading-sticker-honey` — solid brand-orange fill (`#fa6502`) with `0.04em` cobalt stroke + slight cobalt drop-shadow. Sticker-pop treatment.
 - **Body / description**: `text-ink-blue` or `text-ink-blue/85` (unchanged)
 
 Exception: `character-detail-hero.tsx` keeps `theme.heroGradient` per-character. h1 still uses `.heading-sticker-honey` regardless of theme — the cobalt outline carries contrast on any pastel theme surface.
@@ -84,7 +87,7 @@ History note: pivot #6 (2026-05-28) tried `bg-ink-blue` surface + solid `text-br
 ### Block title color contract (current, post pivot #8)
 
 Tiered system:
-- **Large h2 section banners** (≥`text-4xl`) — surface light (cyan body bg), kicker `text-cobalt` (post pivot #8; was `text-brand-gold` pivot #7), h2 `.heading-sticker-honey` (was `.heading-gradient-gold-light` pivot #7). Applied to 14 components. Card-internal kicker exception (`text-ink-blue/70`) preserved for `feature-banner` + `featured-pup-spotlight` + `deal-block` because those h2s sit on card surfaces, not on the page body bg.
+- **Large h2 section banners** (≥`text-4xl`) — surface light (cyan body bg), kicker `text-cobalt` (post pivot #8; was `text-brand-gold` pivot #7), h2 `.heading-sticker-honey` (was `.heading-gradient-gold-light` pivot #7). Applied to 14 components. Card-internal kicker exception (`text-ink-blue`, at `/85` on the soft-orange gradient cards) preserved for `feature-banner` + `featured-pup-spotlight` + `deal-block` because those h2s sit on card surfaces, not on the page body bg.
 - **Mid h2/h3 sub-headers** (`text-2xl`/`text-3xl` base on cyan body bg) — `text-brand-gold` (#b8862e solid dark gold). **UNCHANGED by pivot #8** — applies to 5 components: `our-channels`, `video-rail`, `subscribe-card`, `watch-library`, `shop-empty-state`. Their kickers (where present) DID flip to `text-cobalt` for consistency; only the mid-h2/h3 fill stays gold.
 - **Card-level h3 titles** (product/video/character names, card-level icon labels) — `text-ink-blue` on card surfaces. UNCHANGED across all 8 pivots.
 
@@ -92,7 +95,7 @@ Exception: `character-section.tsx` keeps `theme.surfaceTint` per-character. h2 u
 
 **Important note on inner-card text colors:** Decorative cards inside large h2 banner sections keep their dark text. See `feature-banner.tsx:52`, `featured-pup-spotlight.tsx:36`, `deal-block.tsx:42`.
 
-**Forbidden**: pure `text-brand-primary` on cyan/white/cream surfaces WITHOUT a stroke or surface anchor — physics ban (`#ffd70c` on `#c6e7e9` = ~1.1:1, catastrophic AA fail). Pivot #8 solves this for landmark titles by adding the cobalt outline (`.heading-sticker-honey`). Free-standing `text-brand-primary` body or button text on cyan is still forbidden.
+**Forbidden**: pure `text-brand-primary` on cyan/white/cream surfaces WITHOUT a stroke or surface anchor — physics ban (`#fa6502` on `#c6e7e9` = 2.3:1, AA fail; the former yellow `#ffd70c` was ~1.1:1). Pivot #8 solves this for landmark titles by adding the cobalt outline (`.heading-sticker-honey`). Free-standing `text-brand-primary` body or button text on cyan is still forbidden.
 
 ### Future pivot lock mechanism (refined post pivot #7, 2026-05-28 08:30)
 
@@ -140,7 +143,7 @@ All `bg-brand-primary`, `bg-navy`, `bg-ink-blue`, `bg-ink` consumers were swept 
 **Plan 260601-0758 (pivot #8)** introduced the `.heading-sticker-honey` utility + `--cobalt` token. Hero h1 + large h2 banners across 19 components flipped from gradient gold to sticker-honey (yellow fill + cobalt outline + cobalt drop-shadow). Hero + banner kickers flipped to `text-cobalt`. Card-internal titles, mid h2/h3 sub-headers, and body text UNCHANGED. Validated via 3-round mockup pipeline (v1 blue/yellow exploration → v2 broader brand palette exploration → v3 Bluey-vibe playful kids brand) with D3 selected. Lock mechanism worked as designed.
 
 Notable consumers verified:
-- All 11 `bg-brand-primary` usages pair with `text-ink-blue`
+- All solid `bg-brand-primary` usages pair with `text-ink` (re-swept for the 2026-11 orange accent; was `text-ink-blue` on the yellow accent)
 - All 5 `bg-navy` usages use white text (skip-link, subscribe button, menu pill, footer wrapper, button dark variant)
 - All `bg-ink-blue` usages — **0 post-pivot #7 revert** (dark-surface experiment ended; reserved utilities documented)
 - All `bg-ink` usages (buttons, badges, banners) pair with `text-surface` or `text-cream`

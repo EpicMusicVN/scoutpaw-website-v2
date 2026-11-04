@@ -49,7 +49,9 @@ scoutpaw-v2/
 │   ├── shopify/                     # Storefront GraphQL fetch (server-only) + mock fallback; SHOPIFY_MODE + SHOPIFY_STORE_DOMAIN + SHOPIFY_STOREFRONT_TOKEN
 │   ├── theme/tokens.ts              # Animation easings/durations
 │   └── utils/cn.ts                  # Tiny class joiner
-└── public/assets/                   # Banner, character PNGs, logo, shop promo
+├── public/assets/                   # Web assets mirrored to the R2 CDN (shop photos, top picks)
+│   └── brand/                       # 2D brand art (pups, logos, scene, props, app icon) — served from the deployment, not R2
+└── scripts/export-brand-art.sh      # Rebuilds public/assets/brand + favicons from the original design pack
 ```
 
 ## Content Adapter Pattern (Critical)
