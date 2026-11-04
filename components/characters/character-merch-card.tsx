@@ -10,7 +10,9 @@ import { assetUrl } from "@/lib/utils/asset-url";
  * Small merchandise card inside a character section — one related product. The
  * whole card links to the external storefront in a new tab and fires a
  * `BuyNowClick` analytics event. The image tile is tinted with the character's
- * accent color so the product reads as part of that character's world.
+ * accent color so the product reads as part of that character's world. The
+ * tile can show a pup pose, so hover/focus uses the orange pup-highlight ring
+ * instead of lifting the card or zooming the image.
  */
 export function CharacterMerchCard({
   product,
@@ -32,7 +34,7 @@ export function CharacterMerchCard({
       rel="noopener noreferrer"
       onClick={() => track("BuyNowClick", { product: product.id })}
       aria-label={`${ariaActionVerb} ${product.title} (opens in new tab)`}
-      className="group flex h-full flex-col overflow-hidden rounded-[1.5rem] border border-ink/10 bg-surface shadow-cozy transition-all duration-300 ease-gentle hover:-translate-y-1 hover:shadow-cozy-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/40 focus-visible:ring-offset-2 focus-visible:ring-offset-paper"
+      className="pup-highlight group flex h-full flex-col overflow-hidden rounded-[1.5rem] border border-ink/10 bg-surface shadow-cozy focus-visible:outline-none"
     >
       {/* Image tile — accent-tinted (8-digit hex = accent at ~15% alpha) so the
           product sits visually inside the character's themed world. */}
@@ -45,7 +47,7 @@ export function CharacterMerchCard({
           alt={product.title}
           fill
           sizes="(min-width: 768px) 220px, 45vw"
-          className="object-contain p-5 transition-transform duration-500 ease-out group-hover:scale-105"
+          className="object-contain p-5"
         />
         {product.badge && (
           <span className="absolute left-3 top-3 rounded-full bg-ink px-2.5 py-1 font-display text-[10px] font-bold uppercase tracking-[0.12em] text-surface shadow-cozy">

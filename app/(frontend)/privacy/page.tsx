@@ -21,7 +21,7 @@ const POSTAL_ADDRESS = [
 const linkClass =
   "font-semibold text-cobalt underline underline-offset-2 hover:text-ink-blue";
 
-const listClass = "mt-2 list-disc space-y-1 pl-5";
+const listClass = "mt-2 list-noses space-y-1";
 
 const DEVICES = [
   "Apple TV and iPhone",

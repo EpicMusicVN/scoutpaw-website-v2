@@ -1,5 +1,5 @@
 import { CharacterCard } from "@/components/characters/character-card";
-import { PawPrintPattern } from "@/components/ui/paw-print-pattern";
+import { NosePattern } from "@/components/ui/nose-pattern";
 import { content } from "@/lib/content";
 
 /**
@@ -17,8 +17,8 @@ const PACK_CARD_COLORS: Record<string, string> = {
 
 /**
  * Magazine-style character showcase: featured-left + 2×2 grid right. First
- * character renders large; remaining 4 render as compact squares. Scattered
- * paw-print pattern decorates the section bg (md+ only). Stacks vertically
+ * character renders large; remaining 4 render as compact squares. A scatter
+ * of the pack's noses decorates the section bg (md+ only). Stacks vertically
  * on mobile.
  */
 export async function CharacterShowcase() {
@@ -32,7 +32,7 @@ export async function CharacterShowcase() {
       id="meet-the-pack"
       className="relative scroll-mt-24 overflow-hidden py-24 md:py-32"
     >
-      <PawPrintPattern />
+      <NosePattern />
 
       <div className="relative mx-auto max-w-hero px-4 md:px-8">
         <header className="text-center">

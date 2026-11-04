@@ -40,14 +40,14 @@ export function SubscribeCard({ youtubeUrl }: { youtubeUrl: string }) {
           alt="Buddy the Corgi from the ScoutPaw pack"
           width={1050}
           height={1400}
-          className="absolute left-0 bottom-0 h-auto w-40 translate-y-1/2 -rotate-4 origin-bottom-left"
+          className="absolute left-0 bottom-0 h-auto w-40 translate-y-1/2"
         />
         <Image
           src={assetUrl("brand/characters/oscar-stand.webp")}
           alt="Oscar the Collie from the ScoutPaw pack"
           width={1050}
           height={1400}
-          className="absolute right-0 bottom-0 h-auto w-40 translate-y-1/2 rotate-4 origin-bottom-right"
+          className="absolute right-0 bottom-0 h-auto w-40 translate-y-1/2"
         />
       </div>
       </div>

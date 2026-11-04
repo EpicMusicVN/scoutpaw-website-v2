@@ -32,9 +32,9 @@ export function CharacterDetailHero({
     >
       {/* Signature atmosphere sits behind the motif scatter + all copy. */}
       <CharacterAtmosphere atmosphere={theme.atmosphere} color={theme.decor} />
-      <CharacterMotif motif={theme.motif} color={theme.decor} />
+      <CharacterMotif slug={character.slug} />
 
-      <div className="relative mx-auto grid max-w-5xl items-center gap-8 px-4 py-16 md:grid-cols-2 md:gap-12 md:px-8 md:py-24">
+      <div className="relative z-10 mx-auto grid max-w-5xl items-center gap-8 px-4 py-16 md:grid-cols-2 md:gap-12 md:px-8 md:py-24">
         <div className="order-2 text-center md:order-1 md:text-left">
           <p className="font-display text-sm font-bold uppercase tracking-[0.2em] text-cobalt">
             {breed}

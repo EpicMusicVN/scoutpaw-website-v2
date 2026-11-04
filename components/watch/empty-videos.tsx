@@ -1,12 +1,12 @@
-import { PawIcon } from "@/components/ui/paw-icon";
+import { PupNoseRow } from "@/components/ui/pup-nose";
 
 /**
  * Empty-state card shared by Watch rails when a filter or category returns
- * zero videos. Cozy gradient + paw icon + headline + tagline. Preserves
+ * zero videos. Cozy gradient + a row of the pack's noses + headline + tagline. Preserves
  * vertical rhythm so the section doesn't collapse when empty.
  */
 export function EmptyVideos({
-  tagline = "Fresh episodes coming soon 🐾",
+  tagline = "Fresh episodes coming soon",
 }: {
   tagline?: string;
 }) {
@@ -19,9 +19,7 @@ export function EmptyVideos({
             "linear-gradient(135deg, var(--bg-warm-tan) 0%, var(--bg-soft-sky) 100%)",
         }}
       >
-        <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-white/70 text-brand-gold shadow-sm md:h-16 md:w-16">
-          <PawIcon className="h-7 w-7 md:h-8 md:w-8" />
-        </div>
+        <PupNoseRow className="gap-1.5" noseClassName="h-8 w-8 md:h-9 md:w-9" />
         <p className="mt-5 font-display text-xl font-bold uppercase tracking-[0.18em] text-ink-blue md:text-2xl">
           No Videos
         </p>

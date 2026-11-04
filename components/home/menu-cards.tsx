@@ -1,6 +1,17 @@
 import Image from "next/image";
 import Link from "next/link";
+import { PupNose, packNoseAt } from "@/components/ui/pup-nose";
 import { assetUrl } from "@/lib/utils/asset-url";
+
+/** Placement + size + tilt of each decorative nose behind the cards. */
+const DECOR_NOSES = [
+  "left-[5%] top-[8%] h-10 w-10 -rotate-6",
+  "right-[8%] top-[14%] h-12 w-12 rotate-[8deg]",
+  "left-[10%] top-[48%] h-8 w-8 rotate-[8deg]",
+  "right-[6%] top-[52%] h-9 w-9 -rotate-[10deg]",
+  "left-[8%] bottom-[12%] h-10 w-10 -rotate-[8deg]",
+  "right-[14%] bottom-[10%] h-12 w-12 rotate-6",
+];
 
 type Card = {
   label: string;
@@ -62,19 +73,14 @@ export function MenuCards() {
 
   return (
     <section className="relative mx-auto max-w-hero overflow-hidden px-4 py-20 md:px-8 md:py-28">
-      {/* Decorative pattern layer — playful dog-themed icons scattered behind
-          the cards at low opacity. pointer-events-none + aria-hidden so cards
-          stay fully interactive and screen readers ignore. */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 opacity-[0.10] text-ink-blue"
-      >
-        <DecorPaw className="absolute left-[5%] top-[8%] h-10 w-10 -rotate-12" />
-        <DecorBone className="absolute right-[8%] top-[14%] h-12 w-12 rotate-[18deg]" />
-        <DecorBall className="absolute left-[10%] top-[48%] h-8 w-8 rotate-[8deg]" />
-        <DecorPaw className="absolute right-[6%] top-[52%] h-9 w-9 -rotate-[20deg]" />
-        <DecorBone className="absolute left-[8%] bottom-[12%] h-10 w-10 -rotate-[8deg]" />
-        <DecorPaw className="absolute right-[14%] bottom-[10%] h-12 w-12 rotate-[12deg]" />
+      {/* Decorative layer — the pack's noses scattered behind the cards at
+          low opacity, cycling through all five pups. pointer-events-none +
+          aria-hidden so cards stay fully interactive and screen readers
+          ignore it. */}
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 opacity-75">
+        {DECOR_NOSES.map((n, i) => (
+          <PupNose key={i} slug={packNoseAt(i)} className={`absolute ${n}`} />
+        ))}
       </div>
 
       <header className="text-center">
@@ -158,44 +164,5 @@ function MenuCard({ card }: { card: Card }) {
     <Link href={card.href} aria-label={card.linkLabel} className={wrapperClass}>
       {content}
     </Link>
-  );
-}
-
-/**
- * Section decoration icons — inline SVG, currentColor-driven so the parent
- * decoration layer controls tint + opacity. ViewBox 0 0 32 32 keeps them
- * uniform. aria-hidden because they're purely decorative.
- */
-function DecorPaw({ className }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 32 32" fill="currentColor" className={className} aria-hidden="true">
-      <ellipse cx="16" cy="22" rx="6.5" ry="5.5" />
-      <ellipse cx="7" cy="13" rx="2.5" ry="3.5" />
-      <ellipse cx="13" cy="9" rx="2.5" ry="3.5" />
-      <ellipse cx="19" cy="9" rx="2.5" ry="3.5" />
-      <ellipse cx="25" cy="13" rx="2.5" ry="3.5" />
-    </svg>
-  );
-}
-
-function DecorBone({ className }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 32 32" fill="currentColor" className={className} aria-hidden="true">
-      <circle cx="6" cy="9" r="4" />
-      <circle cx="6" cy="15" r="4" />
-      <circle cx="26" cy="17" r="4" />
-      <circle cx="26" cy="23" r="4" />
-      <path d="M9 11 L23 19 L23 21 L9 13 Z" />
-    </svg>
-  );
-}
-
-function DecorBall({ className }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 32 32" fill="currentColor" className={className} aria-hidden="true">
-      <circle cx="16" cy="16" r="13" />
-      <path d="M5 12 Q16 8 27 12" stroke="currentColor" strokeWidth="1.5" fill="none" opacity="0.5" />
-      <path d="M5 20 Q16 24 27 20" stroke="currentColor" strokeWidth="1.5" fill="none" opacity="0.5" />
-    </svg>
   );
 }

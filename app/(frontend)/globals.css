@@ -327,6 +327,54 @@
       0 0 24px rgb(var(--brand-primary-rgb) / 0.35);
   }
 
+  /* Pup-card highlight. Hover/focus draws a brand-orange ring + soft glow and
+     never moves or scales the card, so a pup can't leave the shared ground
+     line. Put it on the card surface: it reacts to its own hover/focus or to a
+     `.group` ancestor's (the wrapping link). Only box-shadow animates, and the
+     reduced-motion reset below makes that instant. */
+  .pup-highlight {
+    transition: box-shadow 300ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .pup-highlight:hover,
+  .pup-highlight:focus-visible,
+  .group:hover .pup-highlight,
+  .group:focus-visible .pup-highlight {
+    box-shadow:
+      0 0 0 4px var(--brand-primary),
+      0 0 32px 4px rgb(var(--brand-primary-rgb) / 0.45);
+  }
+
+  /* List bullets drawn as the pack's noses, cycling Max → Rocky → Oscar →
+     Buddy → Bella. Semantics stay on the <ul>/<li>; only the marker changes. */
+  .list-noses {
+    list-style: none;
+    padding-left: 1.75rem;
+  }
+  .list-noses > li {
+    position: relative;
+  }
+  .list-noses > li::before {
+    content: "";
+    position: absolute;
+    left: -1.6rem;
+    top: 0.2em;
+    width: 1.1em;
+    height: 1.1em;
+    background: url("/assets/brand/noses/max-nose.webp") center / contain no-repeat;
+  }
+  .list-noses > li:nth-child(5n + 2)::before {
+    background-image: url("/assets/brand/noses/rocky-nose.webp");
+  }
+  .list-noses > li:nth-child(5n + 3)::before {
+    background-image: url("/assets/brand/noses/oscar-nose.webp");
+  }
+  .list-noses > li:nth-child(5n + 4)::before {
+    background-image: url("/assets/brand/noses/buddy-nose.webp");
+  }
+  .list-noses > li:nth-child(5n + 5)::before {
+    background-image: url("/assets/brand/noses/bella-nose.webp");
+  }
+
   @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
