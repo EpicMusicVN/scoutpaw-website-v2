@@ -11,9 +11,14 @@
    * Without the RGB form, classes like `text-ink/85` silently drop on Tailwind 3.4.
    */
   :root {
-    /* Brand — fresh palette: cyan base, yellow accent, blue footer */
-    --brand-primary: #ffd70c;
-    --brand-primary-rgb: 255 215 12;
+    /* Brand — fresh palette: cyan base, wordmark-orange accent, blue footer.
+       #FA6502 is 3.0:1 on white and 3.8:1 on ink-blue, so text ON it uses
+       `--ink` (5.4:1); white or ink-blue text on solid orange fails AA. */
+    --brand-primary: #fa6502;
+    --brand-primary-rgb: 250 101 2;
+    /* Light tint of the accent for gradient cards that carry body copy —
+       ink-blue/85 stays ≥5.3:1 on it (the saturated accent would not). */
+    --brand-primary-soft: #fdc19a;
     --accent-gold-dark: #b8862e;
     --accent-gold-dark-rgb: 184 134 46;
     --accent-coral: #ff7a85;
@@ -277,10 +282,10 @@
 
   /*
    * Pivot #8 — Sticker-honey treatment for landmark titles on LIGHT cyan body
-   * surfaces (the current paper bg). Solid honey yellow fill with a saturated
+   * surfaces (the current paper bg). Solid brand-orange fill with a saturated
    * cobalt text-stroke + slight cobalt drop-shadow. Reads as a kid-tv sticker
-   * pop while staying AA-legible on cyan (which `text-brand-primary` alone is
-   * not — the outline carries the contrast).
+   * pop while staying AA-legible on cyan (orange alone is 2.3:1 there — the
+   * cobalt outline, ≥5:1 on every light surface, carries the contrast).
    *
    * Stroke + shadow are sized in `em` so they scale with the heading's font
    * size — 0.04em ≈ 2.5px at hero 64px / ≈ 1.6px at smaller 40px banners.
@@ -306,10 +311,10 @@
       0 2px 8px rgb(0 0 0 / 0.08),
       0 4px 16px rgb(0 0 0 / 0.06);
   }
-  /* Warm glow — pairs with yellow text on dark surfaces. */
+  /* Warm glow — pairs with accent-coloured text on dark surfaces. */
   .text-shadow-warm-glow {
     text-shadow:
-      0 0 12px rgb(255 215 12 / 0.4),
+      0 0 12px rgb(var(--brand-primary-rgb) / 0.4),
       0 2px 6px rgb(184 134 46 / 0.3);
   }
 
@@ -319,7 +324,7 @@
     text-shadow:
       0 2px 0 rgb(15 37 64 / 0.4),
       0 4px 12px rgb(15 37 64 / 0.25),
-      0 0 24px rgb(255 215 12 / 0.35);
+      0 0 24px rgb(var(--brand-primary-rgb) / 0.35);
   }
 
   @media (prefers-reduced-motion: reduce) {

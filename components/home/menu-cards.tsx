@@ -32,7 +32,7 @@ export function MenuCards() {
     {
       label: "CHARACTERS",
       copy: "Learn more about Rocky, Max, and all your favorite furry friends from the pack!",
-      image: assetUrl("card/characters.png"),
+      image: assetUrl("brand/props/compass.webp"),
       imageAlt: "Cartoon dogs of the ScoutPaw pack",
       linkLabel: "Meet the ScoutPaw characters",
       href: "#meet-the-pack",
@@ -40,7 +40,7 @@ export function MenuCards() {
     {
       label: "SHOP",
       copy: "Treat your pup to new favorites and grab something cute for yourself! From doggy essentials to fun human gear, there's a little magic here for both of you.",
-      image: assetUrl("card/shop.png"),
+      image: assetUrl("brand/props/hat.webp"),
       imageAlt: "ScoutPaw dog essentials and gear",
       linkLabel: "Shop ScoutPaw dog products",
       href: "/shop",
@@ -48,7 +48,7 @@ export function MenuCards() {
     {
       label: "WATCH",
       copy: "Experience every musical adventure and cartoon designed to keep your pup company all day.",
-      image: assetUrl("card/watch.png"),
+      image: assetUrl("brand/props/camera.webp"),
       imageAlt: "ScoutPaw calming videos for dogs",
       linkLabel: "Watch ScoutPaw videos",
       href: "/watch",

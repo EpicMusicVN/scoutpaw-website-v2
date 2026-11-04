@@ -144,7 +144,7 @@ function CompactChannelCard({
     ? latestVideo.thumbnail
       ? assetUrl(latestVideo.thumbnail)
       : latestVideo.youtubeId.startsWith("TODO")
-        ? assetUrl("banner/banner.png")
+        ? assetUrl("brand/scene/pack-scene.webp")
         : `https://i.ytimg.com/vi/${latestVideo.youtubeId}/hqdefault.jpg`
     : null;
 

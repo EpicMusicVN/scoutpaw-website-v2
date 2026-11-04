@@ -25,7 +25,7 @@ export function FeaturedVideo({
   const thumbnail = video.thumbnail
     ? assetUrl(video.thumbnail)
     : isPlaceholder
-      ? assetUrl("banner/banner.png")
+      ? assetUrl("brand/scene/pack-scene.webp")
       : `https://i.ytimg.com/vi/${video.youtubeId}/maxresdefault.jpg`;
   const href = isPlaceholder
     ? "https://www.youtube.com"
@@ -64,7 +64,7 @@ export function FeaturedVideo({
               </span>
             )}
             {video.category && (
-              <span className="absolute left-4 top-4 rounded-full bg-brand-primary/95 px-3 py-1.5 font-display text-xs font-bold uppercase tracking-[0.2em] text-ink-blue md:text-sm">
+              <span className="absolute left-4 top-4 rounded-full bg-brand-primary/95 px-3 py-1.5 font-display text-xs font-bold uppercase tracking-[0.2em] text-ink md:text-sm">
                 {video.category.replace("-", " ")}
               </span>
             )}

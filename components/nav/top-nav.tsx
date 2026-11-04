@@ -10,7 +10,7 @@ import { TopNavScrollEffect } from "./top-nav-scroll-effect";
 /**
  * Sticky top nav.
  * Cream-toned (matches body background) with a scroll-driven shadow so it
- * lifts off the page once the user scrolls. Logo retains its 3D warm-gold
+ * lifts off the page once the user scrolls. Logo keeps a soft warm
  * drop shadow; the nav itself stays flat.
  */
 export async function TopNav() {
@@ -36,7 +36,7 @@ export async function TopNav() {
           <Image
             src={assetUrl(config.brand.logo)}
             alt={config.brand.fullName}
-            width={118}
+            width={168}
             height={100}
             className="h-10 w-auto transition-transform duration-300 ease-out hover:scale-[1.04] md:h-12 lg:h-14"
             style={{

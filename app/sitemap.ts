@@ -14,7 +14,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const lastModified = new Date();
   // Promote an asset key to an absolute URL (sitemap images must be absolute).
   const abs = (key: string): string => new URL(assetUrl(key), base).toString();
-  const bannerImage = abs("banner/banner.png");
+  const bannerImage = abs("brand/scene/pack-scene.webp");
 
   const staticRoutes: Array<{ path: string; priority: number }> = [
     { path: "/", priority: 1 },

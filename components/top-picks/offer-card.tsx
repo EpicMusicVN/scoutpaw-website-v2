@@ -84,7 +84,7 @@ export function OfferCard({ pick, index = 0 }: { pick: TopPick; index?: number }
         {pick.rating !== undefined && <StarRating rating={pick.rating} />}
 
         <div className="mt-auto pt-5">
-          <span className="cta-shimmer inline-flex min-h-[48px] items-center justify-center rounded-full bg-brand-primary px-7 font-display text-base font-bold text-ink-blue shadow-cozy transition-all duration-200 group-hover:shadow-cozy-md">
+          <span className="cta-shimmer inline-flex min-h-[48px] items-center justify-center rounded-full bg-brand-primary px-7 font-display text-base font-bold text-ink shadow-cozy transition-all duration-200 group-hover:shadow-cozy-md">
             {pick.ctaLabel}
             <span
               aria-hidden="true"

@@ -14,7 +14,7 @@ export function DealBlock({ deal }: { deal: DealBlockData }) {
       className="relative block w-full overflow-hidden rounded-[2.5rem] border border-ink/10 shadow-cozy-md"
       style={{
         background:
-          "linear-gradient(120deg, var(--bg-warm-tan) 0%, var(--brand-primary) 55%, var(--bg-peach) 100%)",
+          "linear-gradient(120deg, var(--bg-warm-tan) 0%, var(--brand-primary-soft) 55%, var(--bg-peach) 100%)",
       }}
     >
       <div className="relative grid items-stretch md:grid-cols-[1.3fr_1fr]">

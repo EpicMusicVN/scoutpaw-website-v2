@@ -41,14 +41,14 @@ const ALL_TILES: Tile[] = [
     copy: "Wall art, posters, and stickers. Bring the pack home.",
     bg: "var(--bg-peach)",
     rotate: "-rotate-1",
-    image: assetUrl("characters/corgi-bg.png"),
+    image: assetUrl("brand/characters/buddy-stand.webp"),
   },
   {
     category: "accessories",
     copy: "Mugs, totes, and the small things that make a home.",
     bg: "var(--bg-soft-sky)",
     rotate: "rotate-1",
-    image: assetUrl("characters/poodle-bg.png"),
+    image: assetUrl("brand/characters/bella-stand.webp"),
   },
 ];
 

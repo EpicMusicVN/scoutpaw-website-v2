@@ -22,7 +22,7 @@ export async function FeaturedPupSpotlight() {
         className="relative overflow-hidden rounded-[2.5rem] border border-ink/10 px-4 py-20 shadow-cozy-md md:px-12 md:py-28"
         style={{
           background:
-            "linear-gradient(135deg, var(--bg-warm-tan) 0%, var(--brand-primary) 50%, var(--bg-peach) 100%)",
+            "linear-gradient(135deg, var(--bg-warm-tan) 0%, var(--brand-primary-soft) 50%, var(--bg-peach) 100%)",
         }}
       >
         <SunRays />
@@ -30,13 +30,13 @@ export async function FeaturedPupSpotlight() {
         <div className="relative mx-auto grid items-center gap-10 md:grid-cols-[1fr_1.1fr] md:gap-16">
           {/* Copy block */}
           <div className="relative z-10 order-2 md:order-1">
-            <p className="font-display text-xs font-bold uppercase tracking-[0.3em] text-ink-blue/70 md:text-sm">
+            <p className="font-display text-xs font-bold uppercase tracking-[0.3em] text-ink-blue/85 md:text-sm">
               MEET THE PACK LEADER
             </p>
             <h2 className="mt-3 font-display text-4xl font-bold leading-[0.95] heading-sticker-honey md:whitespace-nowrap md:text-6xl lg:text-7xl">
               Say hi to <span className="text-brand-gold">Max</span>
             </h2>
-            <p className="mt-2 font-display text-lg tracking-wide text-ink-blue/70 md:text-xl">
+            <p className="mt-2 font-display text-lg tracking-wide text-ink-blue/85 md:text-xl">
               The soulful, golden heart of ScoutPaw
             </p>
             <p className="mt-6 max-w-md text-base text-ink-blue/85 md:text-lg lg:text-xl">

@@ -165,23 +165,23 @@ export function NewsletterCTA({
       </div>
 
       {/* Character poses anchored to the card's bottom corners. They depict
-          named pack members (Golden + Husky), so they carry descriptive alt for
+          named pack members (Max + Rocky), so they carry descriptive alt for
           image SEO rather than empty decorative alt — pointer-events-none keeps
           them non-interactive. */}
       <div className="pointer-events-none absolute inset-x-0 bottom-0 hidden lg:block">
         <Image
-          src={assetUrl("characters-position/golden1.png")}
-          alt="Golden the Golden Retriever from the ScoutPaw pack"
-          width={900}
-          height={1200}
-          className="absolute left-0 bottom-0 h-auto w-80 translate-y-1/2 -rotate-6 origin-bottom-left"
+          src={assetUrl("brand/characters/max-stand.webp")}
+          alt="Max the Golden Retriever from the ScoutPaw pack"
+          width={1050}
+          height={1400}
+          className="absolute left-0 bottom-0 h-auto w-40 translate-y-1/2 -rotate-6 origin-bottom-left"
         />
         <Image
-          src={assetUrl("characters-position/husky2.png")}
-          alt="Husky from the ScoutPaw pack"
-          width={900}
-          height={1200}
-          className="absolute right-0 bottom-0 h-auto w-80 translate-y-1/2 rotate-6 origin-bottom-right"
+          src={assetUrl("brand/characters/rocky-stand.webp")}
+          alt="Rocky the Husky from the ScoutPaw pack"
+          width={1050}
+          height={1400}
+          className="absolute right-0 bottom-0 h-auto w-40 translate-y-1/2 rotate-6 origin-bottom-right"
         />
       </div>
       </div>

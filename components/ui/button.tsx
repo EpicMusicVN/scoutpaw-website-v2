@@ -6,7 +6,7 @@ type Size = "sm" | "md" | "lg";
 
 const variantClass: Record<Variant, string> = {
   primary:
-    "cta-shimmer bg-brand-primary text-ink-blue hover:brightness-95 shadow-cozy hover:shadow-cozy-md",
+    "cta-shimmer bg-brand-primary text-ink hover:brightness-95 shadow-cozy hover:shadow-cozy-md",
   secondary:
     "bg-brand-secondary text-white hover:brightness-105 shadow-cozy hover:shadow-cozy-md",
   ghost: "bg-transparent text-ink-blue hover:bg-paper",
