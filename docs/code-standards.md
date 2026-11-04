@@ -64,7 +64,7 @@ The following utilities have NO active consumers post-pivot-#7 but are kept in t
 | Asset | Location | Reason kept |
 |---|---|---|
 | `dark-surface` button variant | `components/ui/button.tsx` | Transparent bg + light border + light text. Suitable when dark-surface designs return. |
-| `tone: "light" \| "dark"` prop | `components/ui/paw-print-pattern.tsx` | Switches stamp color for dark-surface usage. Default "light" matches all current consumers. |
+| `PawPrintPattern` (incl. `tone: "light" \| "dark"` prop) | `components/ui/paw-print-pattern.tsx` | No consumers since the pup noses replaced the paw marks (the home showcase uses `NosePattern`). `tone` switches stamp color for dark-surface usage. |
 | `surface: "light" \| "dark"` prop | `components/ui/cloud-divider.tsx` | Mutes cloud opacity on dark-to-dark transitions. Default "light" matches all current consumers. |
 | `titleColor: "yellow" \| "ink-blue"` field | `lib/content/character-themes.ts` | Per-character h1 color override for themed surfaces. Currently unused; characters default. |
 
@@ -150,3 +150,9 @@ Notable consumers verified:
 - `.heading-gradient-gold-light` — 19 active consumers (5 hero h1s + 14 large h2 banners)
 
 Future PRs MUST be checked against this contract. If a violation is intentional (e.g., a new themed surface), document the exception inline and verify AA contrast.
+
+## Pup Art Contract (2D brand, design lead feedback 2026-11)
+
+- **Shared ground, kept sizes.** All `brand/characters/<pup>-stand.webp` files share one canvas, one crop box and one scale (`scripts/export-brand-art.sh`), so the pups keep the designer's relative sizes and their feet sit on the same canvas line. Never trim, scale or crop one pup differently from the others; render side-by-side pups in boxes of the same size and bottom alignment.
+- **No hover movement on pups.** A card or image that shows a pup must not translate, scale or rotate on hover/focus. Use `.pup-highlight` (brand-orange ring + glow, box-shadow only) on the card surface instead.
+- **Noses are the decorative mark.** Small decorative marks (scatters, bullets, sparkles, paw prints, accent icons) use the pup noses via `components/ui/pup-nose.tsx` (`PupNose`, `PupNoseRow`, `NosePattern`, `.list-noses`). Use a pup's own nose where the decoration belongs to that pup; elsewhere cycle the pack or show the row. Icons that carry meaning (nav, social, form controls, ratings, separators) stay as they are.

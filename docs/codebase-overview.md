@@ -50,7 +50,7 @@ scoutpaw-v2/
 │   ├── theme/tokens.ts              # Animation easings/durations
 │   └── utils/cn.ts                  # Tiny class joiner
 ├── public/assets/                   # Web assets mirrored to the R2 CDN (shop photos, top picks)
-│   └── brand/                       # 2D brand art (pups, logos, scene, props, app icon) — served from the deployment, not R2
+│   └── brand/                       # 2D brand art (pups, noses, logos, scene, props, app icon) — served from the deployment, not R2
 └── scripts/export-brand-art.sh      # Rebuilds public/assets/brand + favicons from the original design pack
 ```
 
